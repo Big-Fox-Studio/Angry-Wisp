@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import styled from 'styled-components'
-import frFlag from '../../static/images/flags/fr.svg'
-import enFlag from '../../static/images/flags/gb.svg'
 
 // Styles plus visibles et modernes
 const LanguageWrapper = styled.div`
@@ -79,9 +77,8 @@ const FlagImage = styled.img`
 `
 
 const FLAGS = {
-  fr: frFlag,
-  en: enFlag,
-  // Ajoutez d'autres langues selon vos besoins
+  fr: '/images/flags/fr.svg',
+  en: '/images/flags/gb.svg',
 }
 
 const LanguageSelector = () => {
