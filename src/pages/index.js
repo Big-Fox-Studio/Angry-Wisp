@@ -2,6 +2,7 @@ import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { Link, useI18next } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'  // Important !
+import LanguageSelector from '../components/LanguageSelector'
 
 const pageStyles = {
   color: "#232129",
@@ -134,21 +135,13 @@ const links = [
 
 const IndexPage = () => {
   const { t } = useTranslation()
-  const { languages, changeLanguage } = useI18next()
-
+  
   return (
     <main style={pageStyles}>
-      <div>
-        {languages.map((lng) => (
-          <button
-            key={lng}
-            onClick={() => changeLanguage(lng)}
-          >
-            {lng.toUpperCase()}
-          </button>
-        ))}
+      <div style={{ position: 'absolute', top: '20px', right: '20px' }}>
+        <LanguageSelector />
       </div>
-
+      
       <h1 style={headingStyles}>
         {t('title')}
         <br />
