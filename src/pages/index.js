@@ -79,6 +79,12 @@ const badgeStyle = {
 
 const links = [
   {
+    text: "Politique de confidentialité",
+    url: "/privacy",
+    description: "Notre politique de confidentialité",
+    color: "#663399",
+  },
+  {
     text: "Tutorial",
     url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
     description:
