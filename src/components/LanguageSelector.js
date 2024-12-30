@@ -12,8 +12,8 @@ const LanguageWrapper = styled.div`
 `
 
 const CurrentLanguage = styled.button`
-  padding: 8px 16px;
-  background: white;
+  padding: 8px;
+  background: #222D41;
   border: 1px solid #ddd;
   border-radius: 8px;
   cursor: pointer;
@@ -22,9 +22,10 @@ const CurrentLanguage = styled.button`
   gap: 8px;
   font-size: 16px;
   transition: all 0.2s ease;
+  user-select: none;
   
   &:hover {
-    background: #f5f5f5;
+    background: #374158;
     border-color: #ccc;
   }
 `
@@ -32,7 +33,7 @@ const CurrentLanguage = styled.button`
 const LanguageDropdown = styled.div`
   position: absolute;
   top: calc(100% + 4px);
-  left: 0;
+  right: 0;
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -51,9 +52,22 @@ const LanguageOption = styled.button`
   background: none;
   cursor: pointer;
   font-size: 16px;
+  user-select: none;
+  
+  &:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  &:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+  
+  &:only-child {
+    border-radius: 8px;
+  }
   
   &:hover {
-    background: #f5f5f5;
+    background: #e8e8e8;
   }
 `
 
@@ -95,7 +109,6 @@ const LanguageSelector = () => {
     <LanguageWrapper onClick={handleWrapperClick}>
       <CurrentLanguage onClick={() => setIsOpen(!isOpen)}>
         <FlagImage src={FLAGS[language]} alt={`${language} flag`} />
-        {language.toUpperCase()}
       </CurrentLanguage>
       
       <LanguageDropdown isOpen={isOpen}>
