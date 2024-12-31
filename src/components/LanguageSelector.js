@@ -71,9 +71,9 @@ const LanguageOption = styled.button`
 
 const FlagImage = styled.img`
   width: 24px;
-  height: 16px;
+  height: 16.8px;
   object-fit: cover;
-  border-radius: 2px;
+  border-radius: 4px;
 `
 
 const FLAGS = {
