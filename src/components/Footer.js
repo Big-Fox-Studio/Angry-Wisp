@@ -1,6 +1,5 @@
 import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { Link } from 'gatsby-plugin-react-i18next'
 
 const footerStyles = {
   backgroundColor: "#0A0E14",
@@ -43,14 +42,14 @@ const Footer = () => {
     <footer style={footerStyles}>
       <div style={footerContentStyles}>
         <div>
-          <Link 
-            to="/privacy" 
+          <a 
+            href="/privacy" 
             style={linkStyles}
             target="_blank"
             rel="noopener noreferrer"
           >
             {t('privacy')}
-          </Link>
+          </a>
         </div>
         <div style={copyrightStyles}>
           © {currentYear} Angry Wisp. {t('rights')}

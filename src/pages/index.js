@@ -125,6 +125,48 @@ const sectionStyles = {
   color: "#ffffff"
 }
 
+const projectsGridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  gap: '2rem',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  width: '100%'
+}
+
+const projectCardStyles = {
+  backgroundColor: '#1a202c',
+  borderRadius: '8px',
+  overflow: 'hidden',
+  transition: 'transform 0.2s',
+  '&:hover': {
+    transform: 'translateY(-5px)'
+  }
+}
+
+const thumbnailStyles = {
+  width: '100%',
+  height: '200px',
+  objectFit: 'cover'
+}
+
+const projectTitleStyles = {
+  padding: '1rem',
+  margin: 0,
+  fontSize: '1.2rem',
+  color: '#ffffff'
+}
+
+const projects = [
+  {
+    id: 1,
+    title: "Papaya",
+    thumbnail: "/images/papaya.png",
+    link: "/papaya"
+  },
+  // Ajoutez d'autres projets ici
+]
+
 const IndexPage = () => {
   const { t } = useTranslation()
   
@@ -153,6 +195,7 @@ const IndexPage = () => {
       <main style={pageStyles}>
         {/* Section 1 */}
         <section id="section1" style={sectionStyles}>
+          <h2>{t('nav.home')}</h2>
           <h1 style={headingStyles}>
             {t('title')}
             <br />
@@ -162,33 +205,27 @@ const IndexPage = () => {
 
         {/* Section 2 */}
         <section id="section2" style={sectionStyles}>
-          <h2>Section Jeux</h2>
-          {/* Votre contenu pour la section 2 */}
+          <h2>{t('nav.games')}</h2>
+          <div style={projectsGridStyles}>
+            {projects.map(project => (
+              <Link to={project.link} key={project.id} style={{ textDecoration: 'none' }}>
+                <div style={projectCardStyles}>
+                  <img 
+                    src={project.thumbnail} 
+                    alt={project.title}
+                    style={thumbnailStyles}
+                  />
+                  <h3 style={projectTitleStyles}>{project.title}</h3>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
 
         {/* Section 3 */}
         <section id="section3" style={sectionStyles}>
-          <h2>Contact</h2>
-          <ul style={listStyles}>
-            {links.map(link => (
-              <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-                <span>
-                  <a
-                    style={linkStyle}
-                    href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-                  >
-                    {link.text}
-                  </a>
-                  {link.badge && (
-                    <span style={badgeStyle} aria-label="New Badge">
-                      NEW!
-                    </span>
-                  )}
-                  <p style={descriptionStyle}>{link.description}</p>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <h2>{t('nav.contact')}</h2>
+
         </section>
       </main>
     </Layout>
