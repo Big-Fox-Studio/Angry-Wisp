@@ -4,115 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
-
-const globalStyles = {
-  margin: 0,
-  padding: 0,
-  backgroundColor: "#11151D",
-  minHeight: "100vh",
-  width: "100%",
-  overflow: "hidden"
-}
-
-const pageStyles = {
-  color: "#ffffff",
-  fontFamily: "'BOLTZZ Sans', -apple-system, Roboto, sans-serif, serif",
-  paddingTop: "60px",
-  backgroundColor: "#11151D",
-  minHeight: "100vh",
-  margin: 0,
-  width: "100%"
-}
-
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-  color: "#ffffff"
-}
-
-const headingAccentStyles = {
-  color: "#8954A8"
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-  '&:hover': {
-    color: "#9B6BC3"
-  }
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#e0e0e0",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Politique de confidentialité",
-    url: "/privacy",
-    description: "Notre politique de confidentialité",
-    color: "#663399",
-  }
-]
+import '../styles/fonts.css'
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
 const colors = {
@@ -121,57 +13,30 @@ const colors = {
   textLight: '#E6F1FF'    // Couleur claire pour le texte
 }
 
-// Mise à jour des styles de section
+// Mise à jour des styles de section avec la nouvelle police par défaut
 const sectionStyles = {
-  minHeight: '100vh',
-  padding: '80px 20px 20px',
+  minHeight: 'fit-content',
+  padding: '10px 20px 20px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   scrollMarginTop: '60px',
   color: colors.textLight,
-  fontFamily: "'BOLTZZ Sans', sans-serif"
+  fontWeight: '100',
+  fontFamily: "Estandar, sans-serif"
 }
 
-const projectsGridStyles = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-  gap: '2rem',
-  maxWidth: '1200px',
-  margin: '0 auto',
-  width: '100%'
-}
-
-const projectCardStyles = {
-  backgroundColor: colors.darkBlue,
-  borderRadius: '8px',
-  overflow: 'hidden',
-  transition: 'transform 0.2s',
-  border: `1px solid ${colors.textLight}20`, // Bordure subtile avec opacité
-  '&:hover': {
-    transform: 'translateY(-5px)'
-  }
-}
-
-const thumbnailStyles = {
-  width: '100%',
-  height: '200px',
-  objectFit: 'cover'
-}
-
-const projectTitleStyles = {
-  padding: '1rem',
-  margin: 0,
-  fontSize: '1.2rem',
-  color: '#ffffff',
-  fontFamily: "'BOLTZZ Sans', sans-serif"
+// Ajout d'un style spécifique pour la section d'accueil
+const homeStyles = {
+  ...sectionStyles,
+  minHeight: '100vh',
 }
 
 const sections = [
   {
     id: 'section1',
     title: 'nav.home',
-    style: { ...sectionStyles, backgroundColor: colors.darkBlue }
+    style: { ...homeStyles, backgroundColor: colors.darkBlue }
   },
   {
     id: 'section2',
@@ -181,7 +46,12 @@ const sections = [
   {
     id: 'section3',
     title: 'nav.contact',
-    style: { ...sectionStyles, backgroundColor: colors.darkBlue }
+    style: { 
+      ...sectionStyles, 
+      backgroundColor: colors.darkBlue,
+      paddingBottom: '40px',
+      width: '100%',
+    }
   }
 ]
 
@@ -216,23 +86,28 @@ const IndexPage = () => {
           id={section.id} 
           style={section.style}
         >
-          <h2>{t(section.title)}</h2>
-          {section.id === 'section2' && <GameGrid />}
-          {section.id === 'section3' && (
-            <>
-              <p 
-                style={{
-                  textAlign: 'center',
-                  maxWidth: '800px',
-                  margin: '2rem auto',
-                  lineHeight: '1.6',
-                  fontSize: '1.2rem'
-                }}
-                dangerouslySetInnerHTML={{ __html: t('contactContent') }}
-              />
-              <ContactForm />
-            </>
-          )}
+          <div style={{ maxWidth: '800px', width: '100%', margin: '0 auto' }}>
+            <h2 style={{ 
+              textAlign: 'center',
+              fontFamily: "BOLTZZ Sans, sans-serif"
+            }}>{t(section.title)}</h2>
+            {section.id === 'section2' && <GameGrid />}
+            {section.id === 'section3' && (
+              <>
+                <p 
+                  style={{
+                    textAlign: 'center',
+                    margin: '2rem auto',
+                    lineHeight: '1.6',
+                    fontSize: '1.2rem',
+                    fontFamily: "Estandar, sans-serif"
+                  }}
+                  dangerouslySetInnerHTML={{ __html: t('contactContent') }}
+                />
+                <ContactForm />
+              </>
+            )}
+          </div>
         </section>
       ))}
     </Layout>

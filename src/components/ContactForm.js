@@ -21,7 +21,7 @@ const inputStyles = {
   backgroundColor: '#112240',
   color: '#E6F1FF',
   fontSize: '1rem',
-  fontFamily: "'BOLTZZ Sans', sans-serif",
+  fontFamily: "'Estandar', sans-serif",
 };
 
 const buttonStyles = {

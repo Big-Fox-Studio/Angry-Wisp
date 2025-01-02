@@ -43,13 +43,6 @@ const navigationStyles = {
   paddingRight: "20px"
 }
 
-const languageSelectorStyles = {
-  marginLeft: "30px",
-  marginRight: "20px",
-  position: "relative",
-  zIndex: 1100
-}
-
 const logoStyles = {
   height: "80px",
   padding: "10px 0"
@@ -103,7 +96,7 @@ const Header = () => {
     backgroundColor: 'transparent',
     color: '#FFFFFF',
     fontSize: '24px',
-    fontWeight: '600',
+    fontWeight: '100',
     transition: 'all 0.2s ease',
     transform: activeSection === sectionId ? 'scale(1.2)' : 'scale(1)',
     userSelect: 'none',
