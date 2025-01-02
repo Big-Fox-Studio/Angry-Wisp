@@ -7,10 +7,10 @@ const colors = {
 }
 
 const projectsGridStyles = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+  display: 'flex',
+  flexDirection: 'column',
   gap: '2rem',
-  maxWidth: '1200px',
+  maxWidth: '800px',
   margin: '0 auto',
   width: '100%'
 }
@@ -21,22 +21,40 @@ const projectCardStyles = {
   overflow: 'hidden',
   transition: 'transform 0.2s',
   border: `1px solid ${colors.textLight}20`,
+  display: 'flex',
+  height: '400px',
   '&:hover': {
     transform: 'translateY(-5px)'
   }
 }
 
 const thumbnailStyles = {
-  width: '100%',
-  height: '200px',
+  width: '280px',
+  height: '100%',
   objectFit: 'cover'
 }
 
+const contentStyles = {
+  padding: '1.5rem',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  gap: '1rem'
+}
+
 const projectTitleStyles = {
-  padding: '1rem',
   margin: 0,
-  fontSize: '1.2rem',
-  color: '#ffffff'
+  fontSize: '1.5rem',
+  color: '#ffffff',
+  fontWeight: '600'
+}
+
+const descriptionStyles = {
+  margin: 0,
+  color: colors.textLight,
+  fontSize: '1rem',
+  opacity: 0.8,
+  lineHeight: '1.6'
 }
 
 const GameGrid = () => {
@@ -58,7 +76,10 @@ const GameGrid = () => {
               alt={game.title}
               style={thumbnailStyles}
             />
-            <h3 style={projectTitleStyles}>{game.title}</h3>
+            <div style={contentStyles}>
+              <h3 style={projectTitleStyles}>{game.title}</h3>
+              <p style={descriptionStyles}>{game.description}</p>
+            </div>
           </div>
         </a>
       ))}
