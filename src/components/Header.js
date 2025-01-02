@@ -8,18 +8,30 @@ const headerStyles = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  backgroundColor: "#000000",
+  backgroundColor: "rgba(0, 0, 20, 0.85)",
   width: "100%",
   margin: 0,
   position: "fixed",
   top: 0,
   left: 0,
   zIndex: 1000,
-  height: "80px",
+  height: "100px",
   boxSizing: "border-box",
-  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px))",
+  clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   fontFamily: "'BOLTZZ Sans', sans-serif",
-  color: '#FFFFFF'
+  color: '#FFFFFF',
+  backdropFilter: "blur(0px)"
+}
+
+const headerBorderStyles = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "110px",
+  backgroundColor: "rgba(30, 30, 30, 0.75)",
+  clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
+  zIndex: 999,
 }
 
 const navigationStyles = {
@@ -39,7 +51,7 @@ const languageSelectorStyles = {
 }
 
 const logoStyles = {
-  height: "60px",
+  height: "80px",
   padding: "10px 0"
 }
 
@@ -52,7 +64,7 @@ const rightContentStyles = {
 
 const languageSelectorWrapperStyles = {
   position: "fixed",
-  top: "20px",
+  top: "30px",
   right: "40px",
   zIndex: 2000,
 }
@@ -121,6 +133,7 @@ const Header = () => {
 
   return (
     <>
+      <div style={headerBorderStyles}></div>
       <header style={headerStyles}>
         <img 
           src="/images/logo.svg" 

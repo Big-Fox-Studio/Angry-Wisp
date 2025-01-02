@@ -1,9 +1,6 @@
 import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { Link, useI18next } from 'gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'  // Important !
-import LanguageSelector from '../components/LanguageSelector'
-import Header from '../components/Header'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 
@@ -18,7 +15,7 @@ const globalStyles = {
 
 const pageStyles = {
   color: "#ffffff",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  fontFamily: "'BOLTZZ Sans', -apple-system, Roboto, sans-serif, serif",
   paddingTop: "60px",
   backgroundColor: "#11151D",
   minHeight: "100vh",
@@ -131,7 +128,8 @@ const sectionStyles = {
   flexDirection: 'column',
   alignItems: 'center',
   scrollMarginTop: '60px',
-  color: colors.textLight, // Texte clair pour contraster avec le fond foncé
+  color: colors.textLight,
+  fontFamily: "'BOLTZZ Sans', sans-serif"
 }
 
 const projectsGridStyles = {
@@ -164,7 +162,8 @@ const projectTitleStyles = {
   padding: '1rem',
   margin: 0,
   fontSize: '1.2rem',
-  color: '#ffffff'
+  color: '#ffffff',
+  fontFamily: "'BOLTZZ Sans', sans-serif"
 }
 
 const sections = [
