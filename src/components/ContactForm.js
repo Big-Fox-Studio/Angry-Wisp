@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
+import emailjs from '@emailjs/browser';
+
+// Au début du fichier, initialisez EmailJS
+emailjs.init("VOTRE_PUBLIC_KEY");
 
 const formStyles = {
   display: 'flex',
@@ -46,9 +50,28 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ici, vous pouvez ajouter la logique d'envoi d'email
-    // Par exemple, avec un service comme EmailJS ou une API backend
-    console.log('Form submitted:', formData);
+    
+    try {
+      const result = await emailjs.send(
+        'VOTRE_SERVICE_ID',
+        'VOTRE_TEMPLATE_ID',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'votre-email@aol.com',
+        }
+      );
+
+      if (result.status === 200) {
+        alert(t('contact.success'));
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert(t('contact.error'));
+    }
   };
 
   const handleChange = (e) => {
