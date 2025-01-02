@@ -8,20 +8,24 @@ import Layout from '../components/Layout'
 
 const pageStyles = {
   color: "#232129",
-  padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  paddingTop: "60px",
 }
+
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 320,
 }
+
 const headingAccentStyles = {
   color: "#663399",
 }
+
 const paragraphStyles = {
   marginBottom: 48,
 }
+
 const codeStyles = {
   color: "#8A6534",
   padding: 4,
@@ -29,10 +33,12 @@ const codeStyles = {
   fontSize: "1.25rem",
   borderRadius: 4,
 }
+
 const listStyles = {
   marginBottom: 96,
   paddingLeft: 0,
 }
+
 const listItemStyles = {
   fontWeight: 300,
   fontSize: 24,
@@ -92,37 +98,60 @@ const links = [
   }
 ]
 
+const sectionStyles = {
+  minHeight: "100vh",
+  padding: "40px",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  scrollMarginTop: "60px",
+}
+
 const IndexPage = () => {
   const { t } = useTranslation()
   
   return (
     <Layout>
       <main style={pageStyles}>
-        <h1 style={headingStyles}>
-          {t('title')}
-          <br />
-          <span style={headingAccentStyles}>{t('subtitle')}</span>
-        </h1>
-        <ul style={listStyles}>
-          {links.map(link => (
-            <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-              <span>
-                <a
-                  style={linkStyle}
-                  href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-                >
-                  {link.text}
-                </a>
-                {link.badge && (
-                  <span style={badgeStyle} aria-label="New Badge">
-                    NEW!
-                  </span>
-                )}
-                <p style={descriptionStyle}>{link.description}</p>
-              </span>
-            </li>
-          ))}
-        </ul>
+        {/* Section 1 */}
+        <section id="section1" style={sectionStyles}>
+          <h1 style={headingStyles}>
+            {t('title')}
+            <br />
+            <span style={headingAccentStyles}>{t('subtitle')}</span>
+          </h1>
+        </section>
+
+        {/* Section 2 */}
+        <section id="section2" style={sectionStyles}>
+          <h2>Section Jeux</h2>
+          {/* Votre contenu pour la section 2 */}
+        </section>
+
+        {/* Section 3 */}
+        <section id="section3" style={sectionStyles}>
+          <h2>Contact</h2>
+          <ul style={listStyles}>
+            {links.map(link => (
+              <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
+                <span>
+                  <a
+                    style={linkStyle}
+                    href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+                  >
+                    {link.text}
+                  </a>
+                  {link.badge && (
+                    <span style={badgeStyle} aria-label="New Badge">
+                      NEW!
+                    </span>
+                  )}
+                  <p style={descriptionStyle}>{link.description}</p>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
     </Layout>
   )
