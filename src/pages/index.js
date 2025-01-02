@@ -144,4 +144,10 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (
+  <>
+    <title>Angry Wisp</title>
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="alternate icon" type="image/png" href="/images/logo.png" />  {/* Fallback pour les navigateurs plus anciens */}
+  </>
+)
