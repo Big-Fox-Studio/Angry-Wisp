@@ -1,5 +1,4 @@
 import * as React from "react"
-import Layout from '../components/Layout'
 
 const privacyStyles = {
   color: "#232129",
@@ -15,14 +14,12 @@ const headingStyles = {
 
 const PrivacyPage = () => {
   return (
-    <Layout>
-      <main style={privacyStyles}>
-        <h1 style={headingStyles}>Politique de confidentialité</h1>
-        <p>
-          Votre politique de confidentialité ici...
-        </p>
-      </main>
-    </Layout>
+    <main style={privacyStyles}>
+      <h1 style={headingStyles}>Politique de confidentialité</h1>
+      <p>
+        Votre politique de confidentialité ici...
+      </p>
+    </main>
   )
 }
 

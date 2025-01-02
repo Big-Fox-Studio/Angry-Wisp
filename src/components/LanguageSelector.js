@@ -11,8 +11,8 @@ const LanguageWrapper = styled.div`
 
 const CurrentLanguage = styled.button`
   padding: 8px;
-  background: #222D41;
-  border: 1px solid #ddd;
+  background: transparent;
+  border: 1px solid #1a1a1a;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -23,8 +23,8 @@ const CurrentLanguage = styled.button`
   user-select: none;
   
   &:hover {
-    background: #374158;
-    border-color: #ccc;
+    background: #f5f5f5;
+    border-color: #666666;
   }
 `
 
@@ -33,7 +33,7 @@ const LanguageDropdown = styled.div`
   top: calc(100% + 4px);
   right: 0;
   background: white;
-  border: 1px solid #ddd;
+  border: 1px solid #1a1a1a;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   min-width: 120px;
@@ -51,6 +51,7 @@ const LanguageOption = styled.button`
   cursor: pointer;
   font-size: 16px;
   user-select: none;
+  color: #1a1a1a;
   
   &:first-child {
     border-radius: 8px 8px 0 0;
@@ -65,7 +66,7 @@ const LanguageOption = styled.button`
   }
   
   &:hover {
-    background: #e8e8e8;
+    background: #f5f5f5;
   }
 `
 
@@ -74,6 +75,7 @@ const FlagImage = styled.img`
   height: 16.8px;
   object-fit: cover;
   border-radius: 4px;
+  border: 1px solid #eaeaea;
 `
 
 const FLAGS = {

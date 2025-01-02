@@ -6,20 +6,34 @@ import LanguageSelector from '../components/LanguageSelector'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
 
+const globalStyles = {
+  margin: 0,
+  padding: 0,
+  backgroundColor: "#11151D",
+  minHeight: "100vh",
+  width: "100%",
+  overflow: "hidden"
+}
+
 const pageStyles = {
-  color: "#232129",
+  color: "#ffffff",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
   paddingTop: "60px",
+  backgroundColor: "#11151D",
+  minHeight: "100vh",
+  margin: 0,
+  width: "100%"
 }
 
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
   maxWidth: 320,
+  color: "#ffffff"
 }
 
 const headingAccentStyles = {
-  color: "#663399",
+  color: "#8954A8"
 }
 
 const paragraphStyles = {
@@ -51,6 +65,9 @@ const linkStyle = {
   fontWeight: "bold",
   fontSize: 16,
   verticalAlign: "5%",
+  '&:hover': {
+    color: "#9B6BC3"
+  }
 }
 
 const docLinkStyle = {
@@ -60,7 +77,7 @@ const docLinkStyle = {
 }
 
 const descriptionStyle = {
-  color: "#232129",
+  color: "#e0e0e0",
   fontSize: 14,
   marginTop: 10,
   marginBottom: 0,
@@ -105,11 +122,32 @@ const sectionStyles = {
   flexDirection: "column",
   justifyContent: "center",
   scrollMarginTop: "60px",
+  color: "#ffffff"
 }
 
 const IndexPage = () => {
   const { t } = useTranslation()
   
+  React.useEffect(() => {
+    // Applique les styles globaux au body et html
+    document.body.style.margin = "0"
+    document.body.style.padding = "0"
+    document.body.style.backgroundColor = "#11151D"
+    document.documentElement.style.margin = "0"
+    document.documentElement.style.padding = "0"
+    document.documentElement.style.backgroundColor = "#11151D"
+    
+    // Nettoyage lors du démontage du composant
+    return () => {
+      document.body.style.margin = ""
+      document.body.style.padding = ""
+      document.body.style.backgroundColor = ""
+      document.documentElement.style.margin = ""
+      document.documentElement.style.padding = ""
+      document.documentElement.style.backgroundColor = ""
+    }
+  }, [])
+
   return (
     <Layout>
       <main style={pageStyles}>
