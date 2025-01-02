@@ -8,7 +8,6 @@ const headerStyles = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  borderBottom: "1px solid #eaeaea",
   backgroundColor: "#000000",
   width: "100%",
   margin: 0,
@@ -16,9 +15,9 @@ const headerStyles = {
   top: 0,
   left: 0,
   zIndex: 1000,
-  height: "60px",
+  height: "80px",
   boxSizing: "border-box",
-  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+  clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 20px))",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF'
 }
@@ -26,17 +25,36 @@ const headerStyles = {
 const navigationStyles = {
   display: "flex",
   gap: "30px",
-  position: "absolute",
-  left: "50%",
-  transform: "translateX(-50%)",
   alignItems: "center",
   fontFamily: "'BOLTZZ Sans', sans-serif",
-  color: '#FFFFFF'
+  color: '#FFFFFF',
+  paddingRight: "20px"
 }
 
 const languageSelectorStyles = {
-  marginLeft: "auto",
-  marginRight: "20px"
+  marginLeft: "30px",
+  marginRight: "20px",
+  position: "relative",
+  zIndex: 1100
+}
+
+const logoStyles = {
+  height: "60px",
+  padding: "10px 0"
+}
+
+const rightContentStyles = {
+  display: "flex",
+  alignItems: "center",
+  position: "absolute",
+  right: "120px"
+}
+
+const languageSelectorWrapperStyles = {
+  position: "fixed",
+  top: "20px",
+  right: "40px",
+  zIndex: 2000,
 }
 
 const Header = () => {
@@ -70,7 +88,7 @@ const Header = () => {
     cursor: 'pointer',
     backgroundColor: 'transparent',
     color: '#FFFFFF',
-    fontSize: '20px',
+    fontSize: '24px',
     fontWeight: '600',
     transition: 'all 0.2s ease',
     transform: activeSection === sectionId ? 'scale(1.2)' : 'scale(1)',
@@ -101,31 +119,40 @@ const Header = () => {
   }
 
   return (
-    <header style={headerStyles}>
-      <nav style={navigationStyles}>
-        <button 
-          style={getButtonStyle('section1')} 
-          onClick={() => handleClick('section1')}
-        >
-          {t('nav.home')}
-        </button>
-        <button 
-          style={getButtonStyle('section2')} 
-          onClick={() => handleClick('section2')}
-        >
-          {t('nav.games')}
-        </button>
-        <button 
-          style={getButtonStyle('section3')} 
-          onClick={() => handleClick('section3')}
-        >
-          {t('nav.contact')}
-        </button>
-      </nav>
-      <div style={languageSelectorStyles}>
+    <>
+      <header style={headerStyles}>
+        <img 
+          src="/images/logo.svg" 
+          alt="Angry Wisp" 
+          style={logoStyles}
+        />
+        <div style={rightContentStyles}>
+          <nav style={navigationStyles}>
+            <button 
+              style={getButtonStyle('section1')} 
+              onClick={() => handleClick('section1')}
+            >
+              {t('nav.home')}
+            </button>
+            <button 
+              style={getButtonStyle('section2')} 
+              onClick={() => handleClick('section2')}
+            >
+              {t('nav.games')}
+            </button>
+            <button 
+              style={getButtonStyle('section3')} 
+              onClick={() => handleClick('section3')}
+            >
+              {t('nav.contact')}
+            </button>
+          </nav>
+        </div>
+      </header>
+      <div style={languageSelectorWrapperStyles}>
         <LanguageSelector />
       </div>
-    </header>
+    </>
   )
 }
 
