@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'  // Important !
 import LanguageSelector from '../components/LanguageSelector'
 import Header from '../components/Header'
 import Layout from '../components/Layout'
+import GameGrid from '../components/GameGrid'
 
 const globalStyles = {
   margin: 0,
@@ -226,22 +227,7 @@ const IndexPage = () => {
           style={section.style}
         >
           <h2>{t(section.title)}</h2>
-          {section.id === 'section2' && (
-            <div style={projectsGridStyles}>
-              {projects.map(project => (
-                <Link to={project.link} key={project.id} style={{ textDecoration: 'none' }}>
-                  <div style={projectCardStyles}>
-                    <img 
-                      src={project.thumbnail} 
-                      alt={project.title}
-                      style={thumbnailStyles}
-                    />
-                    <h3 style={projectTitleStyles}>{project.title}</h3>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
+          {section.id === 'section2' && <GameGrid projects={projects} />}
           {/* Autres contenus spécifiques à chaque section */}
         </section>
       ))}
