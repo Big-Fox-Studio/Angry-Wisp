@@ -3,6 +3,7 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
+import ContactForm from '../components/ContactForm'
 
 const globalStyles = {
   margin: 0,
@@ -217,6 +218,21 @@ const IndexPage = () => {
         >
           <h2>{t(section.title)}</h2>
           {section.id === 'section2' && <GameGrid />}
+          {section.id === 'section3' && (
+            <>
+              <p 
+                style={{
+                  textAlign: 'center',
+                  maxWidth: '800px',
+                  margin: '2rem auto',
+                  lineHeight: '1.6',
+                  fontSize: '1.2rem'
+                }}
+                dangerouslySetInnerHTML={{ __html: t('contactContent') }}
+              />
+              <ContactForm />
+            </>
+          )}
         </section>
       ))}
     </Layout>

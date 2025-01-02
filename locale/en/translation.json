@@ -5,9 +5,17 @@
   "privacy": "Privacy Policy",
   "language": "Language",
   "nav": {
-    "home": "Studio",
-    "games": "Games",
-    "contact": "Contact"
+    "home": "STUDIO",
+    "games": "GAMES",
+    "contact": "CONTACT"
   },
+  "contact": {
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send"
+  },
+  "contactContent": "We want to hear from you!<br/>Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
   "rights": "All rights reserved."
 } 

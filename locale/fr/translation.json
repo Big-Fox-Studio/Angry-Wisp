@@ -5,9 +5,17 @@
   "privacy": "Politique de confidentialité",
   "language": "Langue",
   "nav": {
-    "home": "Studio",
-    "games": "Jeux",
-    "contact": "Contact"
+    "home": "STUDIO",
+    "games": "JEUX",
+    "contact": "CONTACT"
   },
+  "contact": {
+    "name": "Nom",
+    "email": "Email",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer"
+  },
+  "contactContent": "Nous voulons avoir de vos nouvelles !<br/>Particulièrement si vous êtes un éditeur de jeux !<br/>Nous sommes toujours à l'écoute de projets nécessitant un studio de développement de jeux.",
   "rights": "Tous droits réservés."
 } 
