@@ -167,16 +167,6 @@ const projectTitleStyles = {
   color: '#ffffff'
 }
 
-const projects = [
-  {
-    id: 1,
-    title: "Papaya",
-    thumbnail: "/images/papaya.png",
-    link: "/papaya"
-  },
-  // Ajoutez d'autres projets ici
-]
-
 const sections = [
   {
     id: 'section1',
@@ -227,8 +217,7 @@ const IndexPage = () => {
           style={section.style}
         >
           <h2>{t(section.title)}</h2>
-          {section.id === 'section2' && <GameGrid projects={projects} />}
-          {/* Autres contenus spécifiques à chaque section */}
+          {section.id === 'section2' && <GameGrid />}
         </section>
       ))}
     </Layout>

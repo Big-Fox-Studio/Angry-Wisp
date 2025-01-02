@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby-plugin-react-i18next'
+import { useGames } from '../utils/gameLoader'
 
 const colors = {
   darkBlue: '#0A192F',
@@ -39,20 +39,28 @@ const projectTitleStyles = {
   color: '#ffffff'
 }
 
-const GameGrid = ({ projects }) => {
+const GameGrid = () => {
+  const games = useGames()
+
   return (
     <div style={projectsGridStyles}>
-      {projects.map(project => (
-        <Link to={project.link} key={project.id} style={{ textDecoration: 'none' }}>
+      {games.map(game => (
+        <a 
+          href={game.link} 
+          key={game.id} 
+          style={{ textDecoration: 'none' }}
+          target={game.link.startsWith('http') ? '_blank' : '_self'}
+          rel={game.link.startsWith('http') ? 'noopener noreferrer' : ''}
+        >
           <div style={projectCardStyles}>
             <img 
-              src={project.thumbnail} 
-              alt={project.title}
+              src={game.thumbnailPath} 
+              alt={game.title}
               style={thumbnailStyles}
             />
-            <h3 style={projectTitleStyles}>{project.title}</h3>
+            <h3 style={projectTitleStyles}>{game.title}</h3>
           </div>
-        </Link>
+        </a>
       ))}
     </div>
   )

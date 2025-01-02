@@ -17,13 +17,11 @@ module.exports = {
         localeJsonSourceName: `locale`,
         languages: [`fr`, `en`],
         defaultLanguage: `fr`,
-        // Suppression de l'option translate qui peut causer des problèmes
         siteUrl: `http://localhost:8000`,
         i18nextOptions: {
           interpolation: {
             escapeValue: false
           },
-          // Suppression des options qui peuvent causer des conflits
         }
       }
     }
