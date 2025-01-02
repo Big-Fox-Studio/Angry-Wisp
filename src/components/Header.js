@@ -9,7 +9,7 @@ const headerStyles = {
   justifyContent: "space-between",
   alignItems: "center",
   borderBottom: "1px solid #eaeaea",
-  backgroundColor: "#ffffff",
+  backgroundColor: "#000000",
   width: "100%",
   margin: 0,
   position: "fixed",
@@ -18,7 +18,9 @@ const headerStyles = {
   zIndex: 1000,
   height: "60px",
   boxSizing: "border-box",
-  boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+  boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+  fontFamily: "'BOLTZZ Sans', sans-serif",
+  color: '#FFFFFF'
 }
 
 const navigationStyles = {
@@ -27,7 +29,9 @@ const navigationStyles = {
   position: "absolute",
   left: "50%",
   transform: "translateX(-50%)",
-  alignItems: "center"
+  alignItems: "center",
+  fontFamily: "'BOLTZZ Sans', sans-serif",
+  color: '#FFFFFF'
 }
 
 const languageSelectorStyles = {
@@ -60,15 +64,16 @@ const Header = () => {
   }, [])
   
   const getButtonStyle = (sectionId) => ({
+    fontFamily: "'BOLTZZ Sans', sans-serif",
     padding: '10px 20px',
     border: 'none',
     cursor: 'pointer',
     backgroundColor: 'transparent',
-    color: activeSection === sectionId ? '#1a1a1a' : '#666666',
-    fontSize: activeSection === sectionId ? '18px' : '16px',
-    fontWeight: activeSection === sectionId ? '600' : '400',
-    transition: 'all 0.3s ease',
-    transform: activeSection === sectionId ? 'scale(1.1)' : 'scale(1)',
+    color: '#FFFFFF',
+    fontSize: '20px',
+    fontWeight: '600',
+    transition: 'all 0.2s ease',
+    transform: activeSection === sectionId ? 'scale(1.2)' : 'scale(1)',
     userSelect: 'none',
     WebkitUserSelect: 'none',
     MozUserSelect: 'none',
@@ -85,7 +90,7 @@ const Header = () => {
       width: '60%',
       height: '2px',
       backgroundColor: '#1a1a1a',
-      transition: 'all 0.3s ease'
+      transition: 'all 0.2s ease'
     } : {}
   })
 

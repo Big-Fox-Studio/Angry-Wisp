@@ -12,7 +12,7 @@ const LanguageWrapper = styled.div`
 const CurrentLanguage = styled.button`
   padding: 8px;
   background: transparent;
-  border: 1px solid #1a1a1a;
+  border: 1px solid #ffffff;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -21,10 +21,11 @@ const CurrentLanguage = styled.button`
   font-size: 16px;
   transition: all 0.2s ease;
   user-select: none;
+  color: #ffffff;
   
   &:hover {
-    background: #f5f5f5;
-    border-color: #666666;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #ffffff;
   }
 `
 

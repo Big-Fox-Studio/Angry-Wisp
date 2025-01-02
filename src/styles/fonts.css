@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'LT Saeada';
+  src: url('/fonts/LTSaeada/LTSaeada-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Estandar';
+  src: url('/fonts/Estandar/Estandar-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BOLTZZ Sans';
+  src: url('/fonts/BOLTZZ/BOLTZZ-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ajoutons une règle de test pour vérifier le chargement */
+.font-test {
+  font-family: 'BOLTZZ Sans', sans-serif;
+} 
