@@ -19,5 +19,9 @@
     "error": "Une erreur s'est produite lors de l'envoi du message."
   },
   "contactContent": "Nous voulons avoir de vos nouvelles !<br/>Particulièrement si vous êtes un éditeur de jeux !<br/>Nous sommes toujours à l'écoute de projets nécessitant un studio de développement de jeux.",
-  "rights": "Tous droits réservés."
+  "rights": "Tous droits réservés.",
+  "maintenance": {
+    "title": "Site en Maintenance",
+    "message": "Notre site est actuellement en maintenance. Nous serons de retour très bientôt. Merci de votre patience !"
+  }
 } 

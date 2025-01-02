@@ -1,9 +1,6 @@
 import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import GameGrid from '../components/GameGrid'
-import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
@@ -13,47 +10,19 @@ const colors = {
   textLight: '#E6F1FF'    // Couleur claire pour le texte
 }
 
-// Mise à jour des styles de section avec la nouvelle police par défaut
-const sectionStyles = {
-  minHeight: 'fit-content',
-  padding: '10px 20px 20px',
+const maintenanceStyles = {
+  minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
   alignItems: 'center',
-  scrollMarginTop: '60px',
-  color: colors.textLight,
+  backgroundColor: '#0A192F',
+  color: '#E6F1FF',
+  textAlign: 'center',
+  padding: '20px',
   fontWeight: '100',
   fontFamily: "Estandar, sans-serif"
 }
-
-// Ajout d'un style spécifique pour la section d'accueil
-const homeStyles = {
-  ...sectionStyles,
-  minHeight: '100vh',
-}
-
-const sections = [
-  {
-    id: 'section1',
-    title: 'nav.home',
-    style: { ...homeStyles, backgroundColor: colors.darkBlue }
-  },
-  {
-    id: 'section2',
-    title: 'nav.games',
-    style: { ...sectionStyles, backgroundColor: colors.lighterBlue }
-  },
-  {
-    id: 'section3',
-    title: 'nav.contact',
-    style: { 
-      ...sectionStyles, 
-      backgroundColor: colors.darkBlue,
-      paddingBottom: '40px',
-      width: '100%',
-    }
-  }
-]
 
 const IndexPage = () => {
   const { t } = useTranslation()
@@ -79,38 +48,22 @@ const IndexPage = () => {
   }, [])
 
   return (
-    <Layout>
-      {sections.map(section => (
-        <section 
-          key={section.id}
-          id={section.id} 
-          style={section.style}
-        >
-          <div style={{ maxWidth: '800px', width: '100%', margin: '0 auto' }}>
-            <h2 style={{ 
-              textAlign: 'center',
-              fontFamily: "BOLTZZ Sans, sans-serif"
-            }}>{t(section.title)}</h2>
-            {section.id === 'section2' && <GameGrid />}
-            {section.id === 'section3' && (
-              <>
-                <p 
-                  style={{
-                    textAlign: 'center',
-                    margin: '2rem auto',
-                    lineHeight: '1.6',
-                    fontSize: '1.2rem',
-                    fontFamily: "Estandar, sans-serif"
-                  }}
-                  dangerouslySetInnerHTML={{ __html: t('contactContent') }}
-                />
-                <ContactForm />
-              </>
-            )}
-          </div>
-        </section>
-      ))}
-    </Layout>
+    <div style={maintenanceStyles}>
+      <h1 style={{ 
+        fontFamily: "BOLTZZ Sans, sans-serif",
+        fontSize: '2.5rem',
+        marginBottom: '2rem'
+      }}>
+        {t('maintenance.title')}
+      </h1>
+      <p style={{
+        fontSize: '1.2rem',
+        maxWidth: '600px',
+        lineHeight: '1.6'
+      }}>
+        {t('maintenance.message')}
+      </p>
+    </div>
   )
 }
 

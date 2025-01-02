@@ -19,5 +19,9 @@
     "error": "An error occurred while sending the message."
   },
   "contactContent": "We want to hear from you!<br/>Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
-  "rights": "All rights reserved."
+  "rights": "All rights reserved.",
+  "maintenance": {
+    "title": "Site Under Maintenance",
+    "message": "Our website is currently undergoing maintenance. We'll be back soon. Thank you for your patience!"
+  }
 } 
