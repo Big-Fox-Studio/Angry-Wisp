@@ -15,7 +15,11 @@ const footerContentStyles = {
   margin: "0 auto",
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "center"
+  alignItems: "center",
+  userSelect: 'none',
+  WebkitUserSelect: 'none',
+  MozUserSelect: 'none',
+  msUserSelect: 'none'
 }
 
 const linkStyles = {

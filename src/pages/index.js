@@ -115,14 +115,22 @@ const links = [
   }
 ]
 
+// Définition des couleurs comme constantes pour une meilleure réutilisation
+const colors = {
+  darkBlue: '#0A192F',    // Bleu très foncé
+  lighterBlue: '#112240', // Bleu foncé un peu plus clair
+  textLight: '#E6F1FF'    // Couleur claire pour le texte
+}
+
+// Mise à jour des styles de section
 const sectionStyles = {
-  minHeight: "100vh",
-  padding: "40px",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  scrollMarginTop: "60px",
-  color: "#ffffff"
+  minHeight: '100vh',
+  padding: '80px 20px 20px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  scrollMarginTop: '60px',
+  color: colors.textLight, // Texte clair pour contraster avec le fond foncé
 }
 
 const projectsGridStyles = {
@@ -135,10 +143,11 @@ const projectsGridStyles = {
 }
 
 const projectCardStyles = {
-  backgroundColor: '#1a202c',
+  backgroundColor: colors.darkBlue,
   borderRadius: '8px',
   overflow: 'hidden',
   transition: 'transform 0.2s',
+  border: `1px solid ${colors.textLight}20`, // Bordure subtile avec opacité
   '&:hover': {
     transform: 'translateY(-5px)'
   }
@@ -167,6 +176,24 @@ const projects = [
   // Ajoutez d'autres projets ici
 ]
 
+const sections = [
+  {
+    id: 'section1',
+    title: 'nav.home',
+    style: { ...sectionStyles, backgroundColor: colors.darkBlue }
+  },
+  {
+    id: 'section2',
+    title: 'nav.games',
+    style: { ...sectionStyles, backgroundColor: colors.lighterBlue }
+  },
+  {
+    id: 'section3',
+    title: 'nav.contact',
+    style: { ...sectionStyles, backgroundColor: colors.darkBlue }
+  }
+]
+
 const IndexPage = () => {
   const { t } = useTranslation()
   
@@ -192,42 +219,32 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <main style={pageStyles}>
-        {/* Section 1 */}
-        <section id="section1" style={sectionStyles}>
-          <h2>{t('nav.home')}</h2>
-          <h1 style={headingStyles}>
-            {t('title')}
-            <br />
-            <span style={headingAccentStyles}>{t('subtitle')}</span>
-          </h1>
+      {sections.map(section => (
+        <section 
+          key={section.id}
+          id={section.id} 
+          style={section.style}
+        >
+          <h2>{t(section.title)}</h2>
+          {section.id === 'section2' && (
+            <div style={projectsGridStyles}>
+              {projects.map(project => (
+                <Link to={project.link} key={project.id} style={{ textDecoration: 'none' }}>
+                  <div style={projectCardStyles}>
+                    <img 
+                      src={project.thumbnail} 
+                      alt={project.title}
+                      style={thumbnailStyles}
+                    />
+                    <h3 style={projectTitleStyles}>{project.title}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
+          {/* Autres contenus spécifiques à chaque section */}
         </section>
-
-        {/* Section 2 */}
-        <section id="section2" style={sectionStyles}>
-          <h2>{t('nav.games')}</h2>
-          <div style={projectsGridStyles}>
-            {projects.map(project => (
-              <Link to={project.link} key={project.id} style={{ textDecoration: 'none' }}>
-                <div style={projectCardStyles}>
-                  <img 
-                    src={project.thumbnail} 
-                    alt={project.title}
-                    style={thumbnailStyles}
-                  />
-                  <h3 style={projectTitleStyles}>{project.title}</h3>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Section 3 */}
-        <section id="section3" style={sectionStyles}>
-          <h2>{t('nav.contact')}</h2>
-
-        </section>
-      </main>
+      ))}
     </Layout>
   )
 }
