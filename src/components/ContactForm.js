@@ -17,9 +17,9 @@ const formStyles = {
 const inputStyles = {
   padding: '0.8rem',
   borderRadius: '4px',
-  border: '1px solid #E6F1FF40',
-  backgroundColor: '#112240',
-  color: '#E6F1FF',
+  border: '1px solid #112240',
+  backgroundColor: '#ffffff',
+  color: '#112240',
   fontSize: '1rem',
   fontFamily: "'Estandar', sans-serif",
 };
