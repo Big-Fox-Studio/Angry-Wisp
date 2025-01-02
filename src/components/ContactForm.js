@@ -52,19 +52,14 @@ const ContactForm = () => {
     e.preventDefault();
     
     try {
-      const result = await emailjs.send(
-        'VOTRE_SERVICE_ID',
-        'VOTRE_TEMPLATE_ID',
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'votre-email@aol.com',
-        }
-      );
-
-      if (result.status === 200) {
+      const formData = new FormData(e.target);
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      });
+      
+      if (response.ok) {
         alert(t('contact.success'));
         setFormData({ name: '', email: '', subject: '', message: '' });
       }
@@ -82,7 +77,16 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={formStyles}>
+    <form 
+      onSubmit={handleSubmit} 
+      style={formStyles}
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
       <input
         type="text"
         name="name"
