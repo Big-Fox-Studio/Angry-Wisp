@@ -59,7 +59,7 @@ const languageSelectorWrapperStyles = {
 
 const Header = () => {
   const { t } = useTranslation()
-  const [activeSection, setActiveSection] = useState('section1')
+  const [activeSection, setActiveSection] = useState('')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +77,8 @@ const Header = () => {
       }
     }
 
+    handleScroll()
+    
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -115,7 +117,6 @@ const Header = () => {
   const handleClick = (sectionId) => {
     const element = document.getElementById(sectionId)
     element?.scrollIntoView({ behavior: 'smooth' })
-    setActiveSection(sectionId)
   }
 
   return (
