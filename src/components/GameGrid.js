@@ -27,12 +27,13 @@ const sliderStyles = {
 const projectCardStyles = {
   backgroundColor: colors.darkBlue,
   borderRadius: '8px',
-  overflow: 'hidden',
+  overflow: 'visible',
   border: `1px solid ${colors.textLight}20`,
-  display: 'flex',
-  height: '400px',
-  minWidth: '100%',
-  transition: 'opacity 0.3s ease'
+  position: 'relative',
+  height: '300px',
+  width: '600px',
+  transition: 'opacity 0.3s ease',
+  marginLeft: '200px'
 }
 
 const arrowStyles = {
@@ -74,105 +75,114 @@ const ArrowButton = ({ direction, onClick, disabled }) => (
 )
 
 const thumbnailStyles = {
-  width: '280px',
-  height: '100%',
-  objectFit: 'cover'
+  width: '400px',
+  height: '400px',
+  objectFit: 'cover',
+  position: 'absolute',
+  left: '-200px',
+  top: '-50px',
+  zIndex: '2',
+  borderRadius: '8px',
 }
 
 const contentStyles = {
-  padding: '1.5rem',
+  padding: '2rem',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
-  gap: '1rem'
+  justifyContent: 'flex-start',
+  height: '100%',
+  marginLeft: '220px',
+  maxWidth: '350px'
 }
 
 const projectTitleStyles = {
-  margin: 0,
-  fontSize: '1.5rem',
-  color: '#ffffff',
+  color: colors.textLight,
+  fontSize: '1.75rem',
+  marginBottom: '1rem',
   fontWeight: '600'
 }
 
 const descriptionStyles = {
-  margin: 0,
-  color: colors.textLight,
+  color: `${colors.textLight}CC`,
   fontSize: '1rem',
-  opacity: 0.8,
-  lineHeight: '1.6'
+  lineHeight: '1.6',
+  maxWidth: '100%'
 }
 
 const contentContainerStyles = {
-  width: '800px',
-  height: '400px',
+  width: '100%',
   position: 'relative',
-  overflow: 'hidden'
+  marginBottom: '2rem'
+}
+
+const containerStyles = {
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '6rem',
+  marginBottom: '4rem'
+}
+
+const GameCard = ({ game }) => {
+  return (
+    <div style={contentContainerStyles}>
+      <img 
+        src={game.thumbnail} 
+        alt={game.title}
+        style={thumbnailStyles}
+      />
+      
+      <div style={{
+        backgroundColor: colors.darkBlue,
+        borderRadius: '8px',
+        border: `1px solid ${colors.textLight}20`,
+        position: 'relative',
+        height: '300px',
+        marginLeft: '200px',
+        zIndex: '1',
+      }}>
+        <div style={contentStyles}>
+          <h3 style={projectTitleStyles}>{game.title}</h3>
+          <p style={descriptionStyles}>{game.description}</p>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 const GameGrid = () => {
   const games = useGames()
-  const [currentIndex, setCurrentIndex] = React.useState(0)
-  const [isTransitioning, setIsTransitioning] = React.useState(false)
-
-  const handleNavigation = (direction) => {
-    if (isTransitioning) return
-
-    setIsTransitioning(true)
-    
-    const newIndex = direction === 'next' 
-      ? Math.min(currentIndex + 1, games.length - 1)
-      : Math.max(currentIndex - 1, 0)
-    
-    setCurrentIndex(newIndex)
-    
-    setTimeout(() => {
-      setIsTransitioning(false)
-    }, 600)
+  
+  if (games.length === 0) {
+    return null
   }
 
-  const getSlideTransform = () => {
-    return `translateX(-${currentIndex * 100}%)`
-  }
+  const firstGame = games[0]
 
   return (
-    <div style={wrapperStyles}>
-      <ArrowButton 
-        direction="left" 
-        onClick={() => handleNavigation('prev')}
-        disabled={currentIndex === 0 || isTransitioning}
-      />
-      
-      <div style={contentContainerStyles}>
-        <div 
-          style={{
-            ...sliderStyles,
-            transform: getSlideTransform()
-          }}
-        >
-          {games.map((game, index) => (
-            <div 
-              key={game.id}
-              style={projectCardStyles}
-            >
+    <div style={containerStyles}>
+      <div style={wrapperStyles}>
+        <div style={contentContainerStyles}>
+          <div style={sliderStyles}>
+            <div style={projectCardStyles}>
               <img 
-                src={game.thumbnailPath} 
-                alt={game.title}
+                src={firstGame.thumbnailPath} 
+                alt={firstGame.title}
                 style={thumbnailStyles}
               />
-              <div style={contentStyles}>
-                <h3 style={projectTitleStyles}>{game.title}</h3>
-                <p style={descriptionStyles}>{game.description}</p>
+              <div style={{
+                ...contentStyles,
+                position: 'relative',
+                zIndex: '3',
+                paddingTop: '1.5rem'
+              }}>
+                <h3 style={projectTitleStyles}>{firstGame.title}</h3>
+                <p style={descriptionStyles}>{firstGame.description}</p>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
-
-      <ArrowButton 
-        direction="right" 
-        onClick={() => handleNavigation('next')}
-        disabled={currentIndex === games.length - 1 || isTransitioning}
-      />
     </div>
   )
 }
