@@ -64,6 +64,22 @@ const languageSelectorWrapperStyles = {
   zIndex: 2000,
 }
 
+const logoContainerStyles = {
+  display: "flex",
+  alignItems: "center",
+  gap: "20px"
+}
+
+const logoTextStyles = {
+  fontFamily: "'ARCO', sans-serif",
+  fontSize: "34px",
+  color: "#FFFFFF",
+  margin: 0,
+  letterSpacing: "2px",
+  transform: "scaleX(1.1)",
+  transformOrigin: "left",
+}
+
 const Header = () => {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('')
@@ -136,11 +152,14 @@ const Header = () => {
     <>
       <div style={headerBorderStyles}></div>
       <header style={headerStyles}>
-        <img 
-          src="/images/logo.svg" 
-          alt="Angry Wisp" 
-          style={logoStyles}
-        />
+        <div style={logoContainerStyles}>
+          <img 
+            src="/images/logo.svg" 
+            alt="Angry Wisp" 
+            style={logoStyles}
+          />
+          <h1 style={logoTextStyles}>Angry Wisp</h1>
+        </div>
         <div style={rightContentStyles}>
           <nav style={navigationStyles}>
             <button 
