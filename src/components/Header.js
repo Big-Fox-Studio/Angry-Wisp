@@ -67,7 +67,12 @@ const languageSelectorWrapperStyles = {
 const logoContainerStyles = {
   display: "flex",
   alignItems: "center",
-  gap: "20px"
+  gap: "20px",
+  cursor: "pointer",
+  userSelect: "none",
+  WebkitUserSelect: "none",
+  MozUserSelect: "none",
+  msUserSelect: "none"
 }
 
 const logoTextStyles = {
@@ -148,11 +153,26 @@ const Header = () => {
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <>
       <div style={headerBorderStyles}></div>
       <header style={headerStyles}>
-        <div style={logoContainerStyles}>
+        <div 
+          style={logoContainerStyles}
+          onClick={scrollToTop}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') scrollToTop();
+          }}
+        >
           <img 
             src="/images/logo.svg" 
             alt="Angry Wisp" 
