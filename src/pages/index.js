@@ -18,14 +18,13 @@ const sectionStyles = {
   section1: {
     backgroundColor: colors.darkBlue,
     color: '#ffffff',
-    minHeight: '10vh',      // hauteur minimum
-    maxHeight: '80vh',      // hauteur maximum
-    height: 'auto',         // s'adapte au contenu
+    height: 'auto',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '4rem 2rem',   // padding vertical et horizontal
-    overflow: 'auto'        // permet le scroll si le contenu dépasse
+    overflow: 'auto',
+    scrollMarginTop: '100px',
+    padding: '2rem 2rem',
   },
   minHeight: 'fit-content',
   padding: '10px 20px 20px',
@@ -35,7 +34,8 @@ const sectionStyles = {
   scrollMarginTop: '60px',
   color: colors.textLight,
   fontWeight: '100',
-  fontFamily: "Estandar, sans-serif"
+  fontFamily: "Estandar, sans-serif",
+  padding: '2rem 2rem',
 }
 
 // Ajout d'un style spécifique pour la section d'accueil

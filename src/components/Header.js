@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import LanguageSelector from './LanguageSelector'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 
+const HEADER_HEIGHT = 100; // correspond à la height dans headerStyles
+
 const headerStyles = {
   padding: "0 40px",
   display: "flex",
@@ -15,7 +17,7 @@ const headerStyles = {
   top: 0,
   left: 0,
   zIndex: 1000,
-  height: "100px",
+  height: `${HEADER_HEIGHT}px`,
   boxSizing: "border-box",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   fontFamily: "'BOLTZZ Sans', sans-serif",
@@ -74,7 +76,7 @@ const Header = () => {
         const element = document.getElementById(sectionId)
         if (element) {
           const rect = element.getBoundingClientRect()
-          if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
+          if (rect.top >= -HEADER_HEIGHT && rect.top <= (window.innerHeight / 2)) {
             setActiveSection(sectionId)
             break
           }
@@ -121,7 +123,13 @@ const Header = () => {
 
   const handleClick = (sectionId) => {
     const element = document.getElementById(sectionId)
-    element?.scrollIntoView({ behavior: 'smooth' })
+    if (element) {
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      window.scrollTo({
+        top: elementPosition - HEADER_HEIGHT,
+        behavior: 'smooth'
+      })
+    }
   }
 
   return (
