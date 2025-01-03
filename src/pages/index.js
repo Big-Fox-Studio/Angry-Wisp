@@ -130,16 +130,25 @@ const IndexPage = () => {
               fontFamily: "BOLTZZ Sans, sans-serif"
             }}>{t(section.title)}</h2>
             {section.id === 'section1' && (
-              <p 
+              <div 
                 style={{
-                  textAlign: 'center',
-                  margin: '2rem auto',
-                  lineHeight: '1.6',
-                  fontSize: '1.2rem',
-                  fontFamily: "Estandar, sans-serif"
+                  width: '100%',
+                  maxWidth: '600px',
+                  margin: '0 auto',
                 }}
-                dangerouslySetInnerHTML={{ __html: t('studioContent') }}
-              />
+              >
+                <p 
+                  style={{
+                    textAlign: 'justify',
+                    textJustify: 'inter-word',
+                    margin: '2rem 0',
+                    lineHeight: '1.6',
+                    fontSize: '1.2rem',
+                    fontFamily: "Estandar, sans-serif"
+                  }}
+                  dangerouslySetInnerHTML={{ __html: t('studioContent') }}
+                />
+              </div>
             )}
             {section.id === 'section2' && <GameGrid />}
             {section.id === 'section3' && (

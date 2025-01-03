@@ -9,7 +9,7 @@
     "games": "GAMES",
     "contact": "CONTACT"
   },
-  "studioContent": "Angry Wisp is an independent studio from France,<br/>created from a passion for games and digital entertainment.<br/><br/>We are a strike team ready to tackle challenges<br/>in order to provide the best experience possible.<br/><br/>We believe in delivering games that we would enjoy playing.",
+  "studioContent": "Angry Wisp is an independent studio from France, created from a passion for games and digital entertainment.<br/><br/>We are a strike team ready to tackle challenges in order to provide the best experience possible.<br/><br/>We believe in delivering games that we would enjoy playing.",
   "contact": {
     "name": "Name",
     "email": "Email",
@@ -19,6 +19,6 @@
     "success": "Message sent successfully!",
     "error": "An error occurred while sending the message."
   },
-  "contactContent": "We want to hear from you!<br/>Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
+  "contactContent": "We want to hear from you! Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
   "rights": "All rights reserved."
 } 
