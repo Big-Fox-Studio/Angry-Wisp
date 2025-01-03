@@ -15,6 +15,18 @@ const colors = {
 
 // Mise à jour des styles de section avec la nouvelle police par défaut
 const sectionStyles = {
+  section1: {
+    backgroundColor: colors.darkBlue,
+    color: '#ffffff',
+    minHeight: '10vh',      // hauteur minimum
+    maxHeight: '80vh',      // hauteur maximum
+    height: 'auto',         // s'adapte au contenu
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '4rem 2rem',   // padding vertical et horizontal
+    overflow: 'auto'        // permet le scroll si le contenu dépasse
+  },
   minHeight: 'fit-content',
   padding: '10px 20px 20px',
   display: 'flex',
@@ -32,16 +44,35 @@ const homeStyles = {
   minHeight: '100vh',
 }
 
+// Ajout d'un style pour le conteneur de l'image hero
+const heroContainerStyle = {
+  width: '100%',
+  height: '100vh',
+  position: 'relative',
+  overflow: 'hidden'
+}
+
+const heroImageStyle = {
+  width: '100%',
+  height: '100%',
+  objectFit: 'cover',
+  objectPosition: 'center'
+}
+
 const sections = [
   {
     id: 'section1',
     title: 'nav.home',
-    style: { ...homeStyles, backgroundColor: colors.darkBlue }
+    style: sectionStyles.section1
   },
   {
     id: 'section2',
     title: 'nav.games',
-    style: { ...sectionStyles, backgroundColor: colors.lighterBlue }
+    style: { 
+      ...sectionStyles, 
+      backgroundColor: '#ffffff',  // Fond blanc
+      color: '#0A192F'            // Texte en bleu foncé pour le contraste
+    }
   },
   {
     id: 'section3',
@@ -49,8 +80,7 @@ const sections = [
     style: { 
       ...sectionStyles, 
       backgroundColor: colors.darkBlue,
-      paddingBottom: '40px',
-      width: '100%',
+      paddingBottom: '40px'
     }
   }
 ]
@@ -80,6 +110,14 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <div style={heroContainerStyle}>
+        <img 
+          src="/images/hero.jpg" // Assurez-vous d'ajouter votre image dans le dossier public/images/
+          alt="Angry Wisp Studio"
+          style={heroImageStyle}
+        />
+      </div>
+
       {sections.map(section => (
         <section 
           key={section.id}
@@ -91,6 +129,18 @@ const IndexPage = () => {
               textAlign: 'center',
               fontFamily: "BOLTZZ Sans, sans-serif"
             }}>{t(section.title)}</h2>
+            {section.id === 'section1' && (
+              <p 
+                style={{
+                  textAlign: 'center',
+                  margin: '2rem auto',
+                  lineHeight: '1.6',
+                  fontSize: '1.2rem',
+                  fontFamily: "Estandar, sans-serif"
+                }}
+                dangerouslySetInnerHTML={{ __html: t('studioContent') }}
+              />
+            )}
             {section.id === 'section2' && <GameGrid />}
             {section.id === 'section3' && (
               <>
