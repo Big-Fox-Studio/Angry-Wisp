@@ -77,7 +77,7 @@ const logoContainerStyles = {
 
 const logoTextStyles = {
   fontFamily: "'ARCO', sans-serif",
-  fontSize: "34px",
+  fontSize: "36px",
   color: "#FFFFFF",
   margin: 0,
   letterSpacing: "2px",
@@ -118,8 +118,9 @@ const Header = () => {
     cursor: 'pointer',
     backgroundColor: 'transparent',
     color: '#FFFFFF',
-    fontSize: '24px',
+    fontSize: '30px',
     fontWeight: '100',
+    letterSpacing: '0.1em',
     transition: 'all 0.2s ease',
     transform: activeSection === sectionId ? 'scale(1.2)' : 'scale(1)',
     userSelect: 'none',

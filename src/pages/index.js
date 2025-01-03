@@ -10,6 +10,7 @@ import '../styles/fonts.css'
 const colors = {
   darkBlue: '#0A192F',    // Bleu très foncé
   lighterBlue: '#112240', // Bleu foncé un peu plus clair
+  darkerBlue: '#060D1A',  // Nouvelle couleur plus foncée
   textLight: '#E6F1FF'    // Couleur claire pour le texte
 }
 
@@ -63,15 +64,20 @@ const sections = [
   {
     id: 'section1',
     title: 'nav.home',
-    style: sectionStyles.section1
+    style: { 
+      ...sectionStyles, 
+      backgroundColor: colors.darkerBlue,
+      position: 'relative',
+      isolation: 'isolate'
+    }
   },
   {
     id: 'section2',
     title: 'nav.games',
     style: { 
       ...sectionStyles, 
-      backgroundColor: '#ffffff',  // Fond blanc
-      color: '#0A192F'            // Texte en bleu foncé pour le contraste
+      backgroundColor: '#ffffff',
+      color: '#0A192F'
     }
   },
   {
@@ -79,7 +85,7 @@ const sections = [
     title: 'nav.contact',
     style: { 
       ...sectionStyles, 
-      backgroundColor: colors.darkBlue,
+      backgroundColor: colors.darkerBlue,  // Section contact plus foncée
       paddingBottom: '40px'
     }
   }
@@ -112,7 +118,7 @@ const IndexPage = () => {
     <Layout>
       <div style={heroContainerStyle}>
         <img 
-          src="/images/hero.jpg" // Assurez-vous d'ajouter votre image dans le dossier public/images/
+          src="/images/topBanner.png" // Assurez-vous d'ajouter votre image dans le dossier public/images/
           alt="Angry Wisp Studio"
           style={heroImageStyle}
         />
@@ -124,10 +130,30 @@ const IndexPage = () => {
           id={section.id} 
           style={section.style}
         >
+          {section.id === 'section1' && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '70%',
+                height: '100%',
+                backgroundImage: 'url(/images/bgLogo.svg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: 0.03,
+                zIndex: -1
+              }}
+            />
+          )}
           <div style={{ maxWidth: '800px', width: '100%', margin: '0 auto' }}>
             <h2 style={{ 
               textAlign: 'center',
-              fontFamily: "BOLTZZ Sans, sans-serif"
+              fontFamily: "BOLTZZ Sans, sans-serif",
+              fontSize: '2.0rem',
+              marginBottom: '1.5rem',
+              letterSpacing: '0.1em'
             }}>{t(section.title)}</h2>
             {section.id === 'section1' && (
               <div 
