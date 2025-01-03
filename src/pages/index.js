@@ -133,7 +133,7 @@ const IndexPage = () => {
               <div 
                 style={{
                   width: '100%',
-                  maxWidth: '600px',
+                  maxWidth: '625px',
                   margin: '0 auto',
                 }}
               >
@@ -159,7 +159,7 @@ const IndexPage = () => {
                     margin: '2rem auto',
                     lineHeight: '1.6',
                     fontSize: '1.2rem',
-                    fontFamily: "Estandar, sans-serif"
+                    fontFamily: "Estandar, sans-serif",
                   }}
                   dangerouslySetInnerHTML={{ __html: t('contactContent') }}
                 />
