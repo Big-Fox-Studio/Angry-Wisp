@@ -20,5 +20,85 @@
     "error": "An error occurred while sending the message."
   },
   "contactContent": "We want to hear from you! Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
-  "rights": "All rights reserved."
+  "rights": "All rights reserved.",
+  "privacyContent": {
+    "welcome": "Welcome to Angry Wisp! This Privacy Policy explains how we collect, use, and protect your data when you play our games, which are available on Steam. By using our games, you agree to the practices described in this policy.",
+    "infoCollect": {
+      "title": "Information We Collect",
+      "intro": "We aim to collect only the data necessary to improve your gaming experience. Here's what we collect:",
+      "gameplay": {
+        "title": "Gameplay Data",
+        "content": "Non-identifiable gameplay data such as playtime, levels completed, in-game interactions, and error reports. This data helps us improve game performance and balance, ensuring an enjoyable and seamless experience for all players."
+      },
+      "analytics": {
+        "title": "Third-Party Analytics",
+        "content": "Our games use Unity Analytics and Steam Analytics to gather aggregated data about how users interact with our games. These third-party services may collect information such as:",
+        "items": [
+          "Steam ID (potentially identifying information).",
+          "In-game events, errors, and device information (e.g., operating system, hardware configuration)."
+        ],
+        "note": "We do not directly collect or store personally identifiable information (PII) unless explicitly required by Steam or Unity Analytics. The information collected is primarily used to enhance gameplay mechanics and address technical issues efficiently."
+      }
+    },
+    "dataUse": {
+      "title": "How We Use Your Data",
+      "intro": "We use the collected data to:",
+      "items": [
+        "Improve game performance and fix bugs, ensuring a better gaming experience for everyone.",
+        "Balance gameplay mechanics and enhance user experience, making our games more engaging and enjoyable.",
+        "Understand user interaction and behavior to make data-driven decisions for game updates and future development."
+      ],
+      "note": "We will never sell your data or share it with unauthorized third parties. The data collected is solely for the purpose of improving our services and ensuring your satisfaction with our games."
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "content": "Our games incorporate third-party services to analyze game performance and improve functionality. The services we use include:",
+      "services": [
+        {
+          "name": "Unity Analytics",
+          "link": "https://unity.com/legal/privacy-policy",
+          "text": "Unity Privacy Policy"
+        },
+        {
+          "name": "Steam Analytics",
+          "link": "https://store.steampowered.com/privacy_agreement/",
+          "text": "Steam Privacy Policy"
+        }
+      ],
+      "note": "These third-party providers may process data such as your Steam ID and other gameplay-related metrics. They are bound by their respective privacy policies to safeguard your data. Additionally, these services provide valuable insights that help us understand how players engage with our games and identify areas for improvement."
+    },
+    "dataRetention": {
+      "title": "Data Retention and Deletion",
+      "content": "We retain data for as long as necessary to fulfill the purposes outlined in this Privacy Policy. If you wish to delete your data, you can:",
+      "options": [
+        "Contact us at contact@angrywisp.com to request data deletion. We will respond promptly and ensure your data is removed from our systems.",
+        "For data collected by third-party services, please refer to their respective privacy policies:"
+      ],
+      "thirdPartyOptions": [
+        "Unity Analytics: Contact Unity.",
+        "Steam Analytics: Follow the data request process outlined in Steam's Privacy Policy."
+      ],
+      "note": "By providing these options, we aim to give you full control over your data and ensure your privacy preferences are respected."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "Our games are not intended for children under the age of 13. We do not knowingly collect PII from children under 13. If we become aware that a child has provided us with such information, we will take steps to delete it. Parents or guardians can contact us at contact@angrywisp.com to request data deletion.",
+      "note": "Protecting the privacy of children is of utmost importance to us, and we encourage parents to monitor their children's online activities."
+    },
+    "security": {
+      "title": "Security",
+      "content": "We take reasonable measures to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but strive to use industry-standard safeguards. Our goal is to ensure your data is handled responsibly and protected against unauthorized access, disclosure, or misuse.",
+      "note": "We continuously review our security practices and update them as necessary to address emerging threats and vulnerabilities. Your trust in us is paramount, and we work diligently to uphold it."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy periodically to reflect changes in our practices or for other operational, legal, or regulatory reasons. Changes will be effective immediately upon posting the revised policy on this page. Please review this policy regularly to stay informed. If we make significant changes, we will notify you through in-game announcements or other appropriate means.",
+      "note": "By staying informed about updates to this policy, you can ensure that you are always aware of how your data is handled and used."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions or concerns about this Privacy Policy or your data, please contact us at contact@angrywisp.com. We are here to address your concerns and provide clarity on any aspect of this policy.",
+      "conclusion": "Thank you for playing games by Angry Wisp! Your privacy and trust are important to us. We are committed to delivering exceptional gaming experiences while safeguarding your data and respecting your preferences. Enjoy your time with our games, and feel free to reach out if you need assistance."
+    }
+  }
 } 
