@@ -10,7 +10,7 @@ const headerContentStyles = {
   maxWidth: "1200px",
   margin: "0 auto",
   display: "flex",
-  flexDirection: "row", // Sera modifié en column pour mobile
+  flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
@@ -19,8 +19,9 @@ const headerContentStyles = {
   position: "relative",
   "@media (max-width: 768px)": {
     flexDirection: "column",
-    gap: "20px",
-    padding: "20px",
+    gap: "5px",
+    padding: "5px",
+    width: "100%",
   }
 }
 
@@ -69,7 +70,17 @@ const navigationStyles = {
   alignItems: "center",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
-  marginRight: "50px"
+  marginRight: "50px",
+  "@media (max-width: 768px)": {
+    gap: "5px",
+    width: "100%",
+    maxWidth: "100%",
+    justifyContent: "center",
+    flexWrap: "nowrap",
+    margin: "2px 0",
+    padding: "0 10px",
+    boxSizing: "border-box",
+  }
 }
 
 const logoStyles = {
@@ -163,6 +174,15 @@ const Header = () => {
     MozUserSelect: 'none',
     msUserSelect: 'none',
     position: 'relative',
+    '@media (max-width: 768px)': {
+      fontSize: '12px',
+      padding: '2px 4px',
+      transform: activeSection === sectionId ? 'scale(1.05)' : 'scale(1)',
+      whiteSpace: 'nowrap',
+      letterSpacing: '0.05em',
+      minWidth: '60px',
+      textAlign: 'center',
+    },
     '&:hover': {
       color: '#1a1a1a'
     },
@@ -243,9 +263,12 @@ const Header = () => {
             }}>
               <nav style={{
                 ...navigationStyles,
-                flexDirection: isMobile ? 'column' : 'row',
-                width: isMobile ? '100%' : 'auto',
-                margin: isMobile ? '10px 0' : undefined,
+                flexDirection: 'row',
+                width: '100%',
+                justifyContent: 'center',
+                padding: isMobile ? '0 5px' : '0',
+                margin: '2px 0',
+                overflow: 'hidden',
               }}>
                 <button 
                   style={getButtonStyle('section1')} 
@@ -269,7 +292,7 @@ const Header = () => {
               <div style={{
                 width: isMobile ? '100%' : 'auto',
                 display: 'flex',
-                justifyContent: isMobile ? 'center' : 'flex-end',
+                justifyContent: 'center',
               }}>
                 <LanguageSelector />
               </div>
