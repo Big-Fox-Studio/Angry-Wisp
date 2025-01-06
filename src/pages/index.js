@@ -173,7 +173,9 @@ const IndexPage = () => {
               <div style={{
                 width: '100%',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                marginTop: '2rem',
+                marginBottom: '2rem'
               }}>
                 <GameGrid />
               </div>
