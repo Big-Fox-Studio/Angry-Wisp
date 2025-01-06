@@ -20,37 +20,37 @@
   "contactContent": "Nous voulons avoir de vos nouvelles ! Particulièrement si vous êtes un éditeur de jeux !<br/>Nous sommes toujours à l'écoute de projets nécessitant un studio de développement.",
   "rights": "Tous droits réservés.",
   "privacyContent": {
-    "welcome": "Bienvenue chez Angry Wisp ! Cette politique de confidentialité explique comment nous collectons, utilisons et protégeons vos données lorsque vous jouez à nos jeux, disponibles sur Steam. En utilisant nos jeux, vous acceptez les pratiques décrites dans cette politique.",
+    "welcome": "Bienvenue chez Angry Wisp ! Cette politique de confidentialité explique notre approche concernant la collecte de données et la confidentialité. Notre site web ne collecte aucune donnée personnelle. La politique suivante ne s'applique qu'à nos jeux disponibles sur Steam.",
     "infoCollect": {
-      "title": "Informations que nous collectons",
-      "intro": "Nous visons à ne collecter que les données nécessaires pour améliorer votre expérience de jeu. Voici ce que nous collectons :",
+      "title": "Collecte d'informations",
+      "intro": "Notre site web ne collecte aucune donnée personnelle.",
       "gameplay": {
-        "title": "Donnees de jeu",
-        "content": "Données de jeu non identifiables telles que le temps de jeu, les niveaux terminés, les interactions en jeu et les rapports d'erreur. Ces données nous aident à améliorer les performances et l'équilibrage du jeu, garantissant une expérience agréable et fluide pour tous les joueurs."
+        "title": "Donnees de jeu uniquement",
+        "content": "Nous collectons uniquement des données de jeu anonymes qui ne peuvent être liées à aucun individu. Cela inclut : la progression dans le jeu, les taux de complétion et les métriques de performance technique. Ces informations nous aident à améliorer l'équilibre du jeu et à résoudre les problèmes techniques."
       },
       "analytics": {
-        "title": "Analyses tierces",
-        "content": "Nos jeux utilisent Unity Analytics et Steam Analytics pour recueillir des données agrégées sur la façon dont les utilisateurs interagissent avec nos jeux. Ces services tiers peuvent collecter des informations telles que :",
+        "title": "Analyses de jeu",
+        "content": "Nos jeux utilisent Unity Analytics et Steam Analytics pour le suivi des performances. Ces services peuvent collecter :",
         "items": [
-          "Steam ID (informations potentiellement identifiantes).",
-          "Événements en jeu, erreurs et informations sur l'appareil (par exemple, système d'exploitation, configuration matérielle)."
+          "Des statistiques de jeu anonymes",
+          "Des informations techniques sur les performances et les erreurs du jeu"
         ],
-        "note": "Nous ne collectons ni ne stockons directement d'informations personnelles identifiables (IPI), sauf si explicitement requis par Steam ou Unity Analytics. Les informations collectées sont principalement utilisées pour améliorer les mécaniques de jeu et résoudre efficacement les problèmes techniques."
+        "note": "Nous ne collectons ni ne stockons aucune information personnelle. La collecte de données est strictement limitée aux informations liées au jeu qui nous aident à améliorer l'expérience de jeu."
       }
     },
     "dataUse": {
-      "title": "Comment nous utilisons vos donnees",
-      "intro": "Nous utilisons les données collectées pour :",
+      "title": "Utilisation des donnees de jeu",
+      "intro": "Les données de jeu anonymes que nous collectons sont uniquement utilisées pour :",
       "items": [
-        "Améliorer les performances du jeu et corriger les bugs, assurant une meilleure expérience de jeu pour tous.",
-        "Équilibrer les mécaniques de jeu et améliorer l'expérience utilisateur, rendant nos jeux plus attrayants et agréables.",
-        "Comprendre l'interaction et le comportement des utilisateurs pour prendre des décisions basées sur les données pour les mises à jour et le développement futur."
+        "Améliorer les performances du jeu et résoudre les problèmes techniques",
+        "Équilibrer les mécaniques de jeu",
+        "Guider les décisions de développement des futurs jeux"
       ],
-      "note": "Nous ne vendrons jamais vos données ni ne les partagerons avec des tiers non autorisés. Les données collectées servent uniquement à améliorer nos services et à garantir votre satisfaction avec nos jeux."
+      "note": "Nous ne collectons, ne vendons ni ne partageons jamais d'informations personnelles. Notre objectif est uniquement d'améliorer l'expérience de jeu grâce à des données de jeu anonymes."
     },
     "thirdParty": {
       "title": "Services tiers",
-      "content": "Nos jeux intègrent des services tiers pour analyser les performances et améliorer la fonctionnalité. Les services que nous utilisons incluent :",
+      "content": "Nos jeux utilisent les services suivants pour l'analyse de jeu :",
       "services": [
         {
           "name": "Unity Analytics",
@@ -63,40 +63,40 @@
           "text": "Politique de confidentialité Steam"
         }
       ],
-      "note": "Ces fournisseurs tiers peuvent traiter des données telles que votre Steam ID et d'autres métriques liées au jeu. Ils sont tenus par leurs politiques de confidentialité respectives de protéger vos données. De plus, ces services fournissent des informations précieuses qui nous aident à comprendre comment les joueurs interagissent avec nos jeux et à identifier les domaines à améliorer."
+      "note": "Ces services ne traitent que les données liées au jeu. Pour plus d'informations sur leurs pratiques en matière de données, veuillez consulter leurs politiques de confidentialité respectives."
     },
     "dataRetention": {
-      "title": "Conservation et suppression des donnees",
-      "content": "Nous conservons les données aussi longtemps que nécessaire pour atteindre les objectifs décrits dans cette politique de confidentialité. Si vous souhaitez supprimer vos données, vous pouvez :",
+      "title": "Gestion des donnees",
+      "content": "Puisque nous ne collectons aucune donnée personnelle sur notre site web, il n'y a pas d'informations personnelles à gérer. Pour les données liées aux jeux :",
       "options": [
-        "Utiliser notre formulaire de contact en bas de notre page d'accueil pour soumettre une demande de suppression de données. Nous traiterons votre demande rapidement et veillerons à ce que vos données soient supprimées de nos systèmes.",
-        "Pour les données collectées par des services tiers, veuillez consulter leurs politiques de confidentialité respectives :"
+        "Si vous avez des préoccupations spécifiques concernant les données de jeu, vous pouvez nous contacter via notre formulaire de contact ci-dessous.",
+        "Pour les données gérées par nos plateformes de jeu :"
       ],
       "thirdPartyOptions": [
-        "Unity Analytics : Contactez Unity.",
-        "Steam Analytics : Suivez le processus de demande de données décrit dans la politique de confidentialité de Steam."
+        "Unity Analytics : Consultez la politique de confidentialité d'Unity",
+        "Steam : Consultez la politique de confidentialité de Steam"
       ],
-      "note": "En proposant ces options, nous visons à vous donner un contrôle total sur vos données et à garantir le respect de vos préférences en matière de confidentialité."
+      "note": "Rappelons que nous ne collectons que des données de jeu anonymes qui ne peuvent être liées à des joueurs individuels."
     },
     "children": {
       "title": "Confidentialite des enfants",
-      "content": "Nos jeux ne sont pas destinés aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'IPI auprès d'enfants de moins de 13 ans. Si nous apprenons qu'un enfant nous a fourni de telles informations, nous prendrons des mesures pour les supprimer. Les parents ou tuteurs peuvent soumettre une demande via notre formulaire de contact en bas de notre page d'accueil pour demander la suppression des données.",
-      "note": "La protection de la vie privée des enfants est de la plus haute importance pour nous, et nous encourageons les parents à surveiller les activités en ligne de leurs enfants."
+      "content": "Notre site web ne collecte aucune information personnelle, y compris celle des enfants. Nos jeux sont conçus pour tous les publics et ne collectent que des données de jeu anonymes.",
+      "note": "Nous encourageons les parents à consulter les politiques de confidentialité de nos plateformes de jeu s'ils ont des préoccupations spécifiques concernant les activités de jeu de leurs enfants."
     },
     "security": {
       "title": "Securite",
-      "content": "Nous prenons des mesures raisonnables pour protéger vos données. Cependant, aucune méthode de transmission sur Internet ou de stockage électronique n'est sécurisée à 100%. Nous ne pouvons garantir une sécurité absolue mais nous nous efforçons d'utiliser des protections conformes aux normes de l'industrie. Notre objectif est de garantir que vos données sont traitées de manière responsable et protégées contre tout accès, divulgation ou utilisation non autorisés.",
-      "note": "Nous examinons continuellement nos pratiques de sécurité et les mettons à jour si nécessaire pour faire face aux menaces et vulnérabilités émergentes. Votre confiance est primordiale pour nous, et nous travaillons avec diligence pour la maintenir."
+      "content": "Puisque notre site web ne collecte aucune donnée personnelle, il n'y a aucun risque pour la vie privée lié à la navigation sur notre site. Pour nos jeux, nous ne collectons que des données de jeu anonymes, qui ne peuvent pas être utilisées pour identifier des joueurs individuels.",
+      "note": "Notre priorité est de maintenir la sécurité des données de jeu tout en garantissant une confidentialité totale pour nos joueurs."
     },
     "changes": {
-      "title": "Modifications de cette politique de confidentialite",
-      "content": "Nous pouvons mettre à jour cette politique de confidentialité périodiquement pour refléter les changements dans nos pratiques ou pour d'autres raisons opérationnelles, légales ou réglementaires. Les modifications seront effectives immédiatement après la publication de la politique révisée sur cette page. Veuillez consulter régulièrement cette politique pour rester informé. Si nous apportons des modifications importantes, nous vous en informerons par le biais d'annonces dans le jeu ou d'autres moyens appropriés.",
-      "note": "En restant informé des mises à jour de cette politique, vous pouvez vous assurer d'être toujours au courant de la façon dont vos données sont traitées et utilisées."
+      "title": "Mises a jour de la politique",
+      "content": "Si nous apportons des modifications à nos pratiques de collecte de données ou à cette politique de confidentialité, nous mettrons cette page à jour en conséquence. Tout changement ne s'appliquera qu'aux pratiques de collecte de données de nos jeux, car notre site web reste exempt de toute collecte de données.",
+      "note": "Nous vous encourageons à consulter régulièrement cette politique pour rester informé de nos pratiques en matière de confidentialité."
     },
     "contact": {
       "title": "Nous contacter",
-      "content": "Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité ou vos données, veuillez utiliser notre formulaire de contact en bas de notre page d'accueil. Nous sommes là pour répondre à vos préoccupations et apporter des éclaircissements sur tout aspect de cette politique.",
-      "conclusion": "Merci de jouer aux jeux d'Angry Wisp ! Votre confidentialité et votre confiance sont importantes pour nous. Nous nous engageons à offrir des expériences de jeu exceptionnelles tout en protégeant vos données et en respectant vos préférences. Profitez de votre temps avec nos jeux, et n'hésitez pas à nous contacter via notre formulaire si vous avez besoin d'aide."
+      "content": "Si vous avez des questions sur nos pratiques de confidentialité ou sur la collecte de données de nos jeux, veuillez utiliser notre formulaire de contact ci-dessous.",
+      "conclusion": "Merci de votre intérêt pour Angry Wisp ! Nous nous engageons à préserver votre vie privée tout en offrant d'excellentes expériences de jeu. Notre site web ne collecte aucune donnée personnelle, et nos jeux ne collectent que des informations de jeu anonymes pour améliorer votre expérience de jeu."
     }
   }
 } 

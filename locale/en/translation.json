@@ -22,37 +22,37 @@
   "contactContent": "We want to hear from you! Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
   "rights": "All rights reserved.",
   "privacyContent": {
-    "welcome": "Welcome to Angry Wisp! This Privacy Policy explains how we collect, use, and protect your data when you play our games, which are available on Steam. By using our games, you agree to the practices described in this policy.",
+    "welcome": "Welcome to Angry Wisp! This Privacy Policy explains our approach to data collection and privacy. Our website does not collect any personal data. The following policy only applies to our games available on Steam.",
     "infoCollect": {
-      "title": "Information We Collect",
-      "intro": "We aim to collect only the data necessary to improve your gaming experience. Here's what we collect:",
+      "title": "Information Collection",
+      "intro": "Our website does not collect any personal data. Regarding our games:",
       "gameplay": {
-        "title": "Gameplay Data",
-        "content": "Non-identifiable gameplay data such as playtime, levels completed, in-game interactions, and error reports. This data helps us improve game performance and balance, ensuring an enjoyable and seamless experience for all players."
+        "title": "Game Data Only",
+        "content": "We only collect anonymous gameplay data that cannot be linked to any individual. This includes: game progression, completion rates, and technical performance metrics. This information helps us improve game balance and fix technical issues."
       },
       "analytics": {
-        "title": "Third-Party Analytics",
-        "content": "Our games use Unity Analytics and Steam Analytics to gather aggregated data about how users interact with our games. These third-party services may collect information such as:",
+        "title": "Game Analytics",
+        "content": "Our games use Unity Analytics and Steam Analytics for game performance monitoring. These services may collect:",
         "items": [
-          "Steam ID (potentially identifying information).",
-          "In-game events, errors, and device information (e.g., operating system, hardware configuration)."
+          "Anonymous gameplay statistics",
+          "Technical information about game performance and errors"
         ],
-        "note": "We do not directly collect or store personally identifiable information (PII) unless explicitly required by Steam or Unity Analytics. The information collected is primarily used to enhance gameplay mechanics and address technical issues efficiently."
+        "note": "We do not collect or store any personal information. All data collection is strictly limited to game-related information that helps us improve the gaming experience."
       }
     },
     "dataUse": {
-      "title": "How We Use Your Data",
-      "intro": "We use the collected data to:",
+      "title": "Use of Game Data",
+      "intro": "The anonymous game data we collect is only used to:",
       "items": [
-        "Improve game performance and fix bugs, ensuring a better gaming experience for everyone.",
-        "Balance gameplay mechanics and enhance user experience, making our games more engaging and enjoyable.",
-        "Understand user interaction and behavior to make data-driven decisions for game updates and future development."
+        "Improve game performance and fix technical issues",
+        "Balance gameplay mechanics",
+        "Guide future game development decisions"
       ],
-      "note": "We will never sell your data or share it with unauthorized third parties. The data collected is solely for the purpose of improving our services and ensuring your satisfaction with our games."
+      "note": "We never collect, sell, or share any personal information. Our focus is solely on improving the gaming experience through anonymous gameplay data."
     },
     "thirdParty": {
       "title": "Third-Party Services",
-      "content": "Our games incorporate third-party services to analyze game performance and improve functionality. The services we use include:",
+      "content": "Our games use the following services for game analytics:",
       "services": [
         {
           "name": "Unity Analytics",
@@ -65,40 +65,40 @@
           "text": "Steam Privacy Policy"
         }
       ],
-      "note": "These third-party providers may process data such as your Steam ID and other gameplay-related metrics. They are bound by their respective privacy policies to safeguard your data. Additionally, these services provide valuable insights that help us understand how players engage with our games and identify areas for improvement."
+      "note": "These services only process game-related data. For more information about their data practices, please refer to their respective privacy policies."
     },
     "dataRetention": {
-      "title": "Data Retention and Deletion",
-      "content": "We retain data for as long as necessary to fulfill the purposes outlined in this Privacy Policy. If you wish to delete your data, you can:",
+      "title": "Data Management",
+      "content": "Since we don't collect any personal data on our website, there is no personal information to manage. For game-related data:",
       "options": [
-        "Use our contact form at the bottom of our homepage to submit a data deletion request. We will process your request promptly and ensure your data is removed from our systems.",
-        "For data collected by third-party services, please refer to their respective privacy policies:"
+        "If you have specific concerns about game data, you can contact us through our contact form below.",
+        "For data handled by our game platforms:"
       ],
       "thirdPartyOptions": [
-        "Unity Analytics: Contact Unity.",
-        "Steam Analytics: Follow the data request process outlined in Steam's Privacy Policy."
+        "Unity Analytics: Refer to Unity's privacy policy",
+        "Steam: Refer to Steam's privacy policy"
       ],
-      "note": "By providing these options, we aim to give you full control over your data and ensure your privacy preferences are respected."
+      "note": "Remember that we only collect anonymous game data that cannot be linked to individual players."
     },
     "children": {
       "title": "Children's Privacy",
-      "content": "Our games are not intended for children under the age of 13. We do not knowingly collect PII from children under 13. If we become aware that a child has provided us with such information, we will take steps to delete it. Parents or guardians can submit a request through our contact form at the bottom of our homepage to request data deletion.",
-      "note": "Protecting the privacy of children is of utmost importance to us, and we encourage parents to monitor their children's online activities."
+      "content": "Our website does not collect any personal information, including from children. Our games are designed for general audiences and only collect anonymous gameplay data.",
+      "note": "We encourage parents to review our game platforms' privacy policies if they have specific concerns about their children's gaming activities."
     },
     "security": {
       "title": "Security",
-      "content": "We take reasonable measures to protect your data. However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but strive to use industry-standard safeguards. Our goal is to ensure your data is handled responsibly and protected against unauthorized access, disclosure, or misuse.",
-      "note": "We continuously review our security practices and update them as necessary to address emerging threats and vulnerabilities. Your trust in us is paramount, and we work diligently to uphold it."
+      "content": "Since our website doesn't collect any personal data, there are no privacy risks associated with browsing our site. For our games, we only collect anonymous gameplay data, which cannot be used to identify individual players.",
+      "note": "Our focus is on maintaining the security of gameplay data while ensuring complete privacy for our players."
     },
     "changes": {
-      "title": "Changes to This Privacy Policy",
-      "content": "We may update this Privacy Policy periodically to reflect changes in our practices or for other operational, legal, or regulatory reasons. Changes will be effective immediately upon posting the revised policy on this page. Please review this policy regularly to stay informed. If we make significant changes, we will notify you through in-game announcements or other appropriate means.",
-      "note": "By staying informed about updates to this policy, you can ensure that you are always aware of how your data is handled and used."
+      "title": "Policy Updates",
+      "content": "If we make any changes to our data collection practices or this privacy policy, we will update this page accordingly. Any changes will only apply to our games' data collection practices, as our website remains free of any data collection.",
+      "note": "We encourage you to review this policy periodically to stay informed about our privacy practices."
     },
     "contact": {
       "title": "Contact Us",
-      "content": "If you have questions or concerns about this Privacy Policy or your data, please use our contact form at the bottom of our homepage. We are here to address your concerns and provide clarity on any aspect of this policy.",
-      "conclusion": "Thank you for playing games by Angry Wisp! Your privacy and trust are important to us. We are committed to delivering exceptional gaming experiences while safeguarding your data and respecting your preferences. Enjoy your time with our games, and feel free to reach out through our contact form if you need assistance."
+      "content": "If you have any questions about our privacy practices or our games' data collection, please use our contact form below.",
+      "conclusion": "Thank you for your interest in Angry Wisp! We are committed to maintaining your privacy while providing excellent gaming experiences. Our website collects no personal data, and our games only collect anonymous gameplay information to improve your gaming experience."
     }
   }
 } 
