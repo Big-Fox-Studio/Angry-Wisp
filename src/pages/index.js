@@ -176,7 +176,16 @@ const IndexPage = () => {
                 />
               </div>
             )}
-            {section.id === 'section2' && <GameGrid />}
+            {section.id === 'section2' && (
+              <div style={{
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '0 auto',
+                padding: '0 1rem'
+              }}>
+                <GameGrid />
+              </div>
+            )}
             {section.id === 'section3' && (
               <>
                 <p 

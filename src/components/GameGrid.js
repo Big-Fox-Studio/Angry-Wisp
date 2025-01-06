@@ -11,6 +11,7 @@ const wrapperStyles = {
   width: '100%',
   maxWidth: '1200px',
   margin: '0 auto',
+  padding: '0 1rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -27,13 +28,18 @@ const sliderStyles = {
 const projectCardStyles = {
   backgroundColor: colors.darkBlue,
   borderRadius: '8px',
-  overflow: 'visible',
+  overflow: 'hidden',
   border: `1px solid ${colors.textLight}20`,
   position: 'relative',
-  height: '300px',
-  width: 'auto',
-  transition: 'opacity 0.3s ease',
-  marginLeft: '100px'
+  height: '400px',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'stretch',
+  '@media (max-width: 768px)': {
+    height: 'auto',
+    flexDirection: 'column',
+  }
 }
 
 const arrowStyles = {
@@ -78,38 +84,39 @@ const thumbnailStyles = {
   width: '400px',
   height: '400px',
   objectFit: 'cover',
-  position: 'absolute',
-  left: '-200px',
-  top: '-50px',
-  zIndex: '2',
-  borderRadius: '8px',
+  flexShrink: 0,
+  '@media (max-width: 768px)': {
+    width: '100%',
+    height: '300px',
+  }
 }
 
 const contentStyles = {
-  padding: '1rem',
+  padding: '1.5rem',
+  paddingTop: '1rem',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start',
-  height: 'auto',
-  marginLeft: '220px',
-  maxWidth: '450px',
-  overflow: 'hidden',
-  width: '100%',
-  paddingTop: '0.5rem'
+  flex: 1,
+  overflow: 'auto',
+  '@media (max-width: 768px)': {
+    padding: '1rem',
+  }
 }
 
 const projectTitleStyles = {
   color: colors.textLight,
   fontSize: '1.75rem',
-  marginBottom: '1rem',
+  marginTop: '0',
+  marginBottom: '0.75rem',
   fontWeight: '600'
 }
 
 const descriptionStyles = {
   color: `${colors.textLight}CC`,
   fontSize: '1rem',
-  lineHeight: '1.6',
-  maxWidth: '100%'
+  lineHeight: '1.5',
+  maxWidth: '100%',
+  margin: 0
 }
 
 const contentContainerStyles = {
@@ -129,7 +136,7 @@ const containerStyles = {
 const tagContainerStyles = {
   display: 'flex',
   gap: '0.5rem',
-  marginBottom: '1rem',
+  marginBottom: '0.75rem',
   flexWrap: 'wrap'
 }
 
@@ -144,31 +151,20 @@ const tagStyles = {
 
 const GameCard = ({ game }) => {
   return (
-    <div style={contentContainerStyles}>
+    <div style={projectCardStyles}>
       <img 
         src={game.thumbnail} 
         alt={game.title}
         style={thumbnailStyles}
       />
-      
-      <div style={{
-        backgroundColor: colors.darkBlue,
-        borderRadius: '8px',
-        border: `1px solid ${colors.textLight}20`,
-        position: 'relative',
-        height: '300px',
-        marginLeft: '200px',
-        zIndex: '1',
-      }}>
-        <div style={contentStyles}>
-          <h3 style={projectTitleStyles}>{game.title}</h3>
-          <div style={tagContainerStyles}>
-            {game.tags?.map((tag, index) => (
-              <span key={index} style={tagStyles}>{tag}</span>
-            ))}
-          </div>
-          <p style={descriptionStyles}>{game.description}</p>
+      <div style={contentStyles}>
+        <h3 style={projectTitleStyles}>{game.title}</h3>
+        <div style={tagContainerStyles}>
+          {game.tags?.map((tag, index) => (
+            <span key={index} style={tagStyles}>{tag}</span>
+          ))}
         </div>
+        <p style={descriptionStyles}>{game.description}</p>
       </div>
     </div>
   )
