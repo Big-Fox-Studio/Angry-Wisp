@@ -1,20 +1,27 @@
 import * as React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import LanguageSelector from './LanguageSelector'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 
 const HEADER_HEIGHT = 100; // correspond à la height dans headerStyles
+const MOBILE_BREAKPOINT = 1125; // Point de rupture pour le mobile
 
 const headerContentStyles = {
   maxWidth: "1200px",
   margin: "0 auto",
   display: "flex",
+  flexDirection: "row", // Sera modifié en column pour mobile
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%",
   padding: "0 20px",
   boxSizing: "border-box",
-  position: "relative"
+  position: "relative",
+  "@media (max-width: 768px)": {
+    flexDirection: "column",
+    gap: "20px",
+    padding: "20px",
+  }
 }
 
 const headerWrapperStyles = {
@@ -36,7 +43,8 @@ const headerStyles = {
   backgroundColor: "rgba(0, 0, 20, 0.85)",
   width: "100%",
   margin: 0,
-  height: `${HEADER_HEIGHT}px`,
+  height: "auto", // Changé pour s'adapter au contenu
+  minHeight: `${HEADER_HEIGHT}px`,
   boxSizing: "border-box",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   fontFamily: "'BOLTZZ Sans', sans-serif",
@@ -95,11 +103,26 @@ const logoTextStyles = {
   letterSpacing: "2px",
   transform: "scaleX(1.1)",
   transformOrigin: "left",
+  "@media (max-width: 768px)": {
+    fontSize: "24px",
+  }
 }
 
 const Header = () => {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('')
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Ajouter la détection de la taille de l'écran
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+  }, [])
+
+  useEffect(() => {
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [checkMobile])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -177,10 +200,22 @@ const Header = () => {
     <>
       <div style={headerBorderStyles}></div>
       <div style={headerWrapperStyles}>
-        <header style={headerStyles}>
-          <div style={headerContentStyles}>
+        <header style={{
+          ...headerStyles,
+          ...(isMobile && {
+            padding: "20px 10px",
+          })
+        }}>
+          <div style={{
+            ...headerContentStyles,
+            flexDirection: isMobile ? 'column' : 'row',
+          }}>
             <div 
-              style={logoContainerStyles}
+              style={{
+                ...logoContainerStyles,
+                justifyContent: isMobile ? 'center' : 'flex-start',
+                width: isMobile ? '100%' : 'auto',
+              }}
               onClick={scrollToTop}
               role="button"
               tabIndex={0}
@@ -191,12 +226,27 @@ const Header = () => {
               <img 
                 src="/images/logo.svg" 
                 alt="Angry Wisp" 
-                style={logoStyles}
+                style={{
+                  ...logoStyles,
+                  height: isMobile ? '60px' : '80px',
+                }}
               />
-              <h1 style={logoTextStyles}>Angry Wisp</h1>
+              <h1 style={{
+                ...logoTextStyles,
+                fontSize: isMobile ? '24px' : '36px',
+              }}>Angry Wisp</h1>
             </div>
-            <div style={rightContentStyles}>
-              <nav style={navigationStyles}>
+            <div style={{
+              ...rightContentStyles,
+              flexDirection: isMobile ? 'column' : 'row',
+              width: isMobile ? '100%' : 'auto',
+            }}>
+              <nav style={{
+                ...navigationStyles,
+                flexDirection: isMobile ? 'column' : 'row',
+                width: isMobile ? '100%' : 'auto',
+                margin: isMobile ? '10px 0' : undefined,
+              }}>
                 <button 
                   style={getButtonStyle('section1')} 
                   onClick={() => handleClick('section1')}
@@ -216,28 +266,16 @@ const Header = () => {
                   {t('nav.contact')}
                 </button>
               </nav>
+              <div style={{
+                width: isMobile ? '100%' : 'auto',
+                display: 'flex',
+                justifyContent: isMobile ? 'center' : 'flex-end',
+              }}>
+                <LanguageSelector />
+              </div>
             </div>
           </div>
         </header>
-        <div style={{ 
-          position: 'absolute',
-          top: '30px',
-          width: "100%",
-          maxWidth: "1200px",
-          padding: "0 20px",
-          boxSizing: "border-box",
-          pointerEvents: "none"
-        }}>
-          <div style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            paddingRight: "0",
-            pointerEvents: "auto",
-            marginRight: "0"
-          }}>
-            <LanguageSelector />
-          </div>
-        </div>
       </div>
     </>
   )
