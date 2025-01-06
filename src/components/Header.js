@@ -5,24 +5,43 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 
 const HEADER_HEIGHT = 100; // correspond à la height dans headerStyles
 
-const headerStyles = {
-  padding: "0 40px",
+const headerContentStyles = {
+  maxWidth: "1200px",
+  margin: "0 auto",
   display: "flex",
   justifyContent: "space-between",
+  alignItems: "center",
+  width: "100%",
+  padding: "0 20px",
+  boxSizing: "border-box",
+  position: "relative"
+}
+
+const headerWrapperStyles = {
+  position: 'fixed',
+  top: 0,
+  left: 0,
+  width: '100%',
+  zIndex: 1000,
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
+}
+
+const headerStyles = {
+  padding: "0 20px",
+  display: "flex",
+  justifyContent: "center",
   alignItems: "center",
   backgroundColor: "rgba(0, 0, 20, 0.85)",
   width: "100%",
   margin: 0,
-  position: "fixed",
-  top: 0,
-  left: 0,
-  zIndex: 1000,
   height: `${HEADER_HEIGHT}px`,
   boxSizing: "border-box",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
-  backdropFilter: "blur(0px)"
+  backdropFilter: "blur(0px)",
 }
 
 const headerBorderStyles = {
@@ -42,7 +61,7 @@ const navigationStyles = {
   alignItems: "center",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
-  paddingRight: "20px"
+  marginRight: "60px"
 }
 
 const logoStyles = {
@@ -53,15 +72,8 @@ const logoStyles = {
 const rightContentStyles = {
   display: "flex",
   alignItems: "center",
-  position: "absolute",
-  right: "120px"
-}
-
-const languageSelectorWrapperStyles = {
-  position: "fixed",
-  top: "30px",
-  right: "40px",
-  zIndex: 2000,
+  gap: "20px",
+  position: "relative"
 }
 
 const logoContainerStyles = {
@@ -164,48 +176,66 @@ const Header = () => {
   return (
     <>
       <div style={headerBorderStyles}></div>
-      <header style={headerStyles}>
-        <div 
-          style={logoContainerStyles}
-          onClick={scrollToTop}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') scrollToTop();
-          }}
-        >
-          <img 
-            src="/images/logo.svg" 
-            alt="Angry Wisp" 
-            style={logoStyles}
-          />
-          <h1 style={logoTextStyles}>Angry Wisp</h1>
+      <div style={headerWrapperStyles}>
+        <header style={headerStyles}>
+          <div style={headerContentStyles}>
+            <div 
+              style={logoContainerStyles}
+              onClick={scrollToTop}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') scrollToTop();
+              }}
+            >
+              <img 
+                src="/images/logo.svg" 
+                alt="Angry Wisp" 
+                style={logoStyles}
+              />
+              <h1 style={logoTextStyles}>Angry Wisp</h1>
+            </div>
+            <div style={rightContentStyles}>
+              <nav style={navigationStyles}>
+                <button 
+                  style={getButtonStyle('section1')} 
+                  onClick={() => handleClick('section1')}
+                >
+                  {t('nav.home')}
+                </button>
+                <button 
+                  style={getButtonStyle('section2')} 
+                  onClick={() => handleClick('section2')}
+                >
+                  {t('nav.games')}
+                </button>
+                <button 
+                  style={getButtonStyle('section3')} 
+                  onClick={() => handleClick('section3')}
+                >
+                  {t('nav.contact')}
+                </button>
+              </nav>
+            </div>
+          </div>
+        </header>
+        <div style={{ 
+          position: 'absolute',
+          top: '30px',
+          width: "100%",
+          maxWidth: "1200px",
+          padding: "0 20px",
+          boxSizing: "border-box",
+          pointerEvents: "none"
+        }}>
+          <div style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            pointerEvents: "auto"
+          }}>
+            <LanguageSelector />
+          </div>
         </div>
-        <div style={rightContentStyles}>
-          <nav style={navigationStyles}>
-            <button 
-              style={getButtonStyle('section1')} 
-              onClick={() => handleClick('section1')}
-            >
-              {t('nav.home')}
-            </button>
-            <button 
-              style={getButtonStyle('section2')} 
-              onClick={() => handleClick('section2')}
-            >
-              {t('nav.games')}
-            </button>
-            <button 
-              style={getButtonStyle('section3')} 
-              onClick={() => handleClick('section3')}
-            >
-              {t('nav.contact')}
-            </button>
-          </nav>
-        </div>
-      </header>
-      <div style={languageSelectorWrapperStyles}>
-        <LanguageSelector />
       </div>
     </>
   )
