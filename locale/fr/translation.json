@@ -69,7 +69,7 @@
       "title": "Conservation et suppression des donnees",
       "content": "Nous conservons les données aussi longtemps que nécessaire pour atteindre les objectifs décrits dans cette politique de confidentialité. Si vous souhaitez supprimer vos données, vous pouvez :",
       "options": [
-        "Nous contacter à contact@angrywisp.com pour demander la suppression des données. Nous répondrons rapidement et veillerons à ce que vos données soient supprimées de nos systèmes.",
+        "Utiliser notre formulaire de contact en bas de notre page d'accueil pour soumettre une demande de suppression de données. Nous traiterons votre demande rapidement et veillerons à ce que vos données soient supprimées de nos systèmes.",
         "Pour les données collectées par des services tiers, veuillez consulter leurs politiques de confidentialité respectives :"
       ],
       "thirdPartyOptions": [
@@ -80,7 +80,7 @@
     },
     "children": {
       "title": "Confidentialite des enfants",
-      "content": "Nos jeux ne sont pas destinés aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'IPI auprès d'enfants de moins de 13 ans. Si nous apprenons qu'un enfant nous a fourni de telles informations, nous prendrons des mesures pour les supprimer. Les parents ou tuteurs peuvent nous contacter à contact@angrywisp.com pour demander la suppression des données.",
+      "content": "Nos jeux ne sont pas destinés aux enfants de moins de 13 ans. Nous ne collectons pas sciemment d'IPI auprès d'enfants de moins de 13 ans. Si nous apprenons qu'un enfant nous a fourni de telles informations, nous prendrons des mesures pour les supprimer. Les parents ou tuteurs peuvent soumettre une demande via notre formulaire de contact en bas de notre page d'accueil pour demander la suppression des données.",
       "note": "La protection de la vie privée des enfants est de la plus haute importance pour nous, et nous encourageons les parents à surveiller les activités en ligne de leurs enfants."
     },
     "security": {
@@ -95,8 +95,8 @@
     },
     "contact": {
       "title": "Nous contacter",
-      "content": "Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité ou vos données, veuillez nous contacter à contact@angrywisp.com. Nous sommes là pour répondre à vos préoccupations et apporter des éclaircissements sur tout aspect de cette politique.",
-      "conclusion": "Merci de jouer aux jeux d'Angry Wisp ! Votre confidentialité et votre confiance sont importantes pour nous. Nous nous engageons à offrir des expériences de jeu exceptionnelles tout en protégeant vos données et en respectant vos préférences. Profitez de votre temps avec nos jeux, et n'hésitez pas à nous contacter si vous avez besoin d'aide."
+      "content": "Si vous avez des questions ou des préoccupations concernant cette politique de confidentialité ou vos données, veuillez utiliser notre formulaire de contact en bas de notre page d'accueil. Nous sommes là pour répondre à vos préoccupations et apporter des éclaircissements sur tout aspect de cette politique.",
+      "conclusion": "Merci de jouer aux jeux d'Angry Wisp ! Votre confidentialité et votre confiance sont importantes pour nous. Nous nous engageons à offrir des expériences de jeu exceptionnelles tout en protégeant vos données et en respectant vos préférences. Profitez de votre temps avec nos jeux, et n'hésitez pas à nous contacter via notre formulaire si vous avez besoin d'aide."
     }
   }
 } 

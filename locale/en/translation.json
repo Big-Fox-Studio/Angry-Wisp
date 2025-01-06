@@ -71,7 +71,7 @@
       "title": "Data Retention and Deletion",
       "content": "We retain data for as long as necessary to fulfill the purposes outlined in this Privacy Policy. If you wish to delete your data, you can:",
       "options": [
-        "Contact us at contact@angrywisp.com to request data deletion. We will respond promptly and ensure your data is removed from our systems.",
+        "Use our contact form at the bottom of our homepage to submit a data deletion request. We will process your request promptly and ensure your data is removed from our systems.",
         "For data collected by third-party services, please refer to their respective privacy policies:"
       ],
       "thirdPartyOptions": [
@@ -82,7 +82,7 @@
     },
     "children": {
       "title": "Children's Privacy",
-      "content": "Our games are not intended for children under the age of 13. We do not knowingly collect PII from children under 13. If we become aware that a child has provided us with such information, we will take steps to delete it. Parents or guardians can contact us at contact@angrywisp.com to request data deletion.",
+      "content": "Our games are not intended for children under the age of 13. We do not knowingly collect PII from children under 13. If we become aware that a child has provided us with such information, we will take steps to delete it. Parents or guardians can submit a request through our contact form at the bottom of our homepage to request data deletion.",
       "note": "Protecting the privacy of children is of utmost importance to us, and we encourage parents to monitor their children's online activities."
     },
     "security": {
@@ -97,8 +97,8 @@
     },
     "contact": {
       "title": "Contact Us",
-      "content": "If you have questions or concerns about this Privacy Policy or your data, please contact us at contact@angrywisp.com. We are here to address your concerns and provide clarity on any aspect of this policy.",
-      "conclusion": "Thank you for playing games by Angry Wisp! Your privacy and trust are important to us. We are committed to delivering exceptional gaming experiences while safeguarding your data and respecting your preferences. Enjoy your time with our games, and feel free to reach out if you need assistance."
+      "content": "If you have questions or concerns about this Privacy Policy or your data, please use our contact form at the bottom of our homepage. We are here to address your concerns and provide clarity on any aspect of this policy.",
+      "conclusion": "Thank you for playing games by Angry Wisp! Your privacy and trust are important to us. We are committed to delivering exceptional gaming experiences while safeguarding your data and respecting your preferences. Enjoy your time with our games, and feel free to reach out through our contact form if you need assistance."
     }
   }
 } 
