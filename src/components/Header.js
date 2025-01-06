@@ -45,8 +45,7 @@ const headerStyles = {
   backgroundColor: "rgba(0, 0, 20, 0.85)",
   width: "100%",
   margin: 0,
-  height: "auto", // Changé pour s'adapter au contenu
-  minHeight: `${HEADER_HEIGHT}px`,
+  height: `${HEADER_HEIGHT}px`,
   boxSizing: "border-box",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   fontFamily: "'BOLTZZ Sans', sans-serif",
@@ -59,7 +58,7 @@ const headerBorderStyles = {
   top: 0,
   left: 0,
   width: "100%",
-  height: "110px",
+  height: `${HEADER_HEIGHT + 10}px`,
   backgroundColor: "rgba(30, 30, 30, 0.75)",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   zIndex: 999,
@@ -253,6 +252,7 @@ const Header = () => {
           ...headerStyles,
           ...(isMobile && {
             padding: "10px",
+            height: `${HEADER_HEIGHT}px`,
           })
         }}>
           <div style={{
