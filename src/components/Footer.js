@@ -25,7 +25,7 @@ const footerContentStyles = {
 const linkStyles = {
   color: "#8954A8",
   textDecoration: "none",
-  fontSize: "14px",
+  fontSize: "16px",
   transition: "color 0.3s ease",
   cursor: "pointer",
   "&:hover": {
@@ -35,7 +35,7 @@ const linkStyles = {
 
 const copyrightStyles = {
   color: "#666666",
-  fontSize: "14px"
+  fontSize: "16px"
 }
 
 const Footer = () => {
