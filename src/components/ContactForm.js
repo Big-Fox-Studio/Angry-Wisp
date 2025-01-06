@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import emailjs from '@emailjs/browser';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
-// Au début du fichier, initialisez EmailJS
-emailjs.init("VOTRE_PUBLIC_KEY");
+const SPREADSHEET_ID = process.env.GATSBY_SPREADSHEET_ID;
+const SHEET_ID = process.env.GATSBY_SHEET_ID;
+const CLIENT_EMAIL = process.env.GATSBY_CLIENT_EMAIL;
+const PRIVATE_KEY = process.env.GATSBY_PRIVATE_KEY;
 
 const formStyles = {
   display: 'flex',
@@ -48,24 +50,61 @@ const ContactForm = () => {
     message: '',
   });
 
+  const appendToSheet = async (formData) => {
+    try {
+      console.log('Vérification des variables d\'environnement...');
+      if (!SPREADSHEET_ID) console.error('SPREADSHEET_ID manquant');
+      if (!SHEET_ID) console.error('SHEET_ID manquant');
+      if (!CLIENT_EMAIL) console.error('CLIENT_EMAIL manquant');
+      if (!PRIVATE_KEY) console.error('PRIVATE_KEY manquant');
+
+      console.log('Tentative de connexion à Google Sheets...');
+      const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
+      
+      await doc.useServiceAccountAuth({
+        client_email: CLIENT_EMAIL,
+        private_key: PRIVATE_KEY.replace(/\\n/g, '\n')
+      });
+      
+      await doc.loadInfo();
+      const sheet = doc.sheetsById[SHEET_ID];
+      
+      await sheet.addRow({
+        Date: new Date().toISOString(),
+        Nom: formData.name,
+        Email: formData.email,
+        Sujet: formData.subject,
+        Message: formData.message,
+      });
+      
+      console.log('Données ajoutées avec succès!');
+      return true;
+    } catch (error) {
+      console.error('Erreur détaillée:', {
+        message: error.message,
+        stack: error.stack,
+        response: error.response?.data
+      });
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
     try {
-      const formData = new FormData(e.target);
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      });
+      console.log('Début de la soumission du formulaire');
+      const success = await appendToSheet(formData);
       
-      if (response.ok) {
+      if (success) {
         alert(t('contact.success'));
         setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error('Échec de l\'envoi');
       }
     } catch (error) {
-      console.error('Error:', error);
-      alert(t('contact.error'));
+      console.error('Erreur complète:', error);
+      alert(`${t('contact.error')} - ${error.message}`);
     }
   };
 
