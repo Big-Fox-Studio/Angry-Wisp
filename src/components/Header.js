@@ -4,7 +4,7 @@ import LanguageSelector from './LanguageSelector'
 import { useTranslation } from 'gatsby-plugin-react-i18next'
 
 const HEADER_HEIGHT = 100; // correspond à la height dans headerStyles
-const MOBILE_BREAKPOINT = 1125; // Point de rupture pour le mobile
+const MOBILE_BREAKPOINT = 1025; // Point de rupture pour le mobile
 
 const headerContentStyles = {
   maxWidth: "1200px",
@@ -17,6 +17,7 @@ const headerContentStyles = {
   padding: "0 20px",
   boxSizing: "border-box",
   position: "relative",
+  gap: "20px",
   "@media (max-width: 768px)": {
     flexDirection: "column",
     gap: "5px",
@@ -72,14 +73,7 @@ const navigationStyles = {
   color: '#FFFFFF',
   marginRight: "50px",
   "@media (max-width: 768px)": {
-    gap: "5px",
-    width: "100%",
-    maxWidth: "100%",
-    justifyContent: "center",
-    flexWrap: "nowrap",
-    margin: "2px 0",
-    padding: "0 10px",
-    boxSizing: "border-box",
+    display: "none",
   }
 }
 
@@ -92,7 +86,11 @@ const rightContentStyles = {
   display: "flex",
   alignItems: "center",
   gap: "20px",
-  position: "relative"
+  position: "relative",
+  marginLeft: "30px",
+  "@media (max-width: 768px)": {
+    marginLeft: 0,
+  }
 }
 
 const logoContainerStyles = {
@@ -103,7 +101,9 @@ const logoContainerStyles = {
   userSelect: "none",
   WebkitUserSelect: "none",
   MozUserSelect: "none",
-  msUserSelect: "none"
+  msUserSelect: "none",
+  position: "relative",
+  width: "100%",
 }
 
 const logoTextStyles = {
@@ -119,14 +119,43 @@ const logoTextStyles = {
   }
 }
 
+// Mise à jour des fonctions de calcul
+const calculateGap = (isMobile, screenWidth) => {
+  if (!isMobile) return '30px'
+  // Réduction de l'espacement maximal
+  const maxWidth = MOBILE_BREAKPOINT
+  const minGap = 1  // Réduit de 2 à 1
+  const maxGap = 10 // Réduit de 15 à 10
+  const gap = Math.max(
+    minGap,
+    (screenWidth / maxWidth) * maxGap
+  )
+  return `${gap}px`
+}
+
+const calculateFontSize = (isMobile, screenWidth) => {
+  if (!isMobile) return '30px'
+  // Réduction de la taille de police
+  const maxWidth = MOBILE_BREAKPOINT
+  const minSize = 10  // Réduit de 12 à 10
+  const maxSize = 16  // Réduit de 20 à 16
+  const fontSize = Math.max(
+    minSize,
+    (screenWidth / maxWidth) * maxSize
+  )
+  return `${fontSize}px`
+}
+
 const Header = () => {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('')
   const [isMobile, setIsMobile] = useState(false)
+  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768)
 
   // Ajouter la détection de la taille de l'écran
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+    setScreenWidth(window.innerWidth)
   }, [])
 
   useEffect(() => {
@@ -175,12 +204,12 @@ const Header = () => {
     msUserSelect: 'none',
     position: 'relative',
     '@media (max-width: 768px)': {
-      fontSize: '12px',
-      padding: '2px 4px',
+      fontSize: calculateFontSize(isMobile, screenWidth),
+      padding: '2px 2px',
       transform: activeSection === sectionId ? 'scale(1.05)' : 'scale(1)',
       whiteSpace: 'nowrap',
-      letterSpacing: '0.05em',
-      minWidth: '60px',
+      letterSpacing: '0.02em',
+      minWidth: 'auto',
       textAlign: 'center',
     },
     '&:hover': {
@@ -223,79 +252,90 @@ const Header = () => {
         <header style={{
           ...headerStyles,
           ...(isMobile && {
-            padding: "20px 10px",
+            padding: "10px",
           })
         }}>
           <div style={{
             ...headerContentStyles,
             flexDirection: isMobile ? 'column' : 'row',
           }}>
-            <div 
-              style={{
-                ...logoContainerStyles,
-                justifyContent: isMobile ? 'center' : 'flex-start',
-                width: isMobile ? '100%' : 'auto',
-              }}
-              onClick={scrollToTop}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') scrollToTop();
-              }}
-            >
-              <img 
-                src="/images/logo.svg" 
-                alt="Angry Wisp" 
+            <div style={{
+              position: isMobile ? 'relative' : 'static',
+              width: '100%',
+            }}>
+              <div 
                 style={{
-                  ...logoStyles,
-                  height: isMobile ? '60px' : '80px',
+                  ...logoContainerStyles,
+                  justifyContent: isMobile ? 'center' : 'flex-start',
                 }}
-              />
-              <h1 style={{
-                ...logoTextStyles,
-                fontSize: isMobile ? '24px' : '36px',
-              }}>Angry Wisp</h1>
+                onClick={scrollToTop}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') scrollToTop();
+                }}
+              >
+                <img 
+                  src="/images/logo.svg" 
+                  alt="Angry Wisp" 
+                  style={{
+                    ...logoStyles,
+                    height: isMobile ? '60px' : '80px',
+                  }}
+                />
+                <h1 style={{
+                  ...logoTextStyles,
+                  fontSize: isMobile ? '24px' : '36px',
+                }}>Angry Wisp</h1>
+                {isMobile && (
+                  <div style={{
+                    position: 'absolute',
+                    right: 0,
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                  }}>
+                    <LanguageSelector />
+                  </div>
+                )}
+              </div>
             </div>
             <div style={{
               ...rightContentStyles,
-              flexDirection: isMobile ? 'column' : 'row',
+              flexDirection: isMobile ? 'row' : 'row',
               width: isMobile ? '100%' : 'auto',
+              justifyContent: isMobile ? 'center' : 'flex-end',
             }}>
-              <nav style={{
-                ...navigationStyles,
-                flexDirection: 'row',
-                width: '100%',
-                justifyContent: 'center',
-                padding: isMobile ? '0 5px' : '0',
-                margin: '2px 0',
-                overflow: 'hidden',
-              }}>
-                <button 
-                  style={getButtonStyle('section1')} 
-                  onClick={() => handleClick('section1')}
-                >
-                  {t('nav.home')}
-                </button>
-                <button 
-                  style={getButtonStyle('section2')} 
-                  onClick={() => handleClick('section2')}
-                >
-                  {t('nav.games')}
-                </button>
-                <button 
-                  style={getButtonStyle('section3')} 
-                  onClick={() => handleClick('section3')}
-                >
-                  {t('nav.contact')}
-                </button>
-              </nav>
-              <div style={{
-                width: isMobile ? '100%' : 'auto',
-                display: 'flex',
-                justifyContent: 'center',
-              }}>
-                <LanguageSelector />
-              </div>
+              {!isMobile && (
+                <nav style={navigationStyles}>
+                  <button 
+                    style={getButtonStyle('section1')} 
+                    onClick={() => handleClick('section1')}
+                  >
+                    {t('nav.home')}
+                  </button>
+                  <button 
+                    style={getButtonStyle('section2')} 
+                    onClick={() => handleClick('section2')}
+                  >
+                    {t('nav.games')}
+                  </button>
+                  <button 
+                    style={getButtonStyle('section3')} 
+                    onClick={() => handleClick('section3')}
+                  >
+                    {t('nav.contact')}
+                  </button>
+                </nav>
+              )}
+              {!isMobile && (
+                <div style={{
+                  width: 'auto',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}>
+                  <LanguageSelector />
+                </div>
+              )}
             </div>
           </div>
         </header>
