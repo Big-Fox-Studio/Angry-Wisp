@@ -31,9 +31,9 @@ const projectCardStyles = {
   border: `1px solid ${colors.textLight}20`,
   position: 'relative',
   height: '300px',
-  width: '600px',
+  width: 'auto',
   transition: 'opacity 0.3s ease',
-  marginLeft: '200px'
+  marginLeft: '100px'
 }
 
 const arrowStyles = {
@@ -86,13 +86,16 @@ const thumbnailStyles = {
 }
 
 const contentStyles = {
-  padding: '2rem',
+  padding: '1rem',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start',
-  height: '100%',
+  height: 'auto',
   marginLeft: '220px',
-  maxWidth: '350px'
+  maxWidth: '450px',
+  overflow: 'hidden',
+  width: '100%',
+  paddingTop: '0.5rem'
 }
 
 const projectTitleStyles = {
@@ -123,6 +126,22 @@ const containerStyles = {
   marginBottom: '4rem'
 }
 
+const tagContainerStyles = {
+  display: 'flex',
+  gap: '0.5rem',
+  marginBottom: '1rem',
+  flexWrap: 'wrap'
+}
+
+const tagStyles = {
+  color: colors.textLight,
+  fontSize: '0.75rem',
+  padding: '0.25rem 0.75rem',
+  backgroundColor: `${colors.textLight}15`,
+  borderRadius: '999px',
+  display: 'inline-block'
+}
+
 const GameCard = ({ game }) => {
   return (
     <div style={contentContainerStyles}>
@@ -143,6 +162,11 @@ const GameCard = ({ game }) => {
       }}>
         <div style={contentStyles}>
           <h3 style={projectTitleStyles}>{game.title}</h3>
+          <div style={tagContainerStyles}>
+            {game.tags?.map((tag, index) => (
+              <span key={index} style={tagStyles}>{tag}</span>
+            ))}
+          </div>
           <p style={descriptionStyles}>{game.description}</p>
         </div>
       </div>
@@ -174,9 +198,14 @@ const GameGrid = () => {
                 ...contentStyles,
                 position: 'relative',
                 zIndex: '3',
-                paddingTop: '1.5rem'
+                paddingTop: '0.25rem'
               }}>
                 <h3 style={projectTitleStyles}>{firstGame.title}</h3>
+                <div style={tagContainerStyles}>
+                  {firstGame.tags?.map((tag, index) => (
+                    <span key={index} style={tagStyles}>{tag}</span>
+                  ))}
+                </div>
                 <p style={descriptionStyles}>{firstGame.description}</p>
               </div>
             </div>
