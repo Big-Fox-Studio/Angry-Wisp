@@ -18,6 +18,7 @@ const headerContentStyles = {
   boxSizing: "border-box",
   position: "relative",
   gap: "20px",
+  overflow: "visible",
   "@media (max-width: 768px)": {
     flexDirection: "column",
     gap: "5px",
@@ -34,7 +35,8 @@ const headerWrapperStyles = {
   zIndex: 1000,
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center'
+  alignItems: 'center',
+  overflow: 'visible'
 }
 
 const headerStyles = {
@@ -51,6 +53,7 @@ const headerStyles = {
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
   backdropFilter: "blur(0px)",
+  overflow: "visible",
 }
 
 const headerBorderStyles = {
@@ -87,6 +90,7 @@ const rightContentStyles = {
   gap: "20px",
   position: "relative",
   marginLeft: "30px",
+  zIndex: 1001,
   "@media (max-width: 768px)": {
     marginLeft: 0,
   }
@@ -143,6 +147,17 @@ const calculateFontSize = (isMobile, screenWidth) => {
     (screenWidth / maxWidth) * maxSize
   )
   return `${fontSize}px`
+}
+
+const languageSelectorContainerStyles = {
+  position: 'fixed',
+  right: '20px',
+  top: '30px',
+  zIndex: 1002,
+  '@media (max-width: 768px)': {
+    right: '10px',
+    top: '20px'
+  }
 }
 
 const Header = () => {
@@ -287,16 +302,6 @@ const Header = () => {
                   ...logoTextStyles,
                   fontSize: isMobile ? '24px' : '36px',
                 }}>Angry Wisp</h1>
-                {isMobile && (
-                  <div style={{
-                    position: 'absolute',
-                    right: 0,
-                    top: '50%',
-                    transform: 'translateY(-50%)',
-                  }}>
-                    <LanguageSelector />
-                  </div>
-                )}
               </div>
             </div>
             <div style={{
@@ -327,19 +332,25 @@ const Header = () => {
                   </button>
                 </nav>
               )}
-              {!isMobile && (
-                <div style={{
-                  width: 'auto',
-                  display: 'flex',
-                  justifyContent: 'center',
-                }}>
-                  <LanguageSelector />
-                </div>
-              )}
             </div>
           </div>
         </header>
       </div>
+      {!isMobile && (
+        <div style={languageSelectorContainerStyles}>
+          <LanguageSelector />
+        </div>
+      )}
+      {isMobile && (
+        <div style={{
+          position: 'absolute',
+          right: '10px',
+          top: '20px',
+          zIndex: 1002,
+        }}>
+          <LanguageSelector />
+        </div>
+      )}
     </>
   )
 }
