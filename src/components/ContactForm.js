@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-
-const SPREADSHEET_ID = process.env.GATSBY_SPREADSHEET_ID;
-const SHEET_ID = process.env.GATSBY_SHEET_ID;
-const CLIENT_EMAIL = process.env.GATSBY_CLIENT_EMAIL;
-const PRIVATE_KEY = process.env.GATSBY_PRIVATE_KEY;
 
 const formStyles = {
   display: 'flex',
@@ -50,61 +44,26 @@ const ContactForm = () => {
     message: '',
   });
 
-  const appendToSheet = async (formData) => {
-    try {
-      console.log('Vérification des variables d\'environnement...');
-      if (!SPREADSHEET_ID) console.error('SPREADSHEET_ID manquant');
-      if (!SHEET_ID) console.error('SHEET_ID manquant');
-      if (!CLIENT_EMAIL) console.error('CLIENT_EMAIL manquant');
-      if (!PRIVATE_KEY) console.error('PRIVATE_KEY manquant');
-
-      console.log('Tentative de connexion à Google Sheets...');
-      const doc = new GoogleSpreadsheet(SPREADSHEET_ID);
-      
-      await doc.useServiceAccountAuth({
-        client_email: CLIENT_EMAIL,
-        private_key: PRIVATE_KEY.replace(/\\n/g, '\n')
-      });
-      
-      await doc.loadInfo();
-      const sheet = doc.sheetsById[SHEET_ID];
-      
-      await sheet.addRow({
-        Date: new Date().toISOString(),
-        Nom: formData.name,
-        Email: formData.email,
-        Sujet: formData.subject,
-        Message: formData.message,
-      });
-      
-      console.log('Données ajoutées avec succès!');
-      return true;
-    } catch (error) {
-      console.error('Erreur détaillée:', {
-        message: error.message,
-        stack: error.stack,
-        response: error.response?.data
-      });
-      return false;
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     try {
-      console.log('Début de la soumission du formulaire');
-      const success = await appendToSheet(formData);
+      // Remplacez l'URL ci-dessous par votre URL de déploiement Google Apps Script
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxTf0iU8IHKOim0yKxLZSHuMSedndd8Mty6vqFHYR13l4m7uhH2JSXmJH6VOF7pqCtZ/exec', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors' // Ajout important pour éviter les erreurs CORS
+      });
+
+      // Comme nous utilisons no-cors, nous ne pouvons pas vérifier response.ok
+      alert(t('contact.success'));
+      setFormData({ name: '', email: '', subject: '', message: '' });
       
-      if (success) {
-        alert(t('contact.success'));
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error('Échec de l\'envoi');
-      }
     } catch (error) {
-      console.error('Erreur complète:', error);
-      alert(`${t('contact.error')} - ${error.message}`);
+      console.error('Erreur:', error);
+      alert(t('contact.error'));
     }
   };
 
@@ -119,13 +78,7 @@ const ContactForm = () => {
     <form 
       onSubmit={handleSubmit} 
       style={formStyles}
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
     >
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="hidden" name="bot-field" />
       <input
         type="text"
         name="name"
