@@ -122,20 +122,6 @@ const logoTextStyles = {
   }
 }
 
-// Mise à jour des fonctions de calcul
-const calculateGap = (isMobile, screenWidth) => {
-  if (!isMobile) return '30px'
-  // Réduction de l'espacement maximal
-  const maxWidth = MOBILE_BREAKPOINT
-  const minGap = 1  // Réduit de 2 à 1
-  const maxGap = 10 // Réduit de 15 à 10
-  const gap = Math.max(
-    minGap,
-    (screenWidth / maxWidth) * maxGap
-  )
-  return `${gap}px`
-}
-
 const calculateFontSize = (isMobile, screenWidth) => {
   if (!isMobile) return '30px'
   // Réduction de la taille de police

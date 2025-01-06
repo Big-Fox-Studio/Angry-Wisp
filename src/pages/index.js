@@ -36,13 +36,6 @@ const sectionStyles = {
   color: colors.textLight,
   fontWeight: '100',
   fontFamily: "Estandar, sans-serif",
-  padding: '2rem 2rem',
-}
-
-// Ajout d'un style spécifique pour la section d'accueil
-const homeStyles = {
-  ...sectionStyles,
-  minHeight: '100vh',
 }
 
 // Ajout d'un style pour le conteneur de l'image hero
@@ -179,9 +172,8 @@ const IndexPage = () => {
             {section.id === 'section2' && (
               <div style={{
                 width: '100%',
-                maxWidth: '1200px',
-                margin: '0 auto',
-                padding: '0 1rem'
+                position: 'relative',
+                overflow: 'hidden'
               }}>
                 <GameGrid />
               </div>
