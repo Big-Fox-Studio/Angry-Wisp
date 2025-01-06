@@ -40,6 +40,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subjectType: 'other',
     subject: '',
     message: '',
   });
@@ -47,8 +48,8 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Remplacez l'URL ci-dessous par votre URL de déploiement Google Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbxTf0iU8IHKOim0yKxLZSHuMSedndd8Mty6vqFHYR13l4m7uhH2JSXmJH6VOF7pqCtZ/exec', {
+      // Remplacez l'URL ci-dessous par votre URL de déploiement Google Apps Script 
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwOCqSZajRguFNhW4E9s2BwAw_4gycrBr7GNjUvFPl3QG1Rs3KlGiS_GviYDlXOncSh/exec', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
@@ -97,6 +98,19 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
+      <select
+        name="subjectType"
+        style={inputStyles}
+        value={formData.subjectType}
+        onChange={handleChange}
+        required
+      >
+        <option value="bugs">{t('contact.subjectTypes.bugs')}</option>
+        <option value="publishing">{t('contact.subjectTypes.publishing')}</option>
+        <option value="request">{t('contact.subjectTypes.request')}</option>
+        <option value="privacy">{t('contact.subjectTypes.privacy')}</option>
+        <option value="other">{t('contact.subjectTypes.other')}</option>
+      </select>
       <input
         type="text"
         name="subject"

@@ -12,6 +12,13 @@
     "name": "Nom",
     "email": "Email",
     "subject": "Sujet",
+    "subjectTypes": {
+      "bugs": "Bugs",
+      "publishing": "Publication",
+      "request": "Demande",
+      "privacy": "Confidentialité",
+      "other": "Autre"
+    },
     "message": "Message",
     "send": "Envoyer",
     "success": "Message envoyé avec succès !",

@@ -17,7 +17,14 @@
     "message": "Message",
     "send": "Send",
     "success": "Message sent successfully!",
-    "error": "An error occurred while sending the message."
+    "error": "An error occurred while sending the message.",
+    "subjectTypes": {
+      "bugs": "Bugs",
+      "publishing": "Publishing",
+      "request": "Request",
+      "privacy": "Privacy",
+      "other": "Other"
+    }
   },
   "contactContent": "We want to hear from you! Especially if you are a game publisher!<br/>We are always looking for projects that requires game development studio.",
   "rights": "All rights reserved.",
