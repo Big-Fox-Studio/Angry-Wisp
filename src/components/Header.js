@@ -61,7 +61,7 @@ const navigationStyles = {
   alignItems: "center",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
-  marginRight: "60px"
+  marginRight: "50px"
 }
 
 const logoStyles = {
@@ -231,7 +231,9 @@ const Header = () => {
           <div style={{
             display: "flex",
             justifyContent: "flex-end",
-            pointerEvents: "auto"
+            paddingRight: "0",
+            pointerEvents: "auto",
+            marginRight: "0"
           }}>
             <LanguageSelector />
           </div>

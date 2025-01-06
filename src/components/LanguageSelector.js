@@ -33,10 +33,10 @@ const LanguageDropdown = styled.div`
   position: absolute;
   top: calc(100% + 4px);
   right: 0;
-  background: rgba(26, 26, 26, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   min-width: 120px;
   display: ${props => props.isOpen ? 'block' : 'none'};
   overflow: visible;
@@ -54,7 +54,7 @@ const LanguageOption = styled.button`
   cursor: pointer;
   font-size: 16px;
   user-select: none;
-  color: #ffffff;
+  color: #333333;
   
   &:first-child {
     border-radius: 8px 8px 0 0;
@@ -69,7 +69,7 @@ const LanguageOption = styled.button`
   }
   
   &:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.05);
   }
 `
 
