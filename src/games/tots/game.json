@@ -1,8 +1,14 @@
 {
   "id": "tots",
   "title": "Trials of the stars",
-  "description": "Trials of the stars is a roguelite / survivor like where you control a hero fighting through hordes of enemies, you are empowered by constellation patron's throughout the trials that you undertake. Each run grants you relics that will power up your character power and give you the chance to create unique builds that suit your playstyle !",
+  "descriptions": {
+    "en": "Trials of the stars is a roguelite / survivor like where you control a hero fighting through hordes of enemies, you are empowered by constellation patron's throughout the trials that you undertake. Each run grants you relics that will power up your character power and give you the chance to create unique builds that suit your playstyle !",
+    "fr": "Trials of the Stars est un roguelite / survivor où vous contrôlez un héros affrontant des hordes d'ennemis. Au fil des épreuves, vous recevez la bénédiction des constellations, des divinités célestes qui renforcent vos capacités. Chaque partie vous permet de collecter des reliques, augmentant la puissance de votre héros et offrant l'opportunité de créer des builds uniques adaptés à votre style de jeu !"
+  },
   "link": "https://lien-externe-ou-interne.com",
   "thumbnailPath": "/games/tots/thumbnail.png",
-  "tags": ["Rogue-like","Action", "Fantasy"]
+  "tags": {
+    "en": ["Rogue-like", "Action", "Fantasy"],
+    "fr": ["Rogue-like", "Action", "Fantaisie"]
+  }
 } 

@@ -336,21 +336,15 @@ const Header = () => {
           </div>
         </header>
       </div>
-      {!isMobile && (
-        <div style={languageSelectorContainerStyles}>
-          <LanguageSelector />
-        </div>
-      )}
-      {isMobile && (
-        <div style={{
-          position: 'absolute',
+      <div style={{
+        ...languageSelectorContainerStyles,
+        ...(isMobile && {
           right: '10px',
-          top: '20px',
-          zIndex: 1002,
-        }}>
-          <LanguageSelector />
-        </div>
-      )}
+          top: '20px'
+        })
+      }}>
+        <LanguageSelector />
+      </div>
     </>
   )
 }
