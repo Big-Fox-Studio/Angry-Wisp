@@ -146,6 +146,14 @@ const languageSelectorContainerStyles = {
   }
 }
 
+// Ajout d'une fonction pour calculer la taille du logo
+const calculateLogoSize = (screenWidth) => {
+  const minSize = 40  // Taille minimum du logo en pixels
+  const maxSize = 80  // Taille maximum du logo
+  const size = Math.max(minSize, (screenWidth / MOBILE_BREAKPOINT) * maxSize)
+  return Math.min(size, maxSize)
+}
+
 const Header = () => {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('')
@@ -252,22 +260,28 @@ const Header = () => {
         <header style={{
           ...headerStyles,
           ...(isMobile && {
-            padding: "10px",
+            padding: "5px",
             height: `${HEADER_HEIGHT}px`,
           })
         }}>
           <div style={{
             ...headerContentStyles,
             flexDirection: isMobile ? 'column' : 'row',
+            ...(isMobile && {
+              padding: "2px",
+            })
           }}>
             <div style={{
               position: isMobile ? 'relative' : 'static',
               width: '100%',
+              maxWidth: isMobile ? `calc(100% - 60px)` : '100%',
             }}>
               <div 
                 style={{
                   ...logoContainerStyles,
                   justifyContent: isMobile ? 'center' : 'flex-start',
+                  transform: isMobile ? `scale(${Math.min(screenWidth / 400, 1)})` : 'none',
+                  transformOrigin: 'center',
                 }}
                 onClick={scrollToTop}
                 role="button"
@@ -281,12 +295,12 @@ const Header = () => {
                   alt="Angry Wisp" 
                   style={{
                     ...logoStyles,
-                    height: isMobile ? '60px' : '80px',
+                    height: `${calculateLogoSize(screenWidth)}px`,
                   }}
                 />
                 <h1 style={{
                   ...logoTextStyles,
-                  fontSize: isMobile ? '24px' : '36px',
+                  fontSize: isMobile ? `${Math.max(16, screenWidth / 20)}px` : '36px',
                 }}>Angry Wisp</h1>
               </div>
             </div>
