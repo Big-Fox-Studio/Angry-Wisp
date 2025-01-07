@@ -32,7 +32,11 @@ module.exports = {
           interpolation: {
             escapeValue: false
           },
-        }
+          react: {
+            useSuspense: false
+          }
+        },
+        trailingSlash: 'always'
       }
     }
   ]

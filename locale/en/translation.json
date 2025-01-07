@@ -1,6 +1,4 @@
 {
-  "title": "Congratulations",
-  "subtitle": "— you just made a Gatsby site! 🎉🎉🎉",
   "documentation": "Documentation",
   "privacy": "Privacy Policy",
   "language": "Language",
@@ -112,11 +110,13 @@
     }
   },
   "meta": {
-    "title": "Angry Wisp - Independent Game Studio",
+    "title": "Angry Wisp",
     "description": "French independent game studio creating unique and exciting gaming experiences. Discover our projects and our vision of game development.",
     "keywords": "video games, indie studio, game development, France, Angry Wisp, indie games",
-    "privacyTitle": "Privacy Policy - Angry Wisp",
-    "privacyDescription": "Learn about our privacy policy and approach to data protection. At Angry Wisp, we are committed to protecting your privacy.",
-    "privacyKeywords": "privacy policy, data protection, privacy, video games, Angry Wisp, GDPR, personal data"
+    "privacy": {
+      "title": "Angry Wisp - Privacy Policy",
+      "description": "Learn about our privacy policy and approach to data protection. At Angry Wisp, we are committed to protecting your privacy.",
+      "keywords": "privacy policy, data protection, privacy, video games, Angry Wisp, GDPR, personal data"
+    }
   }
 } 

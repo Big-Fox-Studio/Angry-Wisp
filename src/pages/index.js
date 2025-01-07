@@ -1,12 +1,12 @@
 import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
 import { StaticImage } from "gatsby-plugin-image"
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { Head } from '../components/Head'
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
 const colors = {
@@ -227,50 +227,4 @@ export const query = graphql`
   }
 `
 
-export const Head = () => {
-  const { t, language } = useI18next()
-  
-  return (
-    <>
-      <html lang={language} />
-      <title>{t('meta.title')}</title>
-      <meta name="description" content={t('meta.description')} />
-      <meta name="keywords" content={t('meta.keywords')} />
-      
-      {/* Meta tags Open Graph */}
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content={t('meta.title')} />
-      <meta property="og:description" content={t('meta.description')} />
-      <meta property="og:site_name" content="Angry Wisp" />
-      <meta property="og:locale" content={language} />
-      <meta property="og:locale:alternate" content={language === 'fr' ? 'en' : 'fr'} />
-      
-      {/* Meta tags pour robots */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
-      
-      {/* Canonical URL */}
-      <link rel="canonical" href={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
-      
-      {/* Favicon et autres icônes */}
-      <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
-      <link rel="alternate icon" type="image/png" href="/images/logo.png" />
-      
-      {/* Préchargement des polices */}
-      <link 
-        rel="preload" 
-        href="/fonts/BOLTZZ/BOLTZZ-Sans.woff2" 
-        as="font" 
-        type="font/woff2" 
-        crossOrigin="anonymous"
-      />
-      <link 
-        rel="preload" 
-        href="/fonts/Estandar/Estandar-Regular.woff2" 
-        as="font" 
-        type="font/woff2" 
-        crossOrigin="anonymous" 
-      />
-    </>
-  )
-}
+export { Head }
