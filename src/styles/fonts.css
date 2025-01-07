@@ -1,31 +1,43 @@
 @font-face {
   font-family: 'LT Saeada';
-  src: url('/fonts/LTSaeada/LTSaeada-Regular.otf') format('opentype');
+  src: local('LT Saeada'),
+       url('/fonts/LTSaeada/LTSaeada-Regular.woff2') format('woff2'),
+       url('/fonts/LTSaeada/LTSaeada-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  font-synthesis: none;
 }
 
 @font-face {
   font-family: 'Estandar';
-  src: url('/fonts/Estandar/Estandar-Regular.ttf') format('truetype');
+  src: local('Estandar'),
+       url('/fonts/Estandar/Estandar-Regular.woff2') format('woff2'),
+       url('/fonts/Estandar/Estandar-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  font-synthesis: none;
 }
 
 @font-face {
   font-family: 'BOLTZZ Sans';
-  src: url('/fonts/BOLTZZ/BOLTZZ-Sans.ttf') format('truetype');
+  src: local('BOLTZZ Sans'),
+       url('/fonts/BOLTZZ/BOLTZZ-Sans.woff2') format('woff2'),
+       url('/fonts/BOLTZZ/BOLTZZ-Sans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  font-synthesis: none;
 }
 
 @font-face {
   font-family: 'ARCO';
-  src: url('/fonts/ARCO/ARCO.ttf') format('truetype');
+  src: local('ARCO'),
+       url('/fonts/ARCO/ARCO.woff2') format('woff2'),
+       url('/fonts/ARCO/ARCO.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+  font-synthesis: none;
 }

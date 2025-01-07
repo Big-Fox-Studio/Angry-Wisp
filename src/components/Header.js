@@ -146,30 +146,38 @@ const languageSelectorContainerStyles = {
   }
 }
 
-// Ajout d'une fonction pour calculer la taille du logo
-const calculateLogoSize = (screenWidth) => {
-  const minSize = 40  // Taille minimum du logo en pixels
-  const maxSize = 80  // Taille maximum du logo
-  const size = Math.max(minSize, (screenWidth / MOBILE_BREAKPOINT) * maxSize)
-  return Math.min(size, maxSize)
+// Modifiez la fonction calculateLogoSize pour avoir une valeur par défaut
+const calculateLogoSize = (screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024) => {
+  const minSize = 40;
+  const maxSize = 80;
+  const size = Math.max(minSize, (screenWidth / MOBILE_BREAKPOINT) * maxSize);
+  return Math.min(size, maxSize);
 }
 
 const Header = () => {
   const { t } = useTranslation()
   const [activeSection, setActiveSection] = useState('')
   const [isMobile, setIsMobile] = useState(false)
-  const [screenWidth, setScreenWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 768)
+  const [screenWidth, setScreenWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 1024
+  )
+  const [logoSize, setLogoSize] = useState(calculateLogoSize())
 
-  // Ajouter la détection de la taille de l'écran
+  // Mise à jour de checkMobile pour inclure le calcul de la taille du logo
   const checkMobile = useCallback(() => {
-    setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
-    setScreenWidth(window.innerWidth)
+    if (typeof window !== 'undefined') {
+      const currentWidth = window.innerWidth;
+      setIsMobile(currentWidth <= MOBILE_BREAKPOINT);
+      setScreenWidth(currentWidth);
+      setLogoSize(calculateLogoSize(currentWidth));
+    }
   }, [])
 
+  // Effet pour initialiser et mettre à jour les dimensions
   useEffect(() => {
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, [checkMobile])
 
   useEffect(() => {
@@ -295,8 +303,12 @@ const Header = () => {
                   alt="Angry Wisp" 
                   style={{
                     ...logoStyles,
-                    height: `${calculateLogoSize(screenWidth)}px`,
+                    height: `${logoSize}px`,
+                    width: `${logoSize}px`,
+                    aspectRatio: '1/1',
                   }}
+                  width={logoSize}
+                  height={logoSize}
                 />
                 <h1 style={{
                   ...logoTextStyles,

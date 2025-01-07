@@ -119,6 +119,9 @@ const IndexPage = () => {
           quality={90}
           placeholder="blurred"
           loading="eager"
+          width={1920}
+          height={1080}
+          breakpoints={[750, 1080, 1366, 1920]}
         />
       </div>
 
@@ -227,6 +230,22 @@ export const Head = () => (
   <>
     <title>Angry Wisp</title>
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
-    <link rel="alternate icon" type="image/png" href="/images/logo.png" />  {/* Fallback pour les navigateurs plus anciens */}
+    <link rel="alternate icon" type="image/png" href="/images/logo.png" />
+    
+    {/* Préchargement des polices en WOFF2 */}
+    <link 
+      rel="preload" 
+      href="/fonts/BOLTZZ/BOLTZZ-Sans.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossOrigin="anonymous" 
+    />
+    <link 
+      rel="preload" 
+      href="/fonts/Estandar/Estandar-Regular.woff2" 
+      as="font" 
+      type="font/woff2" 
+      crossOrigin="anonymous" 
+    />
   </>
 )
