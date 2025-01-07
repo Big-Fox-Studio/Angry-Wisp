@@ -300,7 +300,7 @@ const Header = () => {
               >
                 <img 
                   src="/images/logo.svg" 
-                  alt="Angry Wisp" 
+                  alt=""
                   style={{
                     ...logoStyles,
                     height: `${logoSize}px`,
@@ -310,10 +310,7 @@ const Header = () => {
                   width={logoSize}
                   height={logoSize}
                 />
-                <h1 style={{
-                  ...logoTextStyles,
-                  fontSize: isMobile ? `${Math.max(16, screenWidth / 20)}px` : '36px',
-                }}>Angry Wisp</h1>
+                <h1 style={logoTextStyles}>Angry Wisp</h1>
               </div>
             </div>
             <div style={{

@@ -18,6 +18,7 @@
     "send": "Send",
     "success": "Message sent successfully!",
     "error": "An error occurred while sending the message.",
+    "subjectType": "Subject type",
     "subjectTypes": {
       "bugs": "Bugs",
       "publishing": "Publishing",

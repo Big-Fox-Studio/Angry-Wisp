@@ -35,6 +35,35 @@ const buttonStyles = {
   },
 };
 
+const selectGroupStyles = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+  width: '100%',
+}
+
+const selectLabelStyles = {
+  flexShrink: 0,
+  minWidth: '120px',
+  color: '#ffffff',
+  fontSize: '1rem',
+  fontFamily: "'Estandar', sans-serif",
+  fontWeight: '500',
+}
+
+const selectStyles = {
+  ...inputStyles,
+  flex: 1,
+  backgroundColor: '#ffffff',
+  color: '#112240',
+  border: '1px solid #8954A8',
+  '&:focus': {
+    outline: 'none',
+    borderColor: '#9B6BC3',
+    boxShadow: '0 0 0 2px rgba(137, 84, 168, 0.2)',
+  }
+}
+
 const ContactForm = () => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
@@ -98,19 +127,25 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <select
-        name="subjectType"
-        style={inputStyles}
-        value={formData.subjectType}
-        onChange={handleChange}
-        required
-      >
-        <option value="bugs">{t('contact.subjectTypes.bugs')}</option>
-        <option value="publishing">{t('contact.subjectTypes.publishing')}</option>
-        <option value="request">{t('contact.subjectTypes.request')}</option>
-        <option value="privacy">{t('contact.subjectTypes.privacy')}</option>
-        <option value="other">{t('contact.subjectTypes.other')}</option>
-      </select>
+      <div style={selectGroupStyles}>
+        <label htmlFor="subjectType" style={selectLabelStyles}>
+          {t('contact.subjectType')}
+        </label>
+        <select
+          id="subjectType"
+          name="subjectType"
+          style={selectStyles}
+          value={formData.subjectType}
+          onChange={handleChange}
+          required
+        >
+          <option value="bugs">{t('contact.subjectTypes.bugs')}</option>
+          <option value="publishing">{t('contact.subjectTypes.publishing')}</option>
+          <option value="request">{t('contact.subjectTypes.request')}</option>
+          <option value="privacy">{t('contact.subjectTypes.privacy')}</option>
+          <option value="other">{t('contact.subjectTypes.other')}</option>
+        </select>
+      </div>
       <input
         type="text"
         name="subject"

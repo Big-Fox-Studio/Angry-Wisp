@@ -41,6 +41,8 @@ const LanguageDropdown = styled.div`
   display: ${props => props.isOpen ? 'block' : 'none'};
   overflow: visible;
   z-index: 1002;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 `
 
 const LanguageOption = styled.button`
@@ -79,6 +81,8 @@ const FlagImage = styled.img`
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid #eaeaea;
+  loading="lazy";
+  decoding="async";
 `
 
 const FLAGS = {

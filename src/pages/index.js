@@ -6,6 +6,7 @@ import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
 import { StaticImage } from "gatsby-plugin-image"
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
 const colors = {
@@ -116,12 +117,12 @@ const IndexPage = () => {
           alt="Angry Wisp Studio"
           style={heroImageStyle}
           formats={["auto", "webp", "avif"]}
-          quality={90}
-          placeholder="blurred"
+          quality={75}
+          placeholder="dominantColor"
           loading="eager"
           width={1920}
           height={1080}
-          breakpoints={[750, 1080, 1366, 1920]}
+          breakpoints={[375, 750, 1080, 1366, 1920]}
         />
       </div>
 
@@ -226,26 +227,48 @@ export const query = graphql`
   }
 `
 
-export const Head = () => (
-  <>
-    <title>Angry Wisp</title>
-    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
-    <link rel="alternate icon" type="image/png" href="/images/logo.png" />
-    
-    {/* Préchargement des polices en WOFF2 */}
-    <link 
-      rel="preload" 
-      href="/fonts/BOLTZZ/BOLTZZ-Sans.woff2" 
-      as="font" 
-      type="font/woff2" 
-      crossOrigin="anonymous" 
-    />
-    <link 
-      rel="preload" 
-      href="/fonts/Estandar/Estandar-Regular.woff2" 
-      as="font" 
-      type="font/woff2" 
-      crossOrigin="anonymous" 
-    />
-  </>
-)
+export const Head = () => {
+  const { t, language } = useI18next()
+  
+  return (
+    <>
+      <html lang={language} />
+      <title>Angry Wisp</title>
+      <meta 
+        name="description" 
+        content={t('studioContent').replace(/<br\/>/g, ' ')} 
+      />
+      <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+      <link rel="alternate icon" type="image/png" href="/images/logo.png" />
+      
+      {/* Préchargement des polices en WOFF2 */}
+      <link 
+        rel="preload" 
+        href="/fonts/BOLTZZ/BOLTZZ-Sans.woff2" 
+        as="font" 
+        type="font/woff2" 
+        crossOrigin="anonymous"
+        fetchpriority="high"
+      />
+      <link 
+        rel="preload" 
+        href="/fonts/Estandar/Estandar-Regular.woff2" 
+        as="font" 
+        type="font/woff2" 
+        crossOrigin="anonymous" 
+      />
+      
+      {/* Ajout du preconnect pour les ressources externes */}
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      
+      {/* Ajout du preload pour l'image hero */}
+      <link 
+        rel="preload"
+        href="../images/topBanner.png"
+        as="image"
+        type="image/png"
+      />
+    </>
+  )
+}

@@ -12,6 +12,7 @@
     "name": "Nom",
     "email": "Email",
     "subject": "Sujet",
+    "subjectType": "Type de sujet",
     "subjectTypes": {
       "bugs": "Bugs",
       "publishing": "Publication",

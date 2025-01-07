@@ -23,18 +23,18 @@ const footerContentStyles = {
 }
 
 const linkStyles = {
-  color: "#8954A8",
+  color: "#B088D8",
   textDecoration: "none",
   fontSize: "16px",
   transition: "color 0.3s ease",
   cursor: "pointer",
   "&:hover": {
-    color: "#9B6BC3"
+    color: "#C9A6F0"
   }
 }
 
 const copyrightStyles = {
-  color: "#666666",
+  color: "#9FA6B2",
   fontSize: "16px"
 }
 
