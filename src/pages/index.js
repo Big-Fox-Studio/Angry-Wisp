@@ -233,22 +233,36 @@ export const Head = () => {
   return (
     <>
       <html lang={language} />
-      <title>Angry Wisp</title>
-      <meta 
-        name="description" 
-        content={t('studioContent').replace(/<br\/>/g, ' ')} 
-      />
+      <title>{t('meta.title')}</title>
+      <meta name="description" content={t('meta.description')} />
+      <meta name="keywords" content={t('meta.keywords')} />
+      
+      {/* Meta tags Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={t('meta.title')} />
+      <meta property="og:description" content={t('meta.description')} />
+      <meta property="og:site_name" content="Angry Wisp" />
+      <meta property="og:locale" content={language} />
+      <meta property="og:locale:alternate" content={language === 'fr' ? 'en' : 'fr'} />
+      
+      {/* Meta tags pour robots */}
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
+      
+      {/* Favicon et autres icônes */}
       <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
       <link rel="alternate icon" type="image/png" href="/images/logo.png" />
       
-      {/* Préchargement des polices en WOFF2 */}
+      {/* Préchargement des polices */}
       <link 
         rel="preload" 
         href="/fonts/BOLTZZ/BOLTZZ-Sans.woff2" 
         as="font" 
         type="font/woff2" 
         crossOrigin="anonymous"
-        fetchpriority="high"
       />
       <link 
         rel="preload" 
@@ -256,18 +270,6 @@ export const Head = () => {
         as="font" 
         type="font/woff2" 
         crossOrigin="anonymous" 
-      />
-      
-      {/* Ajout du preconnect pour les ressources externes */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      
-      {/* Ajout du preload pour l'image hero */}
-      <link 
-        rel="preload"
-        href="../images/topBanner.png"
-        as="image"
-        type="image/png"
       />
     </>
   )

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useTranslation } from 'gatsby-plugin-react-i18next'
+import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import '../styles/fonts.css'
 import LanguageSelector from '../components/LanguageSelector'
@@ -189,7 +189,33 @@ const PrivacyPage = () => {
 
 export default PrivacyPage
 
-export const Head = () => <title>Privacy Policy</title>
+export const Head = () => {
+  const { t, language } = useI18next()
+  
+  return (
+    <>
+      <html lang={language} />
+      <title>{t('meta.privacyTitle')}</title>
+      <meta name="description" content={t('meta.privacyDescription')} />
+      <meta name="keywords" content={t('meta.privacyKeywords')} />
+      
+      {/* Meta tags Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={t('meta.privacyTitle')} />
+      <meta property="og:description" content={t('meta.privacyDescription')} />
+      <meta property="og:site_name" content="Angry Wisp" />
+      <meta property="og:locale" content={language} />
+      <meta property="og:locale:alternate" content={language === 'fr' ? 'en' : 'fr'} />
+      
+      {/* Meta tags pour robots */}
+      <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={`https://angrywisp.com/privacy${language === 'en' ? '' : '/fr'}`} />
+    </>
+  )
+}
 
 export const query = graphql`
   query ($language: String!) {

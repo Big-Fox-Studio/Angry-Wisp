@@ -106,5 +106,13 @@
       "content": "Si vous avez des questions sur nos pratiques de confidentialité ou sur la collecte de données de nos jeux, veuillez utiliser notre formulaire de contact ci-dessous.",
       "conclusion": "Merci de votre intérêt pour Angry Wisp ! Nous nous engageons à préserver votre vie privée tout en offrant d'excellentes expériences de jeu. Notre site web ne collecte aucune donnée personnelle, et nos jeux ne collectent que des informations de jeu anonymes pour améliorer votre expérience de jeu."
     }
+  },
+  "meta": {
+    "title": "Angry Wisp - Studio de Jeux Vidéo Indépendant",
+    "description": "Studio de jeux vidéo indépendant français créant des expériences de jeu uniques et passionnantes. Découvrez nos projets et notre vision du développement de jeux.",
+    "keywords": "jeux vidéo, studio indépendant, développement de jeux, France, Angry Wisp, jeux indie",
+    "privacyTitle": "Politique de Confidentialité - Angry Wisp",
+    "privacyDescription": "Découvrez notre politique de confidentialité et notre approche concernant la protection des données. Chez Angry Wisp, nous nous engageons à protéger votre vie privée.",
+    "privacyKeywords": "politique de confidentialité, protection des données, confidentialité, jeux vidéo, Angry Wisp, RGPD, données personnelles"
   }
 } 

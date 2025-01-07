@@ -108,5 +108,13 @@
       "content": "If you have any questions about our privacy practices or our games' data collection, please use our contact form below.",
       "conclusion": "Thank you for your interest in Angry Wisp! We are committed to maintaining your privacy while providing excellent gaming experiences. Our website collects no personal data, and our games only collect anonymous gameplay information to improve your gaming experience."
     }
+  },
+  "meta": {
+    "title": "Angry Wisp - Independent Game Studio",
+    "description": "French independent game studio creating unique and exciting gaming experiences. Discover our projects and our vision of game development.",
+    "keywords": "video games, indie studio, game development, France, Angry Wisp, indie games",
+    "privacyTitle": "Privacy Policy - Angry Wisp",
+    "privacyDescription": "Learn about our privacy policy and approach to data protection. At Angry Wisp, we are committed to protecting your privacy.",
+    "privacyKeywords": "privacy policy, data protection, privacy, video games, Angry Wisp, GDPR, personal data"
   }
 } 

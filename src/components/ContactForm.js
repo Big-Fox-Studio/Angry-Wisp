@@ -78,7 +78,7 @@ const ContactForm = () => {
     e.preventDefault();
     try {
       // Remplacez l'URL ci-dessous par votre URL de déploiement Google Apps Script 
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwOCqSZajRguFNhW4E9s2BwAw_4gycrBr7GNjUvFPl3QG1Rs3KlGiS_GviYDlXOncSh/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwOCqSZajRguFNhW4E9s2BwAw_4gycrBr7GNjUvFPl3QG1Rs3KlGiS_GviYDlXOncSh/exec', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {
