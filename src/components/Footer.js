@@ -43,20 +43,24 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer style={footerStyles}>
+    <footer 
+      style={footerStyles} 
+      role="contentinfo"
+      aria-label={t('nav.footer')}
+    >
       <div style={footerContentStyles}>
-        <div>
+        <nav aria-label={t('nav.legal')}>
           <a 
             href="/privacy" 
             style={linkStyles}
-            target="_blank"
-            rel="noopener noreferrer"
+            aria-label={t('privacy')}
+            rel="nofollow"
           >
             {t('privacy')}
           </a>
-        </div>
+        </nav>
         <div style={copyrightStyles}>
-          © {currentYear} Angry Wisp. {t('rights')}
+          <small>© {currentYear} Angry Wisp. {t('rights')}</small>
         </div>
       </div>
     </footer>
