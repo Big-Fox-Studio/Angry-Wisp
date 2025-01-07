@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
+import { StaticImage } from "gatsby-plugin-image"
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
 const colors = {
@@ -110,10 +111,14 @@ const IndexPage = () => {
   return (
     <Layout>
       <div style={heroContainerStyle}>
-        <img 
-          src="/images/topBanner.png" // Assurez-vous d'ajouter votre image dans le dossier public/images/
+        <StaticImage 
+          src="../images/topBanner.png"
           alt="Angry Wisp Studio"
           style={heroImageStyle}
+          formats={["auto", "webp", "avif"]}
+          quality={90}
+          placeholder="blurred"
+          loading="eager"
         />
       </div>
 
