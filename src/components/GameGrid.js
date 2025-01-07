@@ -2,23 +2,22 @@ import React from 'react'
 import { useGames } from '../utils/gameLoader'
 import { useI18next } from 'gatsby-plugin-react-i18next'
 import '../styles/GameGrid.css'
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const GameCard = ({ game }) => {
   const { language } = useI18next()
   
   if (!game) return null;
 
-  // Récupérer la description dans la langue courante ou utiliser l'anglais par défaut
   const description = game.descriptions?.[language] || game.descriptions?.['en']
-  
-  // Récupérer les tags dans la langue courante ou utiliser l'anglais par défaut
   const tags = game.tags?.[language] || game.tags?.['en']
+  const image = getImage(game.thumbnailImage)
 
   return (
     <div className="game-card">
-      {game.thumbnailPath && (
-        <img 
-          src={game.thumbnailPath} 
+      {image && (
+        <GatsbyImage
+          image={image}
           alt={game.title || 'Game thumbnail'}
           className="game-thumbnail"
         />
@@ -41,8 +40,8 @@ const GameCard = ({ game }) => {
 const GameGrid = () => {
   const games = useGames()
   
-  if (games.length === 0) {
-    return null
+  if (!games || games.length === 0) {
+    return <div>Aucun jeu trouvé</div>
   }
 
   return (
