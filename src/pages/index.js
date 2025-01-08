@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
+import '../styles/global.css'
 import { StaticImage } from "gatsby-plugin-image"
 
 // Définir Head directement dans le fichier
@@ -99,26 +100,6 @@ const sections = [
 const IndexContent = () => {
   const { t } = useTranslation()
   
-  React.useEffect(() => {
-    // Applique les styles globaux au body et html
-    document.body.style.margin = "0"
-    document.body.style.padding = "0"
-    document.body.style.backgroundColor = "#11151D"
-    document.documentElement.style.margin = "0"
-    document.documentElement.style.padding = "0"
-    document.documentElement.style.backgroundColor = "#11151D"
-    
-    // Nettoyage lors du démontage du composant
-    return () => {
-      document.body.style.margin = ""
-      document.body.style.padding = ""
-      document.body.style.backgroundColor = ""
-      document.documentElement.style.margin = ""
-      document.documentElement.style.padding = ""
-      document.documentElement.style.backgroundColor = ""
-    }
-  }, [])
-
   return (
     <Layout>
       <div style={heroContainerStyle}>
