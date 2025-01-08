@@ -18,13 +18,7 @@ const headerContentStyles = {
   boxSizing: "border-box",
   position: "relative",
   gap: "20px",
-  overflow: "visible",
-  "@media (max-width: 768px)": {
-    flexDirection: "column",
-    gap: "5px",
-    padding: "5px",
-    width: "100%",
-  }
+  overflow: "visible"
 }
 
 const headerWrapperStyles = {
@@ -73,10 +67,7 @@ const navigationStyles = {
   alignItems: "center",
   fontFamily: "'BOLTZZ Sans', sans-serif",
   color: '#FFFFFF',
-  marginRight: "50px",
-  "@media (max-width: 768px)": {
-    display: "none",
-  }
+  marginRight: "50px"
 }
 
 const logoStyles = {
@@ -90,10 +81,7 @@ const rightContentStyles = {
   gap: "20px",
   position: "relative",
   marginLeft: "30px",
-  zIndex: 1001,
-  "@media (max-width: 768px)": {
-    marginLeft: 0,
-  }
+  zIndex: 1001
 }
 
 const logoContainerStyles = {
@@ -106,20 +94,7 @@ const logoContainerStyles = {
   MozUserSelect: "none",
   msUserSelect: "none",
   position: "relative",
-  width: "100%",
-}
-
-const logoTextStyles = {
-  fontFamily: "'ARCO', sans-serif",
-  fontSize: "36px",
-  color: "#FFFFFF",
-  margin: 0,
-  letterSpacing: "2px",
-  transform: "scaleX(1.1)",
-  transformOrigin: "left",
-  "@media (max-width: 768px)": {
-    fontSize: "24px",
-  }
+  width: "100%"
 }
 
 const calculateFontSize = (isMobile, screenWidth) => {
@@ -139,11 +114,7 @@ const languageSelectorContainerStyles = {
   position: 'fixed',
   right: '20px',
   top: '30px',
-  zIndex: 1002,
-  '@media (max-width: 768px)': {
-    right: '10px',
-    top: '20px'
-  }
+  zIndex: 1002
 }
 
 const calculateLogoSize = (screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024) => {
@@ -163,6 +134,16 @@ const Header = () => {
     typeof window !== 'undefined' ? window.innerWidth : 1024
   )
   const [logoSize, setLogoSize] = useState(calculateLogoSize())
+
+  const logoTextStyles = {
+    fontFamily: "'ARCO', sans-serif",
+    fontSize: "36px",
+    color: "#FFFFFF",
+    marginRight: isMobile ? "45px" : 0,
+    letterSpacing: "2px",
+    transform: "scaleX(1.1)",
+    transformOrigin: "left"
+  }
 
   // Mise à jour de checkMobile pour inclure le calcul de la taille du logo
   const checkMobile = useCallback(() => {
@@ -220,15 +201,6 @@ const Header = () => {
     MozUserSelect: 'none',
     msUserSelect: 'none',
     position: 'relative',
-    '@media (max-width: 768px)': {
-      fontSize: calculateFontSize(isMobile, screenWidth),
-      padding: '2px 2px',
-      transform: activeSection === sectionId ? 'scale(1.05)' : 'scale(1)',
-      whiteSpace: 'nowrap',
-      letterSpacing: '0.02em',
-      minWidth: 'auto',
-      textAlign: 'center',
-    },
     '&:hover': {
       color: '#1a1a1a'
     },
@@ -283,7 +255,7 @@ const Header = () => {
             <div style={{
               position: isMobile ? 'relative' : 'static',
               width: '100%',
-              maxWidth: isMobile ? `calc(100% - 60px)` : '100%',
+              maxWidth: isMobile ? `calc(100% - 80px)` : '100%',
             }}>
               <div 
                 style={{
