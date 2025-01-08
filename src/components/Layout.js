@@ -2,6 +2,7 @@ import * as React from "react"
 import Header from './Header'
 import Footer from './Footer'
 import SocialMediaBar from './SocialMediaBar'
+import { useI18next } from 'gatsby-plugin-react-i18next'
 
 const layoutStyles = {
   display: "flex",
@@ -16,6 +17,13 @@ const mainStyles = {
 }
 
 const Layout = ({ children }) => {
+  const { language } = useI18next()
+
+  React.useEffect(() => {
+    // Définir l'attribut lang sur l'élément html
+    document.documentElement.lang = language
+  }, [language])
+
   return (
     <div style={layoutStyles}>
       <Header />
