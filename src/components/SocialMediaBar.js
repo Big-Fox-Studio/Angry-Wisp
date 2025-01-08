@@ -1,50 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { StaticImage } from "gatsby-plugin-image"
 
-const socialBarStyles = {
+const MOBILE_BREAKPOINT = 800; // Même breakpoint que le header
+
+const getBarStyles = (isMobile) => ({
   position: 'fixed',
-  bottom: '15px',
-  left: '50%',
-  transform: 'translateX(-50%)',
+  ...(isMobile ? {
+    right: '15px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+  } : {
+    bottom: '15px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+  }),
   display: 'flex',
-  gap: '25px',
   zIndex: 1000,
   backgroundColor: 'rgba(255, 255, 255, 1)',
   backdropFilter: 'blur(5px)',
-  padding: '18px',
+  padding: isMobile ? '12px' : '18px',
   borderRadius: '15px',
   boxShadow: '0 3px 12px rgba(0, 0, 0, 0.15)',
-}
+})
 
-const toggleButtonStyles = {
-  position: 'absolute',
-  left: '-30px',
-  top: '50%',
-  transform: 'translateY(-50%)',
-  width: '30px',
-  height: '60px',
-  backgroundColor: 'rgba(255, 255, 255, 1)',
-  backdropFilter: 'blur(5px)',
-  border: 'none',
-  borderRadius: '10px 0 0 10px',
-  cursor: 'pointer',
-  boxShadow: '-2px 0 4px rgba(0, 0, 0, 0.1)',
+const getContainerStyles = (isMobile) => ({
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  zIndex: 1001,
-}
+  flexDirection: isMobile ? 'column' : 'row',
+  gap: isMobile ? '15px' : '25px',
+})
 
-const iconStyles = {
-  width: '35px',
-  height: '35px',
+const getIconStyles = (isMobile) => ({
+  width: isMobile ? '28px' : '35px',
+  height: isMobile ? '28px' : '35px',
   transition: 'transform 0.2s ease',
   cursor: 'pointer',
   filter: 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15))',
-}
+})
 
 const SocialMediaBar = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkMobile = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    }
+  }, []);
+
+  useEffect(() => {
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, [checkMobile]);
 
   const handleHover = (e) => {
     e.currentTarget.children[0].style.transform = 'scale(1.2)';
@@ -55,8 +61,24 @@ const SocialMediaBar = () => {
   };
 
   return (
-    <div style={socialBarStyles}>
-      <div style={{ display: 'flex', gap: '15px' }}>
+    <div style={getBarStyles(isMobile)}>
+      <div style={getContainerStyles(isMobile)}>
+        <a 
+          href="https://x.com/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          onMouseOver={handleHover}
+          onMouseOut={handleLeave}
+          onFocus={handleHover}
+          onBlur={handleLeave}
+        >
+          <StaticImage 
+            src="../images/social/xIcon.svg"
+            alt="X"
+            style={getIconStyles(isMobile)}
+            className="social-icon"
+          />
+        </a>
         <a 
           href="https://store.steampowered.com/" 
           target="_blank" 
@@ -69,7 +91,7 @@ const SocialMediaBar = () => {
           <StaticImage 
             src="../images/social/steamIcon.svg"
             alt="Steam"
-            style={iconStyles}
+            style={getIconStyles(isMobile)}
             className="social-icon"
           />
         </a>
@@ -85,7 +107,7 @@ const SocialMediaBar = () => {
           <StaticImage 
             src="../images/social/youtubeIcon.svg"
             alt="YouTube"
-            style={iconStyles}
+            style={getIconStyles(isMobile)}
             className="social-icon"
           />
         </a>
@@ -101,23 +123,7 @@ const SocialMediaBar = () => {
           <StaticImage 
             src="../images/social/discordIcon.svg"
             alt="Discord"
-            style={iconStyles}
-            className="social-icon"
-          />
-        </a>
-        <a 
-          href="https://x.com/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          onMouseOver={handleHover}
-          onMouseOut={handleLeave}
-          onFocus={handleHover}
-          onBlur={handleLeave}
-        >
-          <StaticImage 
-            src="../images/social/xIcon.svg"
-            alt="X"
-            style={iconStyles}
+            style={getIconStyles(isMobile)}
             className="social-icon"
           />
         </a>
