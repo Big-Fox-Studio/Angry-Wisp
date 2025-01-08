@@ -60,17 +60,16 @@
   .game-card {
     height: auto;
     flex-direction: column;
-    width: min(400px, 100%);
+    width: 100%;
+    max-width: 500px;
     margin: 0 auto;
-    align-items: center;
   }
 
   .game-thumbnail {
     width: 100%;
-    height: min(400px, 100vw);
-    margin: 0;
-    object-fit: cover;
     aspect-ratio: 1;
+    height: auto;
+    object-fit: cover;
   }
 
   .game-content {
@@ -92,12 +91,6 @@
   }
 }
 
-@media (max-width: 400px) {
-  .game-card {
-    width: 100%;
-  }
-}
-
 .game-grid-container {
   width: 100%;
   margin-right: calc(-1 * (100vw - 100%));
@@ -113,7 +106,7 @@
 
 .game-grid-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 2rem;
   width: 100%;
 } 

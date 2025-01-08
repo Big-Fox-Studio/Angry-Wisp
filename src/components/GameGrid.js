@@ -15,13 +15,15 @@ const GameCard = ({ game }) => {
 
   return (
     <div className="game-card">
-      {image && (
-        <GatsbyImage
-          image={image}
-          alt={game.title || 'Game thumbnail'}
-          className="game-thumbnail"
-        />
-      )}
+      <div className="game-thumbnail-wrapper">
+        {image && (
+          <GatsbyImage
+            image={image}
+            alt={game.title || 'Game thumbnail'}
+            className="game-thumbnail"
+          />
+        )}
+      </div>
       <div className="game-content">
         <h3 className="game-title">{game.title}</h3>
         {tags && tags.length > 0 && (
