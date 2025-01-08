@@ -6,7 +6,7 @@ const formStyles = {
   flexDirection: 'column',
   gap: '1rem',
   maxWidth: '500px',
-  width: '100%',
+  width: 'calc(100% - 40px)',
   margin: '0 auto',
 };
 

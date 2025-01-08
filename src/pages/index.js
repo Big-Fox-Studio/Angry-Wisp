@@ -190,6 +190,7 @@ const IndexContent = () => {
                     lineHeight: '1.6',
                     fontSize: '1.2rem',
                     fontFamily: "Estandar, sans-serif",
+                    padding: '0 20px'
                   }}
                   dangerouslySetInnerHTML={{ __html: t('contactContent') }}
                 />
