@@ -56,13 +56,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
+        output: '/sitemap',
         query: `
           {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
             allSitePage {
               nodes {
                 path
@@ -70,15 +66,18 @@ module.exports = {
             }
           }
         `,
-        resolveSiteUrl: ({site}) => site.siteMetadata.siteUrl,
-        serialize: ({site, allSitePage}) => 
-          allSitePage.nodes.map(node => {
-            return {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `weekly`,
-              priority: node.path === '/' ? 1.0 : 0.7,
-            }
+        resolvePages: ({allSitePage: {nodes: allPages}}) => {
+          return allPages.map(page => {
+            return { ...page }
           })
+        },
+        serialize: ({path}) => {
+          return {
+            url: path,
+            changefreq: `weekly`,
+            priority: path === '/' ? 1.0 : 0.7,
+          }
+        }
       }
     },
     {
