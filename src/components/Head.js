@@ -38,13 +38,28 @@ export const Head = () => {
       <title>{meta.title || 'Angry Wisp'}</title>
       <meta name="description" content={meta.description || ''} />
       <meta name="keywords" content={meta.keywords || ''} />
+      
+      {/* Open Graph */}
       <meta property="og:title" content={meta.title || 'Angry Wisp'} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={meta.description || ''} />
       <meta property="og:site_name" content="Angry Wisp" />
       <meta property="og:locale" content={language} />
+      <meta property="og:image" content="https://angrywisp.com/images/og-image.jpg" />
+      <meta property="og:url" content={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
+      
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@angrywisp" />
+      <meta name="twitter:title" content={meta.title || 'Angry Wisp'} />
+      <meta name="twitter:description" content={meta.description || ''} />
+      <meta name="twitter:image" content="https://angrywisp.com/images/og-image.jpg" />
+      
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
+      <link rel="alternate" hrefLang="fr" href="https://angrywisp.com/fr/" />
+      <link rel="alternate" hrefLang="en" href="https://angrywisp.com/en/" />
+      <link rel="alternate" hrefLang="x-default" href="https://angrywisp.com/" />
     </>
   )
 } 
