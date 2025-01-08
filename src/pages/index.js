@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useTranslation } from 'gatsby-plugin-react-i18next'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
@@ -86,7 +86,8 @@ const sections = [
   }
 ]
 
-const IndexPage = () => {
+// Déplacer le composant principal dans un fichier séparé
+const IndexContent = () => {
   const { t } = useTranslation()
   
   React.useEffect(() => {
@@ -212,8 +213,16 @@ const IndexPage = () => {
   )
 }
 
+// Page template qui ne fait qu'exporter le composant par défaut
+const IndexPage = () => <IndexContent />
+
+// Export par défaut du template de page
 export default IndexPage
 
+// Export nommé autorisé pour Head
+export { Head }
+
+// Export de la requête GraphQL
 export const query = graphql`
   query ($language: String!) {
     locales: allLocale(filter: {language: {eq: $language}}) {
@@ -227,5 +236,3 @@ export const query = graphql`
     }
   }
 `
-
-export { Head }

@@ -97,19 +97,6 @@ const logoContainerStyles = {
   width: "100%"
 }
 
-const calculateFontSize = (isMobile, screenWidth) => {
-  if (!isMobile) return '30px'
-  // Réduction de la taille de police
-  const maxWidth = MOBILE_BREAKPOINT
-  const minSize = 10  // Réduit de 12 à 10
-  const maxSize = 16  // Réduit de 20 à 16
-  const fontSize = Math.max(
-    minSize,
-    (screenWidth / maxWidth) * maxSize
-  )
-  return `${fontSize}px`
-}
-
 const languageSelectorContainerStyles = {
   position: 'fixed',
   right: '20px',

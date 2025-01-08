@@ -7,6 +7,7 @@ module.exports = {
     image: `/images/og-image.jpg`,
     siteLanguage: 'fr',
     ogLanguage: 'fr_FR',
+    logo: `/images/logo512x512.png`,
   },
   plugins: [
     'gatsby-plugin-styled-components',
@@ -123,6 +124,35 @@ module.exports = {
           },
         ],
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Angry Wisp`,
+        short_name: `Angry Wisp`,
+        start_url: `/`,
+        background_color: `#0A192F`,
+        theme_color: `#0A192F`,
+        display: `standalone`,
+        icon: `static/images/logo.svg`,
+        icons: [
+          {
+            src: `/images/logo192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/images/logo512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+          {
+            src: `/images/logo180x180.png`,
+            sizes: `180x180`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
   ]
 }

@@ -1,5 +1,4 @@
 import { useStaticQuery, graphql } from 'gatsby'
-import { getImage } from "gatsby-plugin-image"
 
 export const useGames = () => {
   const data = useStaticQuery(graphql`

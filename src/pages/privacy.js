@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useTranslation, useI18next } from 'gatsby-plugin-react-i18next'
+import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import '../styles/fonts.css'
 import LanguageSelector from '../components/LanguageSelector'
@@ -69,7 +69,7 @@ const languageSelectorContainerStyles = {
   zIndex: 1000
 }
 
-const PrivacyPage = () => {
+const PrivacyContent = () => {
   const { t } = useTranslation()
 
   React.useEffect(() => {
@@ -187,6 +187,8 @@ const PrivacyPage = () => {
     </main>
   )
 }
+
+const PrivacyPage = () => <PrivacyContent />
 
 export default PrivacyPage
 

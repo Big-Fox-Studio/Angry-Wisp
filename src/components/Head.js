@@ -53,6 +53,25 @@ export const Head = () => {
       <link rel="alternate" hrefLang="fr" href="https://angrywisp.com/fr/" />
       <link rel="alternate" hrefLang="en" href="https://angrywisp.com/en/" />
       <link rel="alternate" hrefLang="x-default" href="https://angrywisp.com/" />
+      
+      {/* Favicons et icônes pour différentes plateformes */}
+      <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/images/logo180x180.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/images/logo32x32.png" />
+      <link rel="icon" type="image/png" sizes="192x192" href="/images/logo192x192.png" />
+      <link rel="icon" type="image/png" sizes="512x512" href="/images/logo512x512.png" />
+      
+      {/* Schema.org markup pour les moteurs de recherche */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Angry Wisp",
+          "url": `https://angrywisp.com${language === 'en' ? '' : '/fr'}`,
+          "logo": "https://angrywisp.com/images/logo512x512.png",
+          "image": "https://angrywisp.com/images/og-image.jpg"
+        })}
+      </script>
     </>
   )
 } 
