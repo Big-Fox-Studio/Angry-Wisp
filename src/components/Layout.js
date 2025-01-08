@@ -1,6 +1,7 @@
 import * as React from "react"
 import Header from './Header'
 import Footer from './Footer'
+import SocialMediaBar from './SocialMediaBar'
 
 const layoutStyles = {
   display: "flex",
@@ -21,6 +22,7 @@ const Layout = ({ children }) => {
       <main style={mainStyles}>
         {children}
       </main>
+      <SocialMediaBar />
       <Footer />
     </div>
   )
