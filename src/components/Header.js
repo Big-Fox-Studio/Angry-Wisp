@@ -146,12 +146,13 @@ const languageSelectorContainerStyles = {
   }
 }
 
-// Modifiez la fonction calculateLogoSize pour avoir une valeur par défaut
 const calculateLogoSize = (screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024) => {
-  const minSize = 40;
+  const minSize = 80;
   const maxSize = 80;
-  const size = Math.max(minSize, (screenWidth / MOBILE_BREAKPOINT) * maxSize);
-  return Math.min(size, maxSize);
+  const baseSize = (screenWidth / MOBILE_BREAKPOINT) * maxSize;
+  
+  // Assure que la taille est entre minSize et maxSize
+  return Math.min(Math.max(baseSize, minSize), maxSize);
 }
 
 const Header = () => {
@@ -288,7 +289,7 @@ const Header = () => {
                 style={{
                   ...logoContainerStyles,
                   justifyContent: isMobile ? 'center' : 'flex-start',
-                  transform: isMobile ? `scale(${Math.min(screenWidth / 400, 1)})` : 'none',
+                  transform: isMobile ? `scale(${Math.max(Math.min(screenWidth / 400, 1), 0.5)})` : 'none',
                   transformOrigin: 'center',
                 }}
                 onClick={scrollToTop}
