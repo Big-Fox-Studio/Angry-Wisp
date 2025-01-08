@@ -148,26 +148,46 @@ const SocialMediaBar = () => {
         </button>
       )}
       <div style={getContainerStyles(isMobile)}>
-        {SOCIAL_NETWORKS.map(network => (
-          <a 
-            key={network.id}
-            href={network.isActive ? network.url : undefined}
-            target={network.isActive ? "_blank" : undefined}
-            rel={network.isActive ? "noopener noreferrer" : undefined}
-            onMouseOver={(e) => handleHover(e, network.isActive)}
-            onMouseOut={(e) => e.currentTarget.children[0].style.transform = 'scale(1)'}
-            onFocus={(e) => handleHover(e, network.isActive)}
-            onBlur={(e) => e.currentTarget.children[0].style.transform = 'scale(1)'}
-            style={{ cursor: network.isActive ? 'pointer' : 'not-allowed' }}
-          >
-            <img 
-              src={network.icon}
-              alt={network.name}
-              style={getIconStyles(isMobile, network.isActive)}
-              className="social-icon"
-            />
-          </a>
-        ))}
+        {SOCIAL_NETWORKS.map(network => {
+          const CommonProps = {
+            key: network.id,
+            onMouseOver: (e) => handleHover(e, network.isActive),
+            onMouseOut: (e) => e.currentTarget.children[0].style.transform = 'scale(1)',
+            onFocus: (e) => handleHover(e, network.isActive),
+            onBlur: (e) => e.currentTarget.children[0].style.transform = 'scale(1)',
+            style: { cursor: network.isActive ? 'pointer' : 'not-allowed' }
+          };
+
+          return network.isActive ? (
+            <a 
+              {...CommonProps}
+              href={network.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visiter notre page ${network.name}`}
+            >
+              <img 
+                src={network.icon}
+                alt={network.name}
+                style={getIconStyles(isMobile, network.isActive)}
+                className="social-icon"
+              />
+            </a>
+          ) : (
+            <div
+              {...CommonProps}
+              role="presentation"
+              aria-label={`${network.name} (non disponible)`}
+            >
+              <img 
+                src={network.icon}
+                alt={network.name}
+                style={getIconStyles(isMobile, network.isActive)}
+                className="social-icon"
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   )
