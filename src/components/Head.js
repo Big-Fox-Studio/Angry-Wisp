@@ -48,13 +48,6 @@ export const Head = () => {
       <meta property="og:image" content="https://angrywisp.com/images/og-image.jpg" />
       <meta property="og:url" content={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
       
-      {/* Twitter Card */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@angrywisp" />
-      <meta name="twitter:title" content={meta.title || 'Angry Wisp'} />
-      <meta name="twitter:description" content={meta.description || ''} />
-      <meta name="twitter:image" content="https://angrywisp.com/images/og-image.jpg" />
-      
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={`https://angrywisp.com${language === 'en' ? '' : '/fr'}`} />
       <link rel="alternate" hrefLang="fr" href="https://angrywisp.com/fr/" />
