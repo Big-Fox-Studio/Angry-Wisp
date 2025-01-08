@@ -6,7 +6,16 @@ import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
 import { StaticImage } from "gatsby-plugin-image"
-import { Head } from '../components/Head'
+
+// Définir Head directement dans le fichier
+export const Head = () => {
+  return (
+    <>
+      <title>Angry Wisp - Game Studio</title>
+      <meta name="description" content="Independent game studio creating innovative gaming experiences" />
+    </>
+  )
+}
 
 // Définition des couleurs comme constantes pour une meilleure réutilisation
 const colors = {
@@ -218,9 +227,6 @@ const IndexPage = () => <IndexContent />
 
 // Export par défaut du template de page
 export default IndexPage
-
-// Export nommé autorisé pour Head
-export { Head }
 
 // Export de la requête GraphQL
 export const query = graphql`

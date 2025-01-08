@@ -3,7 +3,15 @@ import { useTranslation } from 'gatsby-plugin-react-i18next'
 import { graphql } from 'gatsby'
 import '../styles/fonts.css'
 import LanguageSelector from '../components/LanguageSelector'
-import { PrivacyHead as Head } from '../components/PrivacyHead'
+
+export const Head = () => {
+  return (
+    <>
+      <title>Privacy Policy - Angry Wisp</title>
+      <meta name="description" content="Privacy policy for Angry Wisp games and services" />
+    </>
+  )
+}
 
 const colors = {
   darkBlue: '#0A192F',
@@ -191,8 +199,6 @@ const PrivacyContent = () => {
 const PrivacyPage = () => <PrivacyContent />
 
 export default PrivacyPage
-
-export { Head }
 
 export const query = graphql`
   query ($language: String!) {
