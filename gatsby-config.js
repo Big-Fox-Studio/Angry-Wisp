@@ -55,6 +55,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
+        output: '/',
+        excludes: [],
+        createLinkInHead: true,
         query: `
           {
             site {
@@ -62,27 +65,31 @@ module.exports = {
                 siteUrl
               }
             }
-            allSitePage {
+            pages: allSitePage {
               nodes {
                 path
               }
             }
           }
         `,
-        resolveSiteUrl: ({site}) => site.siteMetadata.siteUrl,
-        resolvePages: ({allSitePage: {nodes: allPages}}) => {
+        resolvePages: ({pages: {nodes: allPages}, site}) => {
           return allPages.map(page => {
-            return { ...page }
-          })
-        },
-        serialize: ({site, allSitePage}) => 
-          allSitePage.nodes.map(node => {
             return {
-              url: `${site.siteMetadata.siteUrl}${node.path}`,
-              changefreq: `weekly`,
-              priority: node.path === '/' ? 1.0 : 0.7,
+              path: page.path,
+              changefreq: 'weekly',
+              priority: page.path === '/' ? 1.0 : 0.7,
+              lastmod: new Date().toISOString(),
             }
           })
+        },
+        serialize: (page) => {
+          return {
+            url: page.path,
+            changefreq: page.changefreq,
+            priority: page.priority,
+            lastmod: page.lastmod,
+          }
+        },
       }
     },
     {
