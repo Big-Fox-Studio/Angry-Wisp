@@ -56,7 +56,7 @@ const headerBorderStyles = {
   left: 0,
   width: "100%",
   height: `${HEADER_HEIGHT + 10}px`,
-  backgroundColor: "rgba(30, 30, 30, 0.75)",
+  backgroundColor: "rgba(30, 30, 30, 1)",
   clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 20px), 0 100%)",
   zIndex: 999,
 }
