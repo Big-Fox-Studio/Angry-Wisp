@@ -6,7 +6,6 @@ import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
 import '../styles/global.css'
-import { StaticImage } from "gatsby-plugin-image"
 
 // Définir Head directement dans le fichier
 export const Head = () => {
@@ -53,16 +52,17 @@ const sectionStyles = {
 // Ajout d'un style pour le conteneur de l'image hero
 const heroContainerStyle = {
   width: '100%',
-  height: '100vh',
+  height: '35vh',
   position: 'relative',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  marginTop: '90px'
 }
 
 const heroImageStyle = {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  objectPosition: 'center'
+  objectPosition: 'center',
 }
 
 const sections = [
@@ -103,16 +103,16 @@ const IndexContent = () => {
   return (
     <Layout>
       <div style={heroContainerStyle}>
-        <StaticImage 
-          src="../images/topBanner.png"
+        <img 
+          src="../images/topBanner.gif"
           alt="Angry Wisp Studio"
           style={heroImageStyle}
           formats={["auto", "webp", "avif"]}
           quality={75}
           placeholder="dominantColor"
           loading="eager"
-          width={1920}
-          height={1080}
+          width={600}
+          height={172}
           breakpoints={[375, 750, 1080, 1366, 1920]}
         />
       </div>
