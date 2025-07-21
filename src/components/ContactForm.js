@@ -166,16 +166,6 @@ const ContactForm = () => {
       <button type="submit" style={buttonStyles}>
         {t('contact.send')}
       </button>
-      <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
-        <a
-          href="https://drive.google.com/drive/folders/1SQvvXLAUJUAp2DR4GFTQVLSsYwaMos8f?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: '#8954A8', textDecoration: 'underline', fontFamily: "'Estandar', sans-serif", fontSize: '1rem' }}
-        >
-          {t('contact.presskit')}
-        </a>
-      </div>
     </form>
   );
 };

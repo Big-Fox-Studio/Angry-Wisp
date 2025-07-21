@@ -1,11 +1,12 @@
 import React from 'react'
 import { useGames } from '../utils/gameLoader'
-import { useI18next } from 'gatsby-plugin-react-i18next'
+import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next'
 import '../styles/GameGrid.css'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const GameCard = ({ game }) => {
   const { language } = useI18next()
+  const { t } = useTranslation()
   
   if (!game) return null;
 
@@ -34,6 +35,18 @@ const GameCard = ({ game }) => {
           </div>
         )}
         <p className="game-description">{description}</p>
+        {game.presskit && (
+          <div style={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-end', minHeight: '40px', marginTop: '0.5rem' }}>
+            <a
+              href={game.presskit}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: '#8954A8', textDecoration: 'underline', fontFamily: "'Estandar', sans-serif", fontSize: '1rem', paddingLeft: 0 }}
+            >
+              {t('contact.presskit')}
+            </a>
+          </div>
+        )}
       </div>
     </div>
   )
