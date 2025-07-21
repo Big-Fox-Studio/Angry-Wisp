@@ -7,7 +7,7 @@ import LanguageSelector from '../components/LanguageSelector'
 export const Head = () => {
   return (
     <>
-      <title>Privacy Policy - Angry Wisp</title>
+      <title>Angry Wisp - Privacy Policy</title>
       <meta name="description" content="Privacy policy for Angry Wisp games and services" />
     </>
   )
