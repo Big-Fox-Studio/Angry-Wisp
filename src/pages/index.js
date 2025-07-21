@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import GameGrid from '../components/GameGrid'
 import ContactForm from '../components/ContactForm'
 import '../styles/fonts.css'
-import { StaticImage } from "gatsby-plugin-image"
+import '../styles/global.css'
 
 // Définir Head directement dans le fichier
 export const Head = () => {
@@ -52,16 +52,17 @@ const sectionStyles = {
 // Ajout d'un style pour le conteneur de l'image hero
 const heroContainerStyle = {
   width: '100%',
-  height: '100vh',
+  height: '35vh',
   position: 'relative',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  marginTop: '90px'
 }
 
 const heroImageStyle = {
   width: '100%',
   height: '100%',
   objectFit: 'cover',
-  objectPosition: 'center'
+  objectPosition: 'center',
 }
 
 const sections = [
@@ -99,39 +100,19 @@ const sections = [
 const IndexContent = () => {
   const { t } = useTranslation()
   
-  React.useEffect(() => {
-    // Applique les styles globaux au body et html
-    document.body.style.margin = "0"
-    document.body.style.padding = "0"
-    document.body.style.backgroundColor = "#11151D"
-    document.documentElement.style.margin = "0"
-    document.documentElement.style.padding = "0"
-    document.documentElement.style.backgroundColor = "#11151D"
-    
-    // Nettoyage lors du démontage du composant
-    return () => {
-      document.body.style.margin = ""
-      document.body.style.padding = ""
-      document.body.style.backgroundColor = ""
-      document.documentElement.style.margin = ""
-      document.documentElement.style.padding = ""
-      document.documentElement.style.backgroundColor = ""
-    }
-  }, [])
-
   return (
     <Layout>
       <div style={heroContainerStyle}>
-        <StaticImage 
-          src="../images/topBanner.png"
+        <img 
+          src="../images/topBanner.gif"
           alt="Angry Wisp Studio"
           style={heroImageStyle}
           formats={["auto", "webp", "avif"]}
           quality={75}
           placeholder="dominantColor"
           loading="eager"
-          width={1920}
-          height={1080}
+          width={600}
+          height={172}
           breakpoints={[375, 750, 1080, 1366, 1920]}
         />
       </div>
@@ -209,6 +190,7 @@ const IndexContent = () => {
                     lineHeight: '1.6',
                     fontSize: '1.2rem',
                     fontFamily: "Estandar, sans-serif",
+                    padding: '0 20px'
                   }}
                   dangerouslySetInnerHTML={{ __html: t('contactContent') }}
                 />
