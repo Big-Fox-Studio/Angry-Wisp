@@ -103,18 +103,19 @@ const IndexContent = () => {
   return (
     <Layout>
       <div style={heroContainerStyle}>
-        <img 
-          src="../images/topBanner.gif"
-          alt="Angry Wisp Studio"
+        <video
+          src="/images/topBanner.webm"
+          type="video/webm"
           style={heroImageStyle}
-          formats={["auto", "webp", "avif"]}
-          quality={75}
-          placeholder="dominantColor"
-          loading="eager"
+          autoPlay
+          loop
+          muted
+          playsInline
           width={600}
           height={172}
-          breakpoints={[375, 750, 1080, 1366, 1920]}
-        />
+        >
+          Votre navigateur ne supporte pas la vidéo WebM.
+        </video>
       </div>
 
       {sections.map(section => (
