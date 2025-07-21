@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@hcaptcha/react-hcaptcha": "^1.12.0",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
@@ -33,6 +34,7 @@
     "i18next": "^22.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hcaptcha": "^0.1.1",
     "react-i18next": "^12.3.1",
     "styled-components": "^6.1.13"
   }

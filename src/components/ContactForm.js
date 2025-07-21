@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { useTranslation } from 'gatsby-plugin-react-i18next';
 
 const formStyles = {
@@ -73,9 +74,14 @@ const ContactForm = () => {
     subject: '',
     message: '',
   });
+  const [captchaToken, setCaptchaToken] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!captchaToken) {
+      alert('Veuillez compléter le captcha.');
+      return;
+    }
     try {
       // Prépare les données au format attendu par le script Google (form-urlencoded)
       const data = new URLSearchParams();
@@ -96,6 +102,7 @@ const ContactForm = () => {
 
       alert(t('contact.success'));
       setFormData({ name: '', email: '', subjectType: 'other', subject: '', message: '' });
+      setCaptchaToken(null);
     } catch (error) {
       console.error('Erreur:', error);
       alert(t('contact.error'));
@@ -169,7 +176,14 @@ const ContactForm = () => {
         onChange={handleChange}
         required
       />
-      <button type="submit" style={buttonStyles}>
+      <div style={{ margin: '1rem 0' }}>
+        <HCaptcha
+          sitekey="1682f408-fdaa-482c-b992-af46a31426d8"
+          onVerify={token => setCaptchaToken(token)}
+          onExpire={() => setCaptchaToken(null)}
+        />
+      </div>
+      <button type="submit" style={{ ...buttonStyles, opacity: captchaToken ? 1 : 0.5, pointerEvents: captchaToken ? 'auto' : 'none' }} disabled={!captchaToken}>
         {t('contact.send')}
       </button>
       <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
