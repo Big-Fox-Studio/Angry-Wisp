@@ -20,6 +20,7 @@
     "error": "An error occurred while sending the message.",
     "subjectType": "Subject type",
     "subjectTypes": {
+      "press": "Press",
       "bugs": "Bugs",
       "publishing": "Publishing",
       "request": "Request",

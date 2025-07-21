@@ -77,20 +77,25 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Remplacez l'URL ci-dessous par votre URL de déploiement Google Apps Script 
-      await fetch('https://script.google.com/macros/s/AKfycbwOCqSZajRguFNhW4E9s2BwAw_4gycrBr7GNjUvFPl3QG1Rs3KlGiS_GviYDlXOncSh/exec', {
+      // Prépare les données au format attendu par le script Google (form-urlencoded)
+      const data = new URLSearchParams();
+      data.append('nom', formData.name);
+      data.append('email', formData.email);
+      data.append('categorie', formData.subjectType);
+      data.append('sujet', formData.subject);
+      data.append('message', formData.message);
+
+      await fetch('https://script.google.com/macros/s/AKfycbyzX71EQYezdV6Gmtt86X4Cfp-uTjjaSrvHzvHUw6qWavPhYrYYtzK0QIjP-RtCfqhF/exec', {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: data,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        mode: 'no-cors' // Ajout important pour éviter les erreurs CORS
+        mode: 'no-cors'
       });
 
-      // Comme nous utilisons no-cors, nous ne pouvons pas vérifier response.ok
       alert(t('contact.success'));
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
+      setFormData({ name: '', email: '', subjectType: 'other', subject: '', message: '' });
     } catch (error) {
       console.error('Erreur:', error);
       alert(t('contact.error'));
@@ -139,6 +144,7 @@ const ContactForm = () => {
           onChange={handleChange}
           required
         >
+          <option value="press">{t('contact.subjectTypes.press')}</option>
           <option value="bugs">{t('contact.subjectTypes.bugs')}</option>
           <option value="publishing">{t('contact.subjectTypes.publishing')}</option>
           <option value="request">{t('contact.subjectTypes.request')}</option>
@@ -166,6 +172,16 @@ const ContactForm = () => {
       <button type="submit" style={buttonStyles}>
         {t('contact.send')}
       </button>
+      <div style={{ textAlign: 'center', marginTop: '0.5rem' }}>
+        <a
+          href="https://drive.google.com/drive/folders/1SQvvXLAUJUAp2DR4GFTQVLSsYwaMos8f?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: '#8954A8', textDecoration: 'underline', fontFamily: "'Estandar', sans-serif", fontSize: '1rem' }}
+        >
+          {t('contact.presskit')}
+        </a>
+      </div>
     </form>
   );
 };

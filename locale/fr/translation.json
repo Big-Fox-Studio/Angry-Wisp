@@ -16,6 +16,7 @@
     "subject": "Sujet",
     "subjectType": "Type de sujet",
     "subjectTypes": {
+      "press": "Presse",
       "bugs": "Bugs",
       "publishing": "Publication",
       "request": "Demande",
