@@ -90,8 +90,9 @@ const ContactForm = () => {
       data.append('categorie', formData.subjectType);
       data.append('sujet', formData.subject);
       data.append('message', formData.message);
+      data.append('hcaptchaToken', captchaToken);
 
-      await fetch('https://script.google.com/macros/s/AKfycbyzX71EQYezdV6Gmtt86X4Cfp-uTjjaSrvHzvHUw6qWavPhYrYYtzK0QIjP-RtCfqhF/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwQwxrrqP4nL3u6EswGaUs-9aXw_HHVqdyGCqHGtRKO1M6nHWiWJwJ1cNmyUuSbDAo/exec', {
         method: 'POST',
         body: data,
         headers: {
