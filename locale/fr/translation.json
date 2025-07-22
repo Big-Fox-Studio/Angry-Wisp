@@ -29,7 +29,7 @@
     "success": "Message envoyé avec succès !",
     "error": "Une erreur s'est produite lors de l'envoi du message."
   },
-  "contactContent": "Nous voulons avoir de vos nouvelles ! Particulièrement si vous êtes un éditeur de jeux !<br/>Nous sommes toujours à l'écoute de projets nécessitant un studio de développement.",
+  "contactContent": "Nous voulons avoir de vos nouvelles!<br/>Nous sommes toujours à l'écoute de projets nécessitant un studio de développement.",
   "rights": "Tous droits réservés.",
   "privacyContent": {
     "welcome": "Bienvenue chez Angry Wisp ! Cette politique de confidentialité explique notre approche concernant la collecte de données et la confidentialité. Notre site web ne collecte aucune donnée personnelle. La politique suivante ne s'applique qu'à nos jeux disponibles sur Steam.",
