@@ -3,6 +3,7 @@ import { useGames } from '../utils/gameLoader'
 import { useI18next, useTranslation } from 'gatsby-plugin-react-i18next'
 import '../styles/GameGrid.css'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import SteamIcon from '../images/social/steamIcon.svg'
 
 const GameCard = ({ game }) => {
   const { language } = useI18next()
@@ -18,11 +19,41 @@ const GameCard = ({ game }) => {
     <div className="game-card">
       <div className="game-thumbnail-wrapper">
         {image && (
-          <GatsbyImage
-            image={image}
-            alt={game.title || 'Game thumbnail'}
-            className="game-thumbnail"
-          />
+          game.steamLink ? (
+            <a
+              href={game.steamLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'block', cursor: 'pointer', position: 'relative' }}
+            >
+              <GatsbyImage
+                image={image}
+                alt={game.title || 'Game thumbnail'}
+                className="game-thumbnail"
+              />
+              <img
+                src={SteamIcon}
+                alt="Steam"
+                style={{
+                  position: 'absolute',
+                  bottom: '8px',
+                  left: '8px',
+                  width: '48px',
+                  height: '48px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  borderRadius: '4px',
+                  padding: '4px',
+                  boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)'
+                }}
+              />
+            </a>
+          ) : (
+            <GatsbyImage
+              image={image}
+              alt={game.title || 'Game thumbnail'}
+              className="game-thumbnail"
+            />
+          )
         )}
       </div>
       <div className="game-content">
