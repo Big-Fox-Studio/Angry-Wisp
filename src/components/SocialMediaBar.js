@@ -87,9 +87,9 @@ const SOCIAL_NETWORKS = [
  {
     id: 'steam',
     name: 'Steam',
-    url: 'https://store.steampowered.com/',
+    url: 'https://store.steampowered.com/app/3762660/Trials_Survivors/',
     icon: SteamIcon,
-    isActive: false
+    isActive: true
  }, 
  {
     id: 'youtube',
