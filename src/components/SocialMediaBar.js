@@ -94,9 +94,9 @@ const SOCIAL_NETWORKS = [
  {
     id: 'youtube',
     name: 'YouTube',
-    url: 'https://youtube.com/',
+    url: 'https://www.youtube.com/watch?v=7WVdSBw5etA',
     icon: YoutubeIcon,
-    isActive: false
+    isActive: true
   },
   {
     id: 'discord',
