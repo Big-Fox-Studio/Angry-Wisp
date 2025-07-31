@@ -103,19 +103,26 @@ const IndexContent = () => {
   return (
     <Layout>
       <div style={heroContainerStyle}>
-        <video
-          src="/images/topBanner.webm"
-          type="video/webm"
-          style={heroImageStyle}
-          autoPlay
-          loop
-          muted
-          playsInline
-          width={600}
-          height={172}
+        <a
+          href="https://store.steampowered.com/app/3762660/Trials_Survivors/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'block', cursor: 'pointer', width: '100%', height: '100%' }}
         >
-          Votre navigateur ne supporte pas la vidéo WebM.
-        </video>
+          <video
+            src="/images/topBanner.webm"
+            type="video/webm"
+            style={heroImageStyle}
+            autoPlay
+            loop
+            muted
+            playsInline
+            width={600}
+            height={172}
+          >
+            Votre navigateur ne supporte pas la vidéo WebM.
+          </video>
+        </a>
       </div>
 
       {sections.map(section => (
